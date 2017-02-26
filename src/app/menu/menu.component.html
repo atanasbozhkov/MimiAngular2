@@ -1,0 +1,7 @@
+<div class="menu">
+  <span class="menu-button" *ngFor="let menuItem of menuItems">
+    <a (click)="changeActive(menuItem.title)" [ngClass]="{'active': menuItem.isActive == true}"
+       routerLink="/{{menuItem.url}}"> {{menuItem.title}} </a>
+  </span>
+
+</div>

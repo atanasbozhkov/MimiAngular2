@@ -1,0 +1,159 @@
+.niceText {
+  font-family: medium-content-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1.58;
+  color: rgba(0,0,0,.8);
+  letter-spacing: -.003em;
+}
+
+.music {
+  margin-top:75px;
+}
+
+
+
+.bodyText {
+  /*position: absolute;     */
+  width: 350px;
+  float:right;
+  margin-right:15px;
+  /*left: 580px;*/
+  margin-top: 20px;
+  text-align: justify;
+  color: rgba(0,0,0,0.8);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  sx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga" on;
+
+}
+
+.aboutPhoto {
+  width: 100%;
+}
+.photoContainer {
+  position: relative;
+  margin-top: 60px;
+}
+
+.mainPhoto {
+  width: 911px;
+  height:685px;
+  border:0;
+  object-fit: cover;
+  background-repeat: no-repeat;
+
+}
+
+.active {
+  color: #27D3B4 !important;
+}
+
+.menu-button {
+  float:left;
+  margin-left:20px;
+  text-transform: uppercase;
+  color: #111;
+  transition: all 0.3s ease;
+  /*font: 15px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;*/
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 300;
+
+}
+
+.menu {
+  margin-top:25px;
+  width: auto;
+  float: right;
+
+  font-size: 15px;
+}
+
+
+
+.text {
+  width: 350px;
+  position: absolute;
+  top: 250px;
+  left: -240px;
+}
+
+.liveText {
+  width: 350px;
+  position: absolute;
+  top: 100px;
+  left: -125px;
+}
+.galleryText {
+  width: 350px;
+  position: absolute;
+  top: 20px;
+  left: -125px;
+}
+
+.name {
+  height: 72px;
+  letter-spacing: 0.3em;
+  font-family: "Marzo-W00-Regular" !important;
+  font-weight: bold;
+
+}
+
+.dashes {
+  letter-spacing: 0.1em;
+}
+
+.footer {
+  font: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  color: #222;
+}
+
+.moto {
+    background-color: #fff;
+    font: normal normal bold 80px/1.1em raleway,sans-serif;
+    padding-right:10px;
+    color: #222;
+}
+
+h1 {
+  font-size: 30px !important;
+  line-height: 3px !important;
+  color: #000;
+}
+
+body {
+  font-family: 15px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  opacity:0;
+  transition: opacity 2s;
+  -webkit-transition: opacity 2s; /* Safari */
+  min-width: 600px;
+  max-width: 1200px;
+}
+
+.event-row {
+  width:100%;
+  margin-top:15px;
+}
+
+.black-font {
+    color: rgba(0,0,0,0.7);
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    font-size: 16px !important;
+
+}
+
+
+h6 {
+    font-size:18px;
+}
+
+.thin {
+  font-weight: 300;
+}
+
+a > img {
+  margin-bottom: 3px;
+}

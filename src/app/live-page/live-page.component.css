@@ -1,0 +1,594 @@
+.liveText {
+  width: 350px;
+  position: absolute;
+  top: 100px;
+  left: -125px;
+}
+
+.separator {
+  margin-top: 30px;
+  margin-bottom: 50px;
+  width: 80%;
+  float:right;
+}
+
+.musicMoto {
+  background-color: #fff;
+  font: normal normal bold 80px/1.1em raleway, sans-serif;
+  padding-right: 10px;
+  color: #222;
+  position: absolute;
+  top: 300px;
+  left: -150px;
+}
+
+body {
+  font-family: 15px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  opacity: 0;
+  transition: opacity 2s;
+  -webkit-transition: opacity 2s; /* Safari */
+  min-width: 600px;
+  max-width: 1200px;
+}
+
+.container {
+  width: 980px;
+  margin: 0 auto;
+}
+
+.photoContainer {
+  position: relative;
+  margin-top: 60px;
+  margin-left: 197px;
+}
+
+.aboutPhoto {
+  width: 100%;
+}
+
+.niceText {
+  font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.58;
+  color: rgba(0, 0, 0, .8);
+  letter-spacing: -.003em;
+}
+
+.bodyText {
+  width: 350px;
+  float: right;
+  margin-right: 15px;
+  margin-top: 20px;
+  text-align: justify;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  sx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga" on;
+
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  opacity: 0; /* make things invisible upon start */
+  -webkit-animation: fadeIn ease-in 1; /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  -moz-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode: forwards; /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.footer {
+  margin-left: 200px;
+  font: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  color: #222;
+}
+
+@import url("http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,400italic");
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+.event-list {
+  list-style: none;
+  font-family: 'Lato', sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
+.event-list > li {
+  background-color: rgb(255, 255, 255);
+  /*box-shadow: 0px 0px 5px rgb(51, 51, 51);*/
+  /*box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);*/
+  padding: 0px;
+  margin: 0px 0px 20px;
+}
+
+.event-list > li > time {
+  display: inline-block;
+  width: 100%;
+  color: rgb(255, 255, 255);
+  background-color: #16a085;
+  padding: 5px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.event-list > li:nth-child(even) > time {
+  background-color: #3498db;
+  box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7)
+  /*background-color: rgb(165, 82, 167);*/
+}
+
+.event-list > li > time > span {
+  /*display: none;*/
+}
+
+.event-list > li > time > .day {
+  display: block;
+  font-size: 36pt;
+  font-weight: 100;
+  line-height: 1;
+}
+
+.event-list > li time > .month {
+  display: block;
+  font-size: 21pt;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.event-list > li time > .year {
+  display: block;
+  font-size: 14pt;
+  line-height: 1;
+  margin-bottom: -2px;
+}
+
+.event-list > li > img {
+  width: 100%;
+}
+
+.event-list > li > .info {
+  padding-top: 5px;
+  text-align: center;
+  height: 114px;
+}
+
+.event-list > li > .info > .title {
+  font-size: 17pt;
+  font-weight: 700;
+  margin: 0px;
+  color: #34495e;
+}
+
+.event-list > li > .info > .desc {
+  font-size: 13pt;
+  font-weight: 300;
+  margin: 0px;
+  color: #34495e;
+
+}
+
+.event-list > li > .info > ul,
+.event-list > li > .social > ul {
+  display: table;
+  list-style: none;
+  margin: 10px 0px 0px;
+  padding: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+.event-list > li > .social > ul {
+  margin: 0px;
+}
+
+.event-list > li > .info > ul > li,
+.event-list > li > .social > ul > li {
+  display: table-cell;
+  cursor: pointer;
+  color: rgb(30, 30, 30);
+  font-size: 11pt;
+  font-weight: 300;
+  padding: 3px 0px;
+}
+
+.event-list > li > .info > ul > li > a {
+  display: block;
+  width: 100%;
+  color: rgb(30, 30, 30);
+  text-decoration: none;
+}
+
+.event-list > li > .social > ul > li {
+  padding: 0px;
+}
+
+.event-list > li > .social > ul > li > a {
+  padding: 3px 0px;
+}
+
+.event-list > li > .info > ul > li:hover,
+.event-list > li > .social > ul > li:hover {
+  color: rgb(30, 30, 30);
+  background-color: rgb(200, 200, 200);
+}
+
+.facebook a,
+.twitter a,
+.google-plus a {
+  display: block;
+  width: 100%;
+  color: rgb(75, 110, 168) !important;
+}
+
+.twitter a {
+  color: rgb(79, 213, 248) !important;
+}
+
+.google-plus a {
+  color: rgb(221, 75, 57) !important;
+}
+
+.facebook:hover a {
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(75, 110, 168) !important;
+}
+
+.twitter:hover a {
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(79, 213, 248) !important;
+}
+
+.google-plus:hover a {
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(221, 75, 57) !important;
+}
+
+@media (min-width: 768px) {
+  .event-list > li {
+    position: relative;
+    display: block;
+    float: right;
+    width: 80%;
+    height: 120px;
+    padding: 0px;
+  }
+
+  .event-list > li > time,
+  .event-list > li > img {
+    display: inline-block;
+  }
+
+  .event-list > li > time,
+  .event-list > li > img {
+    width: 120px;
+    float: left;
+  }
+
+  .event-list > li > .info {
+    /*background-color: rgb(245, 245, 245);*/
+    overflow: hidden;
+  }
+
+  .event-list > li > time,
+  .event-list > li > img {
+    width: 120px;
+    height: 120px;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .event-list > li > .info {
+    position: relative;
+    height: 114px;
+    text-align: left;
+    padding-right: 40px;
+  }
+
+  .event-list > li > .info > .title,
+  .event-list > li > .info > .desc {
+    padding: 0px 10px;
+  }
+
+  .event-list > li > .info > ul {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+  }
+
+  .event-list > li > .social {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: block;
+    width: 40px;
+  }
+
+  .event-list > li > .social > ul {
+    border-left: 1px solid rgb(230, 230, 230);
+  }
+
+  .event-list > li > .social > ul > li {
+    display: block;
+    padding: 0px;
+  }
+
+  .event-list > li > .social > ul > li > a {
+    display: block;
+    width: 40px;
+    padding: 10px 0px 9px;
+  }
+}
+
+/* ------------------------------------------
+CSS3 FACEBOOK-STYLE BUTTONS (Nicolas Gallagher)
+MIT License
+http://github.com/necolas/css3-facebook-buttons
+------------------------------------------ */
+
+/* ------------------------------------------------------------------------------------------------------------- BUTTON */
+
+.uibutton,
+.uibutton:visited {
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+  display: inline-block;
+  padding: 0.3em 0.6em 0.375em;
+  border: 1px solid #999;
+  border-bottom-color: #888;
+  margin: 0;
+  text-decoration: none;
+  text-align: center;
+  font: bold 11px/normal 'lucida grande', tahoma, verdana, arial, sans-serif;
+  white-space: nowrap;
+  cursor: pointer;
+  /* outline: none; */
+  color: #333;
+  background-color: #eee;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5f6f6), to(#e4e4e3));
+  background-image: -moz-linear-gradient(#f5f6f6, #e4e4e3);
+  background-image: -o-linear-gradient(#f5f6f6, #e4e4e3);
+  background-image: linear-gradient(#f5f6f6, #e4e4e3);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f5f6f6', EndColorStr='#e4e4e3'); /* for IE 6 - 9 */
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #fff;
+  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #fff;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #fff;
+  /* IE hacks */
+  zoom: 1;
+  *display: inline;
+}
+
+/*.uibutton:hover,
+.uibutton:focus,
+.uibutton:active {
+    border-color: #777 #777 #666;
+}*/
+
+.uibutton:active {
+  border-color: #aaa;
+  background: #ddd;
+  filter: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+/* overrides extra padding on button elements in Firefox */
+.uibutton::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/* ............................................................................................................. Icons */
+
+.uibutton.icon:before {
+  content: "";
+  position: relative;
+  top: 1px;
+  float: left;
+  width: 10px;
+  height: 12px;
+  margin: 0 0.5em 0 0;
+  background: url(fb-icons.png) 99px 99px no-repeat;
+}
+
+.uibutton.edit:before {
+  background-position: 0 0;
+}
+
+.uibutton.add:before {
+  background-position: -10px 0;
+}
+
+.uibutton.secure:before {
+  background-position: -20px 0;
+}
+
+.uibutton.prev:before {
+  background-position: -30px 0;
+}
+
+.uibutton.next:before {
+  float: right;
+  margin: 0 -0.25em 0 0.5em;
+  background-position: -40px 0;
+}
+
+/* ------------------------------------------------------------------------------------------------------------- BUTTON EXTENSIONS */
+
+/* ............................................................................................................. Large */
+
+.uibutton.large {
+  font-size: 13px;
+}
+
+/* ............................................................................................................. Submit, etc */
+
+.uibutton.confirm {
+  border-color: #29447e #29447e #1a356e;
+  color: #fff;
+  background-color: #5B74A8;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#637bad), to(#5872a7));
+  background-image: -moz-linear-gradient(#637bad, #5872a7);
+  background-image: -o-linear-gradient(#637bad, #5872a7);
+  background-image: linear-gradient(#637bad, #5872a7);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#637bad', EndColorStr='#5872a7'); /* for IE 6 - 9 */
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #8a9cc2;
+  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #8a9cc2;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #8a9cc2;
+}
+
+.uibutton.confirm:active {
+  border-color: #29447E;
+  background: #4F6AA3;
+  filter: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+/* ............................................................................................................. Special */
+
+.uibutton.special {
+  border-color: #3b6e22 #3b6e22 #2c5115;
+  color: #fff;
+  background-color: #69a74e;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#75ae5c), to(#67a54b));
+  background-image: -moz-linear-gradient(#75ae5c, #67a54b);
+  background-image: -o-linear-gradient(#75ae5c, #67a54b);
+  background-image: linear-gradient(#75ae5c, #67a54b);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#75ae5c', EndColorStr='#67a54b'); /* for IE 6 - 9 */
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #98c286;
+  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #98c286;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #98c286;
+}
+
+.uibutton.special:active {
+  border-color: #3b6e22;
+  background: #609946;
+  filter: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+/* ............................................................................................................. Disable */
+
+.uibutton.disable {
+  z-index: 0;
+  border-color: #c8c8c8;
+  color: #b8b8b8;
+  background: #f2f2f2;
+  cursor: default;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.uibutton.confirm.disable {
+  color: #fff;
+  border-color: #94a2bf;
+  background: #adbad4;
+}
+
+.uibutton.special.disable {
+  color: #fff;
+  border-color: #9db791;
+  background: #b4d3a7;
+}
+
+.uibutton.disable.icon:before,
+.uibutton.disable.icon:after {
+  opacity: 0.5;
+}
+
+/* ------------------------------------------------------------------------------------------------------------- BUTTON GROUPS */
+
+.uibutton-group {
+  display: inline-block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  /* IE hacks */
+  zoom: 1;
+  *display: inline;
+}
+
+.uibutton + .uibutton,
+.uibutton + .uibutton-group,
+.uibutton-group + .uibutton,
+.uibutton-group + .uibutton-group {
+  margin-left: 3px;
+}
+
+.uibutton-group li {
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+
+1
+.uibutton-group .uibutton {
+  float: left;
+  margin-left: -1px;
+}
+
+/*
+.uibutton-group .uibutton:hover,
+.uibutton-group .uibutton:focus,
+.uibutton-group .uibutton:active {
+    z-index:2;
+}*/
+
+.uibutton-group > .uibutton:first-child,
+.uibutton-group li:first-child .uibutton {
+  margin-left: 0;
+}
+
+/* ------------------------------------------------------------------------------------------------------------- BUTTON CONTAINER */
+/* For mixing buttons and button groups, e.g., in a navigation bar */
+
+.uibutton-toolbar {
+  padding: 6px;
+  border-top: 1px solid #ccc;
+  background: #f2f2f2;
+}
+
+.uibutton-toolbar .uibutton,
+.uibutton-toolbar .uibutton-group {
+  vertical-align: bottom;
+}
