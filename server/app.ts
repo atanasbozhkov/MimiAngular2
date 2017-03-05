@@ -25,7 +25,7 @@ app.use('/api/feed', feedRouter);
 app.use('/api/user', userRouter);
 
 if (app.get('env') === 'production') {
-
+  console.log('Production mode');
   // in production mode run application from dist folder
   app.use(express.static(path.join(__dirname, '/../client')));
 }

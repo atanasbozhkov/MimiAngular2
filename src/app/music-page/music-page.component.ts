@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 declare let APlayer: any;
-import '../../assets/aplayer/APlayer.min.js'
-
+declare function require(name:string);
 @Component({
   selector: 'app-music-page',
   templateUrl: './music-page.component.html',
@@ -18,7 +17,8 @@ export class MusicPageComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    var ap = new APlayer({
+    let APlayer = require('aplayer');
+    let ap = new APlayer({
       element: document.getElementById('player1'),
       narrow: false,
       autoplay: false,
