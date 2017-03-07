@@ -20,12 +20,10 @@ export class LivePageComponent implements OnInit {
     this.futureEvents = this.events.filter(event => {
       return event.date > Date.now();
     });
-    console.log(this.futureEvents);
+
     this.pastEvents = this.events.filter(event => {
       return event.date < Date.now();
     });
-    console.log(this.pastEvents)
-
   }
 
   sortEvents(events: LiveEvent[]): LiveEvent[] {

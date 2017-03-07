@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-declare var Lighbox: any;
-import '../../assets/lightbox/js/lightbox-plus-jquery.js'
+import {Component, OnInit} from '@angular/core';
+declare function require(name: string);
+// let $: any = require('jquery');
+// let Lighbox: any = require('lightbox2');
 import {GalleryImage} from "../common/GalleryImage";
 import {DataServiceService} from "../data-service.service";
 

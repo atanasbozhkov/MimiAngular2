@@ -33,7 +33,7 @@ export class DataServiceService {
   }
 
   getEvents(): LiveEvent[] {
-    return [new LiveEvent(Date.now() + 36000, "Test", "Location", "FB", "google"),
+    return [new LiveEvent(Date.now() + 36000, "Bagatelles and Musical Momenets for Piano", "1901 Arts club", "FB", "google"),
       new LiveEvent(Date.now() - 1500, "Test2", "Location2", "FB", "GOOGLE")];
   }
 

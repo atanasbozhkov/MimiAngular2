@@ -40,7 +40,8 @@ import { GalleryPageComponent } from './gallery-page/gallery-page.component';
       {path: 'Contact', component: ContactPageComponent}
     ])
   ],
-  providers: [DataServiceService, { provide: 'Window', useValue: window}],
+  // providers: [DataServiceService, { provide: 'Window', useValue: window}],
+  providers: [DataServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
