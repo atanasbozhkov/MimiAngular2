@@ -313,3 +313,10 @@ body.lb-disable-scrolling {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
+
+
+/*TODO: Remove this and resize images.*/
+img {
+  width: 257px;
+  height: 257px;
+}

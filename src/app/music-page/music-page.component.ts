@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 declare let APlayer: any;
-declare function require(name:string);
+declare function require(name: string);
 @Component({
   selector: 'app-music-page',
   templateUrl: './music-page.component.html',
@@ -14,6 +14,10 @@ export class MusicPageComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  ngOnDestroy() {
+    console.warn('Destroying view');
   }
 
   ngAfterViewInit() {

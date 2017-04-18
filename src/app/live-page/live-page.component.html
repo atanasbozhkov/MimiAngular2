@@ -28,17 +28,14 @@
                   <h2 class="title">{{event.eventName}}</h2>
                   <!--TODO: Rename this to description?-->
                   <p class="desc">{{event.eventLocation}}</p>
-                  <p><i class="fa fa-google"></i> <i class="fa fa-facebook-official"></i></p>
-                  <!--<ul>-->
-                    <!--<li style="width:50%;">-->
-                      <!--<span class="fa fa-money"></span>-->
-                      <!--<a class="uibutton large confirm" href="{{event.facebookLink}}"-->
-                         <!--style="color:#fff; margin-left:5px;">Facebook Event</a>-->
-                    <!--</li>-->
-                    <!--<li style="width:50%;">-->
-                      <!--<a href="{{event.googleMapsLink}}"><span class="fa fa-globe"></span> Google Maps</a>-->
-                    <!--</li>-->
-                  <!--</ul>-->
+                  <span class="buttons">
+                    <a class="myButton" href="{{event.googleMapsLink}}" target="_blank">
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    </a>
+                      <a *ngIf="event.facebookLink"  class="myButton" href="{{event.facebookLink}}"  target="_blank">
+                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                      </a>
+                  </span>
                 </div>
               </li>
               <!--Separator Line for past events-->
@@ -53,16 +50,14 @@
                 <div class="info">
                   <h2 class="title">{{event.eventName}}</h2>
                   <p class="desc">{{event.eventLocation}}</p>
-                  <!--<ul>-->
-                    <!--<li style="width:50%;">-->
-                      <!--<span class="fa fa-money"></span>-->
-                      <!--<a class="uibutton large confirm" href="{{event.facebookLink}}"-->
-                         <!--style="color:#fff; margin-left:5px;">Facebook Event</a>-->
-                    <!--</li>-->
-                    <!--<li style="width:50%;">-->
-                      <!--<a href="{{event.googleMapsLink}}"><span class="fa fa-globe"></span> Google Maps</a>-->
-                    <!--</li>-->
-                  <!--</ul>-->
+                  <span class="buttons">
+                    <a class="myButton" href="{{event.googleMapsLink}}" target="_blank">
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    </a>
+                      <a *ngIf="event.facebookLink"  class="myButton" href="{{event.facebookLink}}"  target="_blank">
+                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                      </a>
+                  </span>
                 </div>
               </li>
             </ul>
@@ -72,9 +67,7 @@
 
       <div class="footer">
         © 2016 by MARINA STANEVA
-
       </div>
-
     </div>
   </div>
 </div>
