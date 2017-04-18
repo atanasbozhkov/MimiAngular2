@@ -7,7 +7,7 @@ export class LiveEvent {
   month: string;
   year: number;
   hour: string;
-  date: number;
+  date: Date;
 
   eventName: string;
   eventLocation: string;
@@ -16,25 +16,37 @@ export class LiveEvent {
   googleMapsLink: string;
 
 
-  constructor(date: number,
+  constructor(date: Date,
               eventName: string,
               eventLocation: string,
               facebookLink: string,
               googleMapsLink: string) {
     this.date = date;
-    var dateParse = new Date(date);
-    this.day = dateParse.getDay();
-    this.month = this.monthNumberToString(dateParse.getMonth());
-    this.year = dateParse.getFullYear();
-    this.hour = dateParse.getHours().toString();
+    this.day = date.getDate();
+    this.month = this.monthNumberToString(date.getMonth());
+    this.year = date.getFullYear();
+    this.hour = this.formatHours(date);
     this.eventName = eventName;
     this.eventLocation = eventLocation;
     this.facebookLink = facebookLink;
     this.googleMapsLink = googleMapsLink;
   }
 
-  private monthNumberToString(monthNumber): string{
-    switch (monthNumber){
+  private formatHours(date: Date): string {
+    let hours = date.getHours();
+    let minutes: any = date.getMinutes();
+    let ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    if (minutes != '00') {
+      return hours + ':' + minutes + ampm;
+    }
+    return hours + ampm;
+  }
+
+  private monthNumberToString(monthNumber): string {
+    switch (monthNumber) {
       case 1:
         return "Jan";
       case 2:

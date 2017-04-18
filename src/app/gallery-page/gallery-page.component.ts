@@ -16,7 +16,7 @@ export class GalleryPageComponent implements OnInit {
   images: GalleryImage[];
 
   constructor(dataServices: DataServiceService) {
-    this.moto = 'GALLERY';
+    this.moto = 'PHOTOS';
     this.images = dataServices.getGalleryImages();
 
   }
