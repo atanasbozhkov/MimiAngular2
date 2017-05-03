@@ -1,9 +1,7 @@
 import * as assert from "assert";
 import * as Q from "Q";
-import {promise} from "selenium-webdriver";
 import {LivePage} from "./LivePage";
 import {Pages} from "./Pages";
-import Deferred = promise.Deferred;
 import {HomePageData} from "./types/HomePageData";
 /**
  * Created by atanasbozhkov on 19/04/2017.
@@ -52,15 +50,16 @@ export class DatabaseAccessLayer {
   }
 
 
-  public getHomePageData(): Q.Promise<JSON> {
-    let deferred = Q.defer<JSON>();
+  public getHomePageData(): Q.Promise<HomePageData> {
+    let deferred = Q.defer<HomePageData>();
     if (this.dbConnection) {
       let document = this.dbConnection.collection(this.PagesCollection).findOne({'pageName': Pages.Home});
       if (document == null) {
         deferred.reject(new Error(JSON.stringify('')));
       } else {
-        deferred.resolve(document);
+        deferred.resolve(new HomePageData(document.firstWord, document.secondWord, document.moto, document.pictureUrl));
       }
+
     }
     return deferred.promise;
   }
