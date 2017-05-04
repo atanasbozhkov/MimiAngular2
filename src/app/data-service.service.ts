@@ -55,8 +55,8 @@ export class DataServiceService {
 
   getGalleryImages(): GalleryImage[] {
     return [
-      new GalleryImage('assets/img/DSC_9502.JPG', 'assets/img/thumbs/DSC_9502.jpg'),
-      new GalleryImage('assets/img/DSC_9559.JPG', 'assets/img/thumbs/DSC_9559.jpg'),
+      new GalleryImage('assets/img/5.JPG', 'assets/img/thumbs/DSC_9502.jpg'),
+      new GalleryImage('assets/img/6.JPG', 'assets/img/thumbs/DSC_9559.jpg'),
       new GalleryImage('assets/img/Liszt Piano Festival.jpg', 'assets/img/thumbs/LisztPianoFestival.jpg'),
       new GalleryImage('assets/img/1.jpg', 'assets/img/thumbs/1.jpg'),
       new GalleryImage('assets/img/2.jpg', 'assets/img/thumbs/2.jpg'),
