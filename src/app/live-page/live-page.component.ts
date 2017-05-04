@@ -28,22 +28,12 @@ export class LivePageComponent implements OnInit {
 
   sortEventAsc(events: LiveEvent[]): LiveEvent[] {
     return events.sort((d1, d2) => {
-      if (d1.date > d2.date) {
-        return 1;
-      } else if (d1.date < d2.date) {
-        return -1
-      }
-      return 0;
+      return d1.date.getTime() - d2.date.getTime();
     });
   }
   sortEventsDesc(events: LiveEvent[]): LiveEvent[] {
     return events.sort((d1, d2) => {
-      if (d1.date < d2.date) {
-        return 1;
-      } else if (d1.date < d2.date) {
-        return -1
-      }
-      return 0;
+      return d2.date.getTime() - d1.date.getTime();
     });
   }
 
