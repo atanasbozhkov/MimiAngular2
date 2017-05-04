@@ -8,11 +8,7 @@ import {protectedRouter} from "./routes/protected";
 import {publicRouter} from "./routes/public";
 import {feedRouter} from "./routes/feed";
 import {userRouter} from "./routes/user";
-import * as assert from "assert";
-import {DatabaseAccessLayer} from "./dao/DatabaseAccessLayer";
-import {HomePageData} from "./dao/types/HomePageData";
-import {Utils} from "./dao/Utils";
-
+import {frontPageRouter} from "./routes/frontPageRouter";
 
 const app: express.Application = express();
 
@@ -29,47 +25,13 @@ app.use('/api/public', publicRouter);
 app.use('/api/feed', feedRouter);
 app.use('/api/user', userRouter);
 
+//TODO: Move this to routes in a dedicated router.
 if (app.get('env') === 'production') {
   console.log('Production mode');
   // in production mode run application from dist folder
   app.use(express.static(path.join(__dirname, '/../client')));
-
-  //Contact
-  app.use('/contact', (req, res)=> {
-    res.redirect('/Contact');
-  });
-  app.use('/Contact', (req, res) => {
-    res.sendFile(path.join(__dirname, '/../client'));
-  });
-  //Gallery
-  app.use('/gallery', (req, res)=> {
-    res.redirect('/Gallery');
-  });
-  app.use('/Gallery', (req, res) => {
-    res.sendFile(path.join(__dirname, '/../client'));
-  });
-  //Music
-  app.use('/music', (req, res)=> {
-    res.redirect('/Music');
-  });
-  app.use('/Music', (req, res) => {
-    res.sendFile(path.join(__dirname, '/../client'));
-  });
-  //About
-  app.use('/about', (req, res)=> {
-    res.redirect('/About');
-  });
-  app.use('/About', (req, res) => {
-    res.sendFile(path.join(__dirname, '/../client'));
-  });
-
-  //Live
-  app.use('/live', (req, res)=> {
-    res.redirect('/Live');
-  });
-  app.use('/Live', (req, res) => {
-    res.sendFile(path.join(__dirname, '/../client'));
-  });
+  //Handle all public pages routing for Angular2;
+  app.use('/', frontPageRouter);
 }
 
 // catch 404 and forward to error handler
