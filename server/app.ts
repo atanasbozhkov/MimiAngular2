@@ -25,6 +25,7 @@ app.use('/api/public', publicRouter);
 app.use('/api/feed', feedRouter);
 app.use('/api/user', userRouter);
 
+//TODO: Move this to routes in a dedicated router.
 if (app.get('env') === 'production') {
   console.log('Production mode');
   // in production mode run application from dist folder
