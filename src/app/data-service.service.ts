@@ -32,6 +32,7 @@ export class DataServiceService {
     return homePageData;
   }
 
+  // Live events month starts from 0 to 11.
   getEvents(): LiveEvent[] {
     return [new LiveEvent(new Date(2017, 2, 24, 19, 0, 0), "Piano Duo", "Milton Court Concert Hall, London", "https://www.facebook.com/events/1240883842673624/", "https://goo.gl/maps/RjZ3Ysc1pRT2"),
       new LiveEvent(new Date(2017, 4, 30, 13, 0, 0), "Voice and Piano Duo Recital - alongside Karen Schriesheim", "St. Stephen Walbrook, London", "", "https://www.google.co.uk/maps/place/St+Stephen+Walbrook/@51.5126385,-0.0920613,17z/data=!3m1!4b1!4m5!3m4!1s0x48760354f4032875:0xc1fad2aa0247618c!8m2!3d51.5126352!4d-0.0898726"),
@@ -55,8 +56,8 @@ export class DataServiceService {
 
   getGalleryImages(): GalleryImage[] {
     return [
-      new GalleryImage('assets/img/5.JPG', 'assets/img/thumbs/DSC_9502.jpg'),
-      new GalleryImage('assets/img/6.JPG', 'assets/img/thumbs/DSC_9559.jpg'),
+      new GalleryImage('assets/img/5.jpg', 'assets/img/thumbs/DSC_9502.jpg'),
+      new GalleryImage('assets/img/6.jpg', 'assets/img/thumbs/DSC_9559.jpg'),
       new GalleryImage('assets/img/Liszt Piano Festival.jpg', 'assets/img/thumbs/LisztPianoFestival.jpg'),
       new GalleryImage('assets/img/1.jpg', 'assets/img/thumbs/1.jpg'),
       new GalleryImage('assets/img/2.jpg', 'assets/img/thumbs/2.jpg'),
