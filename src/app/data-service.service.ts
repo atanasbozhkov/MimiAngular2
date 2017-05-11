@@ -33,20 +33,20 @@ export class DataServiceService {
   }
 
   getEvents(): LiveEvent[] {
-    return [new LiveEvent(new Date(2017, 3, 24, 19, 0, 0), "Piano Duo", "Milton Court Concert Hall, London", "https://www.facebook.com/events/1240883842673624/", "https://goo.gl/maps/RjZ3Ysc1pRT2"),
-      new LiveEvent(new Date(2017, 5, 30, 13, 0, 0), "Voice and Piano Duo Recital - alongside Karen Schriesheim", "St. Stephen Walbrook, London", "", "https://www.google.co.uk/maps/place/St+Stephen+Walbrook/@51.5126385,-0.0920613,17z/data=!3m1!4b1!4m5!3m4!1s0x48760354f4032875:0xc1fad2aa0247618c!8m2!3d51.5126352!4d-0.0898726"),
-      new LiveEvent(new Date(2017, 5, 7, 13, 0, 0), "Songs of Britain", "Music Hall, Silk Street, London", "https://www.facebook.com/events/1304819516297956/", "https://goo.gl/maps/fWG2DGM7HpQ2"),
-      new LiveEvent(new Date(2017, 6, 20, 10, 0, 0), "Piano Recital", "Milton Court Concert Hall, London", "", "https://goo.gl/maps/RjZ3Ysc1pRT2"),
-      new LiveEvent(new Date(2017, 3, 6, 13, 0, 0), "Bagatelles and Musical Momenets for Piano", "1901 Arts Club", "https://www.facebook.com/events/1240883842673624/", "https://www.google.co.uk/maps/place/%201901+Arts+Club/@51.5042148,-0.1130541,17z/data=!3m1!4b1!4m5!3m4!%201s0x487604ba07ca9bb5:0x81557c8a691516a6!8m2!3d51.5042115!%204d-0.1108654"),
-      new LiveEvent(new Date(2017, 2, 20, 14, 0, 0), "Masterclass with Svetozar Ivanov", "Lecture Recital Room, Silk Street, London", "", "https://goo.gl/maps/fWG2DGM7HpQ2"),
-      new LiveEvent(new Date(2016, 11, 10, 11, 0, 0), "Masterclass with Anne Queffelec", "Music Hall, Silk Street, London", "", "https://goo.gl/maps/fWG2DGM7HpQ2"),
-      new LiveEvent(new Date(2016, 11, 17, 14, 0, 0), "The Glass Sellers' Beethoven Piano Prize", "Music Hall, Silk Street, London", "", "https://goo.gl/maps/fWG2DGM7HpQ2"),
-      new LiveEvent(new Date(2016, 10, 28, 19, 0, 0), "Liszt Piano Festival", "Russian Cultural Centre, London", "https://facebook.com/events/165736817208443/", "https://www.google.co.uk/maps/place/37+Kensington+High+St,+Kensington,+London+W8+5ED/@51.5021476,-0.1912265,17z/data=!3m1!4b1!4m5!3m4!1s0x48760ff7c983eaa7:0x98a74f1850d4cabc!8m2!3d51.5021443!4d-0.1890378"),
-      new LiveEvent(new Date(2016, 6, 30, 11, 0, 0), "Piano Recital: Mozart, Rachmaninoff, Bartok", "Milton Court Concert Hall, London", "", "https://goo.gl/maps/RjZ3Ysc1pRT2"),
-      new LiveEvent(new Date(2016, 5, 20, 18, 0, 0), "SONGS AT SIX: FRENCH", "Milton Court Concert Hall, London", "https://www.facebook.com/events/858192900990832/", "https://goo.gl/maps/RjZ3Ysc1pRT2"),
-      new LiveEvent(new Date(2016, 5, 10, 19, 30, 0), "Mahler Symphony No. 4 for Chamber Ensemble", "Music Hall Silk Street, London", "https://www.facebook.com/events/230447690645821/", "https://goo.gl/maps/fWG2DGM7HpQ2"),
-      new LiveEvent(new Date(2016, 4, 29, 19, 0, 0), "Piano Duo Project", "Music Hall Silk Street, London", "", "https://goo.gl/maps/RjZ3Ysc1pRT2"),
-      new LiveEvent(new Date(2016, 4, 1, 13, 0, 0), "Viola and Piano Recital", "St. John's Waterloo, London", "https://www.facebook.com/events/991420074226759/", "https://goo.gl/maps/cwUDczDKTTA2")];
+    return [new LiveEvent(new Date(2017, 2, 24, 19, 0, 0), "Piano Duo", "Milton Court Concert Hall, London", "https://www.facebook.com/events/1240883842673624/", "https://goo.gl/maps/RjZ3Ysc1pRT2"),
+      new LiveEvent(new Date(2017, 4, 30, 13, 0, 0), "Voice and Piano Duo Recital - alongside Karen Schriesheim", "St. Stephen Walbrook, London", "", "https://www.google.co.uk/maps/place/St+Stephen+Walbrook/@51.5126385,-0.0920613,17z/data=!3m1!4b1!4m5!3m4!1s0x48760354f4032875:0xc1fad2aa0247618c!8m2!3d51.5126352!4d-0.0898726"),
+      new LiveEvent(new Date(2017, 4, 7, 13, 0, 0), "Songs of Britain", "Music Hall, Silk Street, London", "https://www.facebook.com/events/1304819516297956/", "https://goo.gl/maps/fWG2DGM7HpQ2"),
+      new LiveEvent(new Date(2017, 5, 20, 10, 0, 0), "Piano Recital", "Milton Court Concert Hall, London", "", "https://goo.gl/maps/RjZ3Ysc1pRT2"),
+      new LiveEvent(new Date(2017, 2, 6, 13, 0, 0), "Bagatelles and Musical Momenets for Piano", "1901 Arts Club", "https://www.facebook.com/events/1240883842673624/", "https://www.google.co.uk/maps/place/%201901+Arts+Club/@51.5042148,-0.1130541,17z/data=!3m1!4b1!4m5!3m4!%201s0x487604ba07ca9bb5:0x81557c8a691516a6!8m2!3d51.5042115!%204d-0.1108654"),
+      new LiveEvent(new Date(2017, 1, 20, 14, 0, 0), "Masterclass with Svetozar Ivanov", "Lecture Recital Room, Silk Street, London", "", "https://goo.gl/maps/fWG2DGM7HpQ2"),
+      new LiveEvent(new Date(2016, 10, 10, 11, 0, 0), "Masterclass with Anne Queffelec", "Music Hall, Silk Street, London", "", "https://goo.gl/maps/fWG2DGM7HpQ2"),
+      new LiveEvent(new Date(2016, 10, 17, 14, 0, 0), "The Glass Sellers' Beethoven Piano Prize", "Music Hall, Silk Street, London", "", "https://goo.gl/maps/fWG2DGM7HpQ2"),
+      new LiveEvent(new Date(2016, 9, 28, 19, 0, 0), "Liszt Piano Festival", "Russian Cultural Centre, London", "https://facebook.com/events/165736817208443/", "https://www.google.co.uk/maps/place/37+Kensington+High+St,+Kensington,+London+W8+5ED/@51.5021476,-0.1912265,17z/data=!3m1!4b1!4m5!3m4!1s0x48760ff7c983eaa7:0x98a74f1850d4cabc!8m2!3d51.5021443!4d-0.1890378"),
+      new LiveEvent(new Date(2016, 5, 30, 11, 0, 0), "Piano Recital: Mozart, Rachmaninoff, Bartok", "Milton Court Concert Hall, London", "", "https://goo.gl/maps/RjZ3Ysc1pRT2"),
+      new LiveEvent(new Date(2016, 4, 20, 18, 0, 0), "SONGS AT SIX: FRENCH", "Milton Court Concert Hall, London", "https://www.facebook.com/events/858192900990832/", "https://goo.gl/maps/RjZ3Ysc1pRT2"),
+      new LiveEvent(new Date(2016, 4, 10, 19, 30, 0), "Mahler Symphony No. 4 for Chamber Ensemble", "Music Hall Silk Street, London", "https://www.facebook.com/events/230447690645821/", "https://goo.gl/maps/fWG2DGM7HpQ2"),
+      new LiveEvent(new Date(2016, 3, 29, 19, 0, 0), "Piano Duo Project", "Music Hall Silk Street, London", "", "https://goo.gl/maps/RjZ3Ysc1pRT2"),
+      new LiveEvent(new Date(2016, 3, 1, 13, 0, 0), "Viola and Piano Recital", "St. John's Waterloo, London", "https://www.facebook.com/events/991420074226759/", "https://goo.gl/maps/cwUDczDKTTA2")];
   }
 
   getContactPageData(): ContactPageData {
