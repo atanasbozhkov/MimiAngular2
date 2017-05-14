@@ -18,10 +18,6 @@ export class LivePageComponent implements OnInit {
     this.events = dataService.getEvents();
 
     this.futureEvents = this.sortEventAsc(this.events.filter(event => {
-      console.log(event.eventName);
-      console.log(event.date.getTime());
-      console.log(Date.now());
-      console.log('------------');
       return event.date.getTime() > Date.now();
     }));
 

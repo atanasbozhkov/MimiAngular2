@@ -18,7 +18,7 @@ export class DataServiceService {
       new MenuItemComponent('Music', '/Music', false),
       new MenuItemComponent('Live', '/Live', false),
       new MenuItemComponent('Gallery', '/Gallery', false),
-      // new MenuItemComponent('Teaching', '/Teaching', false),
+      new MenuItemComponent('Teaching', '/Teaching', false),
       new MenuItemComponent('Contact', '/Contact', false)
     ]
   }
