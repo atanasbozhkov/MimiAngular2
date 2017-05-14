@@ -1,3 +1,9 @@
+.social-network-icon {
+  margin-right: 5px;
+  font-size: 40px;
+  text-decoration-color: #000;
+  color: rgba(0, 0, 0, 0.7);
+}
 .contactMoto {
   background-color: #fff;
   font: normal normal bold 80px/1.1em raleway, sans-serif;
@@ -39,7 +45,7 @@
 }
 
 body {
-  font-family: 15px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   opacity: 0;
   transition: opacity 2s;
   -webkit-transition: opacity 2s; /* Safari */
