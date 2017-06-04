@@ -1,7 +1,20 @@
-<div class="menu">
-  <span class="menu-button" *ngFor="let menuItem of menuItems">
+<div class="hamburgerContainer">
+  <button class="hamburger hamburger--collapse right" type="button" (click)="showStyle = !showStyle; changeState();"
+          [class.is-active]="showStyle">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+  </button>
+</div>
+<div class="menu"
+     [@animate]="state">
+     <!--[class.fadeOut]="!showStyle"-->
+     <!--[class.fadeIn]="showStyle">-->
+  <span class="menu-button animated fadeIn"
+        *ngFor="let menuItem of menuItems">
+        <!--[class.fadeOut]="!showStyle"-->
+        <!--[class.fadeIn]="showStyle">-->
     <a (click)="changeActive(menuItem.title)" [ngClass]="{'active': menuItem.isActive == true}"
        routerLink="/{{menuItem.url}}"> {{menuItem.title}} </a>
   </span>
-
 </div>
