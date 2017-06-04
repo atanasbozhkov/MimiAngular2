@@ -28,6 +28,19 @@ a {
   color: #27D3B4 !important;
 }
 
+.right {
+  position: fixed;
+  right: 1em;
+}
+
+.hamburgerContainer {
+  height: 42px;
+}
+
+.hidden {
+  display:none !important;
+}
+
 .menu {
   float: right;
   position: relative;
@@ -38,11 +51,11 @@ a {
 @media (max-width: 1100px) {
   .menu-button {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 0;
   }
 
   a {
-    font-size: 18px;
+    font-size: 0.7em ;
   }
 
   .menu {
