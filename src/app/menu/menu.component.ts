@@ -1,6 +1,6 @@
-import {Component, OnInit, Input} from "@angular/core";
-import {MenuItemComponent} from "../menu-item/menu-item.component";
-import {DataServiceService} from "../data-service.service";
+import {Component, OnInit, Input} from '@angular/core';
+import {MenuItemComponent} from '../menu-item/menu-item.component';
+import {DataServiceService} from '../data-service.service';
 
 @Component({
   selector: 'app-menu',
@@ -16,13 +16,13 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    //Set the active tab.
+    // Set the active tab.
     this.changeActive(this.active);
   }
 
   changeActive(title: string) {
     for (let menuItem of this.menuItems) {
-      menuItem.isActive = menuItem.title.toLowerCase() == title.toLowerCase();
+      menuItem.isActive = menuItem.title.toLowerCase() === title.toLowerCase();
     }
   }
 

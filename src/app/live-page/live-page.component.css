@@ -8,9 +8,9 @@
 }
 
 .myButton {
-  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
-  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
-  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  -moz-box-shadow: inset 0 1px 0 0 #ffffff;
+  -webkit-box-shadow: inset 0 1px 0 0 #ffffff;
+  box-shadow: inset 0 1px 0 0 #ffffff;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9));
   background: -moz-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
   background: -webkit-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
@@ -31,7 +31,7 @@
   font-weight: bold;
   padding: 10px 14px;
   text-decoration: none;
-  text-shadow: 0px 1px 0px #ffffff;
+  text-shadow: 0 1px 0 #ffffff;
 }
 
 .myButton:hover {
@@ -173,16 +173,16 @@ body {
 .event-list {
   list-style: none;
   font-family: 'Lato', sans-serif;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 .event-list > li {
   background-color: rgb(255, 255, 255);
   /*box-shadow: 0px 0px 5px rgb(51, 51, 51);*/
   /*box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);*/
-  padding: 0px;
-  margin: 0px 0px 20px;
+  padding: 0;
+  margin: 0 0 20px;
 }
 
 .event-list > li > time {
@@ -197,7 +197,7 @@ body {
 
 .event-list > li:nth-child(even) > time {
   background-color: #3498db;
-  box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7)
+  box-shadow: 0 0 5px rgba(51, 51, 51, 0.7)
   /*background-color: rgb(165, 82, 167);*/
 }
 
@@ -239,14 +239,14 @@ body {
 .event-list > li > .info > .title {
   font-size: 17pt;
   font-weight: 700;
-  margin: 0px;
+  margin: 0;
   color: #34495e;
 }
 
 .event-list > li > .info > .desc {
   font-size: 13pt;
   font-weight: 300;
-  margin: 5px 0px 0px;
+  margin: 5px 0 0;
   color: #34495e;
 
 }
@@ -255,14 +255,14 @@ body {
 .event-list > li > .social > ul {
   display: table;
   list-style: none;
-  margin: 10px 0px 0px;
-  padding: 0px;
+  margin: 10px 0 0;
+  padding: 0;
   width: 100%;
   text-align: center;
 }
 
 .event-list > li > .social > ul {
-  margin: 0px;
+  margin: 0;
 }
 
 .event-list > li > .info > ul > li,
@@ -272,7 +272,7 @@ body {
   color: rgb(30, 30, 30);
   font-size: 11pt;
   font-weight: 300;
-  padding: 3px 0px;
+  padding: 3px 0;
 }
 
 .event-list > li > .info > ul > li > a {
@@ -283,11 +283,11 @@ body {
 }
 
 .event-list > li > .social > ul > li {
-  padding: 0px;
+  padding: 0;
 }
 
 .event-list > li > .social > ul > li > a {
-  padding: 3px 0px;
+  padding: 3px 0;
 }
 
 .event-list > li > .info > ul > li:hover,
@@ -334,7 +334,7 @@ body {
     float: right;
     width: 80%;
     height: 120px;
-    padding: 0px;
+    padding: 0;
   }
 
   .event-list > li > time,
@@ -357,8 +357,8 @@ body {
   .event-list > li > img {
     width: 120px;
     height: 120px;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
   }
 
   .event-list > li > .info {
@@ -370,19 +370,19 @@ body {
 
   .event-list > li > .info > .title,
   .event-list > li > .info > .desc {
-    padding: 0px 10px;
+    padding: 0 10px;
   }
 
   .event-list > li > .info > ul {
     position: absolute;
-    left: 0px;
-    bottom: 0px;
+    left: 0;
+    bottom: 0;
   }
 
   .event-list > li > .social {
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 0;
+    right: 0;
     display: block;
     width: 40px;
   }
@@ -393,13 +393,13 @@ body {
 
   .event-list > li > .social > ul > li {
     display: block;
-    padding: 0px;
+    padding: 0;
   }
 
   .event-list > li > .social > ul > li > a {
     display: block;
     width: 40px;
-    padding: 10px 0px 9px;
+    padding: 10px 0 9px;
   }
 }
 

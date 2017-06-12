@@ -1,29 +1,29 @@
-import {Router} from "express";
-import * as path from "path";
+import {Router} from 'express';
+import * as path from 'path';
 /**
- * Created by atanasbozhkov on 04/05/2017.
- */
+  * Created by atanasbozhkov on 04/05/2017.
+  */
 export const frontPageRouter: Router = Router();
-//TODO: Extract client index.html into projectPath/indexPage variables.
-//Contact
+// TODO: Extract client index.html into projectPath/indexPage variables.
+// Contact
 frontPageRouter.get('/Contact', (req, res) => {
   res.sendFile(path.join(__dirname, '/../../client/index.html'));
 });
-//Gallery
+// Gallery
 
 frontPageRouter.get('/Gallery', (req, res) => {
   res.sendFile(path.join(__dirname, '/../../client/index.html'));
 });
-//Music
+// Music
 
 frontPageRouter.get('/Music', (req, res) => {
   res.sendFile(path.join(__dirname, '/../../client/index.html'));
 });
-//About
+// About
 frontPageRouter.get('/About', (req, res) => {
   res.sendFile(path.join(__dirname, '/../../client/index.html'));
 });
-//Live
+// Live
 frontPageRouter.get('/Live', (req, res) => {
   res.sendFile(path.join(__dirname, '/../../client/index.html'));
 });

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {DataServiceService} from "../data-service.service";
-import {HomePageData} from "../common/HomePageData";
+import {DataServiceService} from '../data-service.service';
+import {HomePageData} from '../common/HomePageData';
 
 @Component({
   selector: 'app-home-page',
@@ -14,7 +14,7 @@ export class HomePageComponent implements OnInit {
   photoUrl: string;
 
   constructor(private dataService: DataServiceService) {
-    var homePageData: HomePageData = dataService.getHomePageData();
+    const homePageData: HomePageData = dataService.getHomePageData();
     this.firstName = homePageData.firstName;
     this.lastName = homePageData.lastName;
     this.moto = homePageData.moto;

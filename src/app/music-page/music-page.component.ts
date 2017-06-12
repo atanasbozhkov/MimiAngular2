@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 declare let APlayer: any;
 declare function require(name: string);
 @Component({
@@ -8,12 +8,8 @@ declare function require(name: string);
 })
 
 
-export class MusicPageComponent {
+export class MusicPageComponent implements OnDestroy, AfterViewInit {
   ap: any;
-
-  ngOnInit() {
-
-  }
 
   ngOnDestroy() {
     this.ap.pause();

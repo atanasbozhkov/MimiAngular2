@@ -39,7 +39,7 @@ export class LiveEvent {
     hours = hours % 12;
     hours = hours ? hours : 12; // the hour '0' should be '12'
     minutes = minutes < 10 ? '0' + minutes : minutes;
-    if (minutes != '00') {
+    if (minutes !== '00') {
       return hours + ':' + minutes + ampm;
     }
     return hours + ampm;
@@ -48,29 +48,29 @@ export class LiveEvent {
   private monthNumberToString(monthNumber): string {
     switch (monthNumber) {
       case 1:
-        return "Jan";
+        return 'Jan';
       case 2:
-        return "Feb";
+        return 'Feb';
       case 3:
-        return "Mar";
+        return 'Mar';
       case 4:
-        return "Apr";
+        return 'Apr';
       case 5:
-        return "May";
+        return 'May';
       case 6:
-        return "Jun";
+        return 'Jun';
       case 7:
-        return "Jul";
+        return 'Jul';
       case 8:
-        return "Aug";
+        return 'Aug';
       case 9:
-        return "Sep";
+        return 'Sep';
       case 10:
-        return "Oct";
+        return 'Oct';
       case 11:
-        return "Nov";
+        return 'Nov';
       case 12:
-        return "Dec";
+        return 'Dec';
     }
   }
 }

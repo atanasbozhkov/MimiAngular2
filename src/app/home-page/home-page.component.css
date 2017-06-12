@@ -89,7 +89,7 @@ body {
     color: #222;
     position: absolute;
     top:300px;
-    left: 0px;
+    left: 0;
   }
   .name {
     height: 72px;
@@ -98,7 +98,7 @@ body {
     font-weight: bold;
     position: absolute;
     top: 200px;
-    left: 0px;
+    left: 0;
     width: auto;
     background: white;
 

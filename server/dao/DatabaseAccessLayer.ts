@@ -1,22 +1,22 @@
-import * as assert from "assert";
-import * as Q from "@types/q";
-import {LivePage} from "./LivePage";
-import {Pages} from "./Pages";
-import {HomePageData} from "./types/HomePageData";
+import * as assert from 'assert';
+import * as Q from '@types/q';
+import {LivePage} from './LivePage';
+import {Pages} from './Pages';
+import {HomePageData} from './types/HomePageData';
 /**
  * Created by atanasbozhkov on 19/04/2017.
  */
 export class DatabaseAccessLayer {
   private dbConnection: any;
-  private PagesCollection: string = 'Pages';
-  private PageNameField: string = 'pageName';
+  private PagesCollection = 'Pages';
+  private PageNameField = 'pageName';
 
   constructor(dbConnection: any) {
     this.dbConnection = dbConnection;
   }
 
   private closeDbConnection() {
-    if (this.dbConnection != null) {
+    if (this.dbConnection !== null) {
       this.dbConnection.close();
       this.dbConnection = null;
     }
@@ -54,7 +54,7 @@ export class DatabaseAccessLayer {
     let deferred = Q.defer<HomePageData>();
     if (this.dbConnection) {
       let document = this.dbConnection.collection(this.PagesCollection).findOne({'pageName': Pages.Home});
-      if (document == null) {
+      if (document === null) {
         deferred.reject(new Error(JSON.stringify('')));
       } else {
         deferred.resolve(new HomePageData(document.firstWord, document.secondWord, document.moto, document.pictureUrl));
@@ -70,7 +70,7 @@ export class DatabaseAccessLayer {
       let cursor = this.dbConnection.collection(this.PagesCollection).find({[this.PageNameField]: Pages.Live});
       cursor.each((err, document) => {
         deferred.resolve(document);
-      })
+      });
     }
     return deferred.promise;
   }
