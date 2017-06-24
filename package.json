@@ -1,12 +1,12 @@
 {
-  "name": "Marina Staneva Angular Rewrite",
+  "name": "marinastaneva",
   "version": "2.0.0",
   "description": "Marina Staneva's personal website rewritten in Angular.",
   "main": "server/app.js",
   "license": "All rights reserved.",
   "angular-cli": {},
   "scripts": {
-    "start": "ng serve --host 192.168.1.32 --aot=false --proxy-config proxy.conf.json |npm run _server:run",
+    "start": "ng serve --host localhost --aot=false --proxy-config proxy.conf.json |npm run _server:run",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test --watch=false",
     "pree2e": "webdriver-manager update",

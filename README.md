@@ -7,8 +7,6 @@
 - ExpressJS ( 4.x - with compression )
 - Webpack ( angular-cli )
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
 ## Concepts
 
 - Redux ( NgRx/Store - with server calls)
