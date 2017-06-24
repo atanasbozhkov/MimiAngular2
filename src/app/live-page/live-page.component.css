@@ -473,7 +473,7 @@ http://github.com/necolas/css3-facebook-buttons
   width: 10px;
   height: 12px;
   margin: 0 0.5em 0 0;
-  background: url(fb-icons.png) 99px 99px no-repeat;
+  /*background: url(fb-icons.png) 99px 99px no-repeat;*/
 }
 
 .uibutton.edit:before {
@@ -611,7 +611,6 @@ http://github.com/necolas/css3-facebook-buttons
   margin: 0;
 }
 
-1
 .uibutton-group .uibutton {
   float: left;
   margin-left: -1px;
