@@ -14,7 +14,7 @@ import {MusicPageComponent} from './music-page/music-page.component';
 import {LivePageComponent} from './live-page/live-page.component';
 import {ContactPageComponent} from './contact-page/contact-page.component';
 import {GalleryPageComponent} from './gallery-page/gallery-page.component';
-import {TeachingPageComponent} from "./teaching-page/teaching-page-component";
+import {TeachingPageComponent} from './teaching-page/teaching-page-component';
 
 @NgModule({
   declarations: [

@@ -43,8 +43,8 @@ loginRouter.post('/', function (request: Request, response: Response, next: Next
         // check if password is active
         if (hash.toString('hex') === user.hashedPassword) {
 
-            const token = sign({'user': user.username, permissions: []}, secret, { expiresIn: '7d' });
-            response.json({'jwt': token});
+            // const token = sign({'user': user.username, permissions: []}, secret, { expiresIn: '7d' });
+            response.json({'jwt': ''});
 
         } else {
             response.json({message: 'Wrong password'});
