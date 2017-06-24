@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DataServiceService} from "../data-service.service";
+import {DataServiceService} from '../data-service.service';
 
 @Component({
   selector: 'app-contact-page',
@@ -14,7 +14,7 @@ export class ContactPageComponent implements OnInit {
 
 
   constructor(dataService: DataServiceService) {
-    var contactPageData = dataService.getContactPageData();
+    const contactPageData = dataService.getContactPageData();
     this.email = contactPageData.email;
     this.phone = contactPageData.phone;
     this.location = contactPageData.location;
