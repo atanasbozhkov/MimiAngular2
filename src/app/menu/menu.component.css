@@ -37,8 +37,8 @@ a {
   height: 42px;
 }
 
-.hidden {
-  display:none !important;
+.shown {
+  display:block !important;
 }
 
 .menu {
@@ -48,20 +48,40 @@ a {
   margin-bottom: 20px;
 }
 
-@media (max-width: 1100px) {
+@media (min-width: 1024px) {
+  .desktop-hidden {
+    display: none;
+  }
+}
+
+@media (max-width: 1023px) {
   .menu-button {
     display: block;
     margin-bottom: 0;
+    text-align: center;
+    margin-left:0;
   }
 
   a {
     font-size: 0.7em ;
   }
 
+  .mobile-hidden {
+    display: none;
+  }
+
+  .mobile-shown{
+    display: block;
+  }
+
   .menu {
     float: none;
-    position: static;
-    width: 100px;
-    margin: 0 auto;
+    position: absolute;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    left:0;
+    right:0;
+    background-color: rgba(255,255,255, 0.95);
   }
 }
