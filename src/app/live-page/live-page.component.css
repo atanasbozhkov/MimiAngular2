@@ -1,10 +1,81 @@
 @import url("http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,400italic");
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
-.buttons {
-  margin-left: 5px;
-  position: absolute;
-  bottom: 0;
+@media (max-width: 1023px) {
+  .buttons {
+    margin-left: 5px;
+    bottom: 0;
+  }
+  .separator {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    width: 100%;
+    float: none;
+  }
+
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .photoContainer {
+    position: relative;
+    margin-top: 10px;
+    margin-left: 0;
+  }
+
+  .aboutPhoto {
+    width: 100%;
+  }
+
+  .musicMoto {
+    background-color: #fff;
+    font: normal normal bold 80px/1.1em raleway, sans-serif;
+    font-size: 2.14em;
+    padding-right: 10px;
+    color: #222;
+    position: absolute;
+    top: 50px;
+    left: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .buttons {
+    margin-left: 5px;
+    position: absolute;
+    bottom: 0;
+  }
+  .separator {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    width: 80%;
+    float: right;
+  }
+  .container {
+    width: 980px;
+    margin: 0 auto;
+  }
+
+  .photoContainer {
+    position: relative;
+    margin-top: 60px;
+    margin-left: 197px;
+  }
+
+  .aboutPhoto {
+    width: 100%;
+  }
+
+  .musicMoto {
+    background-color: #fff;
+    font: normal normal bold 80px/1.1em raleway, sans-serif;
+    padding-right: 10px;
+    color: #222;
+    position: absolute;
+    top: 300px;
+    left: -150px;
+  }
 }
 
 .myButton {
@@ -57,23 +128,6 @@
   left: -125px;
 }
 
-.separator {
-  margin-top: 30px;
-  margin-bottom: 50px;
-  width: 80%;
-  float: right;
-}
-
-.musicMoto {
-  background-color: #fff;
-  font: normal normal bold 80px/1.1em raleway, sans-serif;
-  padding-right: 10px;
-  color: #222;
-  position: absolute;
-  top: 300px;
-  left: -150px;
-}
-
 body {
   font-family: 15px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   opacity: 0;
@@ -81,21 +135,6 @@ body {
   -webkit-transition: opacity 2s; /* Safari */
   min-width: 600px;
   max-width: 1200px;
-}
-
-.container {
-  width: 980px;
-  margin: 0 auto;
-}
-
-.photoContainer {
-  position: relative;
-  margin-top: 60px;
-  margin-left: 197px;
-}
-
-.aboutPhoto {
-  width: 100%;
 }
 
 .niceText {

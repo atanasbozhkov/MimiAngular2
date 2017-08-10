@@ -1,3 +1,107 @@
+@media (max-width: 1023px) {
+  .bodyText {
+    width: 350px;
+    float: right;
+    margin-right: 15px;
+    margin-top: 20px;
+    text-align: justify;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    sx-font-smoothing: grayscale;
+    -moz-font-feature-settings: "liga" on;
+
+  }
+
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .photoContainer {
+    position: relative;
+    margin-top: 10px;
+    margin-left: 0;
+  }
+
+  .moto {
+    background-color: #fff;
+    font: normal normal bold 80px/1.1em raleway, sans-serif;
+    font-size: 2.14em;
+    padding-right: 10px;
+    color: #222;
+    position: absolute;
+    top: 50px;
+    left: 0;
+  }
+
+  .aboutPhoto {
+    width: 100%;
+    border: 0;
+    object-fit: cover;
+    background-repeat: no-repeat;
+  }
+
+  .footer {
+    font: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #222;
+    float:right;
+    margin-right:20px;
+  }
+
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    font: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #222;
+    margin-left: 200px;
+  }
+
+  .container {
+    width: 980px;
+    margin: 0 auto;
+  }
+
+  .photoContainer {
+    position: relative;
+    margin-top: 60px;
+    margin-left: 200px;
+  }
+
+  .moto {
+    background-color: #fff;
+    font: normal normal bold 80px/1.1em raleway, sans-serif;
+    padding-right: 10px;
+    color: #222;
+    position: absolute;
+    top: 300px;
+    left: -265px;
+  }
+
+  .aboutPhoto {
+    width: 100%;
+    /*height: 685px;*/
+    border: 0;
+    object-fit: cover;
+    background-repeat: no-repeat;
+  }
+  .bodyText {
+    width: 450px;
+    float: right;
+    margin-right: 15px;
+    margin-top: 20px;
+    text-align: justify;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    sx-font-smoothing: grayscale;
+    -moz-font-feature-settings: "liga" on;
+
+  }
+
+}
+
 body {
   font-family: 15px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   opacity: 0;
@@ -5,35 +109,6 @@ body {
   -webkit-transition: opacity 2s; /* Safari */
   min-width: 600px;
   max-width: 1200px;
-}
-
-.container {
-  width: 980px;
-  margin: 0 auto;
-}
-
-.photoContainer {
-  position: relative;
-  margin-top: 60px;
-  margin-left: 200px;
-}
-
-.moto {
-  background-color: #fff;
-  font: normal normal bold 80px/1.1em raleway, sans-serif;
-  padding-right: 10px;
-  color: #222;
-  position: absolute;
-  top: 300px;
-  left: -265px;
-}
-
-.aboutPhoto {
-  width: 100%;
-  /*height: 685px;*/
-  border: 0;
-  object-fit: cover;
-  background-repeat: no-repeat;
 }
 
 .niceText {
@@ -44,20 +119,6 @@ body {
   line-height: 1.58;
   color: rgba(0, 0, 0, .8);
   letter-spacing: -.003em;
-}
-
-.bodyText {
-  width: 350px;
-  float: right;
-  margin-right: 15px;
-  margin-top: 20px;
-  text-align: justify;
-  color: rgba(0, 0, 0, 0.8);
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  sx-font-smoothing: grayscale;
-  -moz-font-feature-settings: "liga" on;
-
 }
 
 @-webkit-keyframes fadeIn {
@@ -100,10 +161,4 @@ body {
   -webkit-animation-duration: 1s;
   -moz-animation-duration: 1s;
   animation-duration: 1s;
-}
-
-.footer {
-  margin-left: 200px;
-  font: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  color: #222;
 }

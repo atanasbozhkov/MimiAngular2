@@ -1,3 +1,83 @@
+@media (max-width: 1023px) {
+  .niceText {
+    font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.9em;
+    color: rgba(0, 0, 0, .8);
+    letter-spacing: -.003em;
+  }
+
+  .bodyText {
+    width: 90%;
+    text-align: justify;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 20px;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    sx-font-smoothing: grayscale;
+    -moz-font-feature-settings: "liga" on;
+
+  }
+
+  .footer {
+    float: right;
+    margin-right: 20px;
+    margin-top: 30px;
+    font: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #222;
+  }
+
+  .moto {
+    background-color: #fff;
+    font: normal normal bold 80px/1.1em raleway, sans-serif;
+    padding-right: 10px;
+    color: #222;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    font-size: 2.14em;
+  }
+
+  .photoContainer {
+    position: relative;
+    margin-top: 10px;
+    margin-left: 0;
+  }
+
+  .aboutPhoto {
+    width: 100%;
+    /*height: 685px;*/
+    border: 0;
+    object-fit: cover;
+    background-repeat: no-repeat;
+  }
+
+  .moto {
+    background-color: #fff;
+    font: normal normal bold 80px/1em raleway, sans-serif;
+    font-size: 2.14em;
+    padding-right: 10px;
+    color: #222;
+    position: absolute;
+    top: 50px;
+    left: 0;
+  }
+
+  .photoContainer {
+    position: relative;
+    margin-top: 10px;
+    margin-left: 0;
+  }
+
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
 body {
   font-family: 15px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   opacity: 0;
@@ -7,57 +87,65 @@ body {
   max-width: 1200px;
 }
 
-.container {
-  width: 980px;
-  margin: 0 auto;
-}
+@media (min-width: 1024px) {
+  .niceText {
+    font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 1.58;
+    color: rgba(0, 0, 0, .8);
+    letter-spacing: -.003em;
+  }
 
-.photoContainer {
-  position: relative;
-  margin-top: 60px;
-  margin-left: 200px;
-}
+  .container {
+    width: 980px;
+    margin: 0 auto;
+  }
 
-.moto {
-  background-color: #fff;
-  font: normal normal bold 80px/1.1em raleway, sans-serif;
-  padding-right: 10px;
-  color: #222;
-  position: absolute;
-  top: 300px;
-  left: -265px;
+  .photoContainer {
+    position: relative;
+    margin-top: 60px;
+    margin-left: 200px;
+  }
+
+  .moto {
+    background-color: #fff;
+    font: normal normal bold 80px/1.1em raleway, sans-serif;
+    padding-right: 10px;
+    color: #222;
+    position: absolute;
+    top: 300px;
+    left: -265px;
+  }
+
+  .footer {
+    margin-left: 200px;
+    font: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #222;
+  }
+
+  .bodyText {
+    width: 350px;
+    float: right;
+    margin-right: 15px;
+    margin-top: 20px;
+    text-align: justify;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    sx-font-smoothing: grayscale;
+    -moz-font-feature-settings: "liga" on;
+
+  }
+
 }
 
 .aboutPhoto {
   width: 100%;
-  /*height: 685px;*/
   border: 0;
   object-fit: cover;
   background-repeat: no-repeat;
-}
-
-.niceText {
-  font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 16px;
-  line-height: 1.58;
-  color: rgba(0, 0, 0, .8);
-  letter-spacing: -.003em;
-}
-
-.bodyText {
-  width: 350px;
-  float: right;
-  margin-right: 15px;
-  margin-top: 20px;
-  text-align: justify;
-  color: rgba(0, 0, 0, 0.8);
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  sx-font-smoothing: grayscale;
-  -moz-font-feature-settings: "liga" on;
-
 }
 
 @-webkit-keyframes fadeIn {
@@ -100,10 +188,4 @@ body {
   -webkit-animation-duration: 1s;
   -moz-animation-duration: 1s;
   animation-duration: 1s;
-}
-
-.footer {
-  margin-left: 200px;
-  font: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  color: #222;
 }

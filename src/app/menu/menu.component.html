@@ -1,4 +1,4 @@
-<div class="hamburgerContainer">
+<div class="hamburgerContainer mobile-shown desktop-hidden">
   <button class="hamburger hamburger--collapse right" type="button" (click)="showStyle = !showStyle; changeState();"
           [class.is-active]="showStyle">
   <span class="hamburger-box">
@@ -6,15 +6,13 @@
   </span>
   </button>
 </div>
-<div class="menu"
-     >
-     <!--[@animate]="state">-->
-     <!--[class.fadeOut]="!showStyle"-->
-     <!--[class.fadeIn]="showStyle">-->
+<div class="menu mobile-hidden"
+     [ngClass]="{'shown': menuClass}"
+>
+
   <span class="menu-button animated fadeIn"
-        *ngFor="let menuItem of menuItems">
-        <!--[class.fadeOut]="!showStyle"-->
-        <!--[class.fadeIn]="showStyle">-->
+        *ngFor="let menuItem of menuItems"
+  >
     <a (click)="changeActive(menuItem.title)" [ngClass]="{'active': menuItem.isActive == true}"
        routerLink="/{{menuItem.url}}"> {{menuItem.title}} </a>
   </span>

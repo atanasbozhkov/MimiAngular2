@@ -1,18 +1,17 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {MenuItemComponent} from '../menu-item/menu-item.component';
 import {DataServiceService} from '../data-service.service';
-import { animateFactory } from 'ng2-animate';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css', './hamburgers.css']
-  // animations: [animateFactory(1000, 500, 'fadeIn'), animateFactory(1000, 500, 'fadeOut')]
 })
 export class MenuComponent implements OnInit {
   menuItems: MenuItemComponent[];
   @Input() active: string;
-  showStyle: false;
+  showStyle = false;
+  menuClass = false;
   state = 'fadeIn';
 
   constructor(private dataService: DataServiceService) {
@@ -25,7 +24,9 @@ export class MenuComponent implements OnInit {
   }
 
   changeState() {
+    window.scrollTo(0, 0);
     this.state === 'fadeIn' ? this.state = 'fadeOut' : this.state = 'fadeIn';
+    this.menuClass === false ? this.menuClass = true : this.menuClass = false;
   }
 
 

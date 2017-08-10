@@ -14,7 +14,7 @@ body {
 }
 
 /*MOBILE VERSION*/
-@media (max-width: 600px) {
+@media (max-width: 1023px) {
   .mainPhoto {
     width: 100%;
     border: 0;
@@ -61,9 +61,15 @@ body {
     margin-left: 0;
   }
 
+  .footer {
+    font: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #222;
+    margin-left: 0;
+  }
+
 }
 
-@media (min-width: 601px) {
+@media (min-width: 1024px) {
   .name {
     height: 72px;
     letter-spacing: 0.3em;
@@ -111,9 +117,9 @@ body {
 
 @font-face {
   font-family: "Marzo-W00-Regular";
-  src: url("../../assets/fonts/1e6ec96c95301fa73aa1d026f161a269.eot");
-  src: url("../../assets/fonts/1e6ec96c95301fa73aa1d026f161a269.woff") format("woff");
-  src: url("../../assets/fonts/1e6ec96c95301fa73aa1d026f161a269.woff2") format("woff2");
+  src: url("assets/fonts/1e6ec96c95301fa73aa1d026f161a269.eot");
+  src: url("assets/fonts/1e6ec96c95301fa73aa1d026f161a269.woff") format("woff");
+  src: url("assets/fonts/1e6ec96c95301fa73aa1d026f161a269.woff2") format("woff2");
 }
 
 @-webkit-keyframes fadeIn {
