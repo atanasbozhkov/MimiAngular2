@@ -15,6 +15,14 @@ body {
 }
 
 @media (max-width: 1023px) {
+  .footer {
+    float: right;
+    margin-right: 20px;
+    margin-top: 30px;
+    font: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #222;
+  }
+
   .moto {
     background-color: #fff;
     font: normal normal bold 80px/1.1em raleway, sans-serif;
@@ -48,6 +56,12 @@ body {
 }
 
 @media (min-width: 1024px) {
+  .footer {
+    margin-left: 200px;
+    font: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #222;
+  }
+
   .music {
     width: 80%;
     float: right;
@@ -146,10 +160,4 @@ body {
   -webkit-animation-duration: 1s;
   -moz-animation-duration: 1s;
   animation-duration: 1s;
-}
-
-.footer {
-  margin-left: 200px;
-  font: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  color: #222;
 }

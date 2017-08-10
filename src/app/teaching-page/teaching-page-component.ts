@@ -11,7 +11,7 @@ export class TeachingPageComponent implements OnInit {
   moto: string;
 
   constructor(private dataService: DataServiceService) {
-    this.aboutText = 'teaching text';
+    this.aboutText = 'Coming Soon';
     this.moto = 'TEACHING';
   }
 

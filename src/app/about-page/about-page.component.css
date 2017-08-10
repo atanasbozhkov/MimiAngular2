@@ -3,18 +3,17 @@
     font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 0.7em;
-    line-height: 1.58;
+    font-size: 0.9em;
     color: rgba(0, 0, 0, .8);
     letter-spacing: -.003em;
   }
 
   .bodyText {
     width: 90%;
+    text-align: justify;
     margin-right: 15px;
     margin-left: 15px;
     margin-top: 20px;
-    text-align: left;
     color: rgba(0, 0, 0, 0.8);
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
@@ -26,6 +25,7 @@
   .footer {
     float: right;
     margin-right: 20px;
+    margin-top: 30px;
     font: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     color: #222;
   }

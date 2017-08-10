@@ -8,6 +8,8 @@
   }
 
   .gallery {
+    text-align: center;
+    margin-top:20px;
     width: 100%;
     float: none;
   }
@@ -31,6 +33,7 @@
   .footer {
     float: right;
     margin-right: 20px;
+    margin-top: 30px;
     font: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     color: #222;
   }
