@@ -1,21 +1,96 @@
-.contactMoto {
-  background-color: #fff;
-  font: normal normal bold 80px/1.1em raleway, sans-serif;
-  padding-right: 10px;
-  color: #222;
-  /*position: absolute;*/
-  /*top:300px;*/
-  /*left: -150px;*/
-  width: 400px;
-  float: left;
+@media (max-width: 1023px) {
+  .social-network-icon {
+    margin-right: 5px;
+    font-size: 40px;
+    text-decoration-color: #000;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  .contactMoto {
+    background-color: #fff;
+    font: normal normal bold 80px/1.1em raleway, sans-serif;
+    font-size: 2.14em;
+    padding-right: 10px;
+    color: #222;
+    top: 50px;
+    margin-left: 20px;
+  }
+
+  .contact-info {
+    color: rgba(0, 0, 0, 0.7);
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    font-size: 16px !important;
+  }
+
+  .contact-block {
+    text-align: center;
+    margin-top: 20px
+  }
+
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .footer {
+    float: right;
+    margin-right: 20px;
+    margin-top: 30px;
+    font: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #222;
+  }
+}
+
+@media (min-width: 1024px) {
+  .social-network-icon {
+    margin-right: 5px;
+    font-size: 40px;
+    text-decoration-color: #000;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  .contactMoto {
+    background-color: #fff;
+    font: normal normal bold 80px/1.1em raleway, sans-serif;
+    padding-right: 10px;
+    color: #222;
+    width: 400px;
+    float: left;
+
+  }
+
+  .contact-info {
+    color: rgba(0, 0, 0, 0.7);
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    font-size: 16px !important;
+  }
+
+  .contact-block {
+    margin-left: 558px;
+  }
+
+  .body {
+    padding-top: 70px;
+  }
+
+  .container {
+    width: 980px;
+    margin: 0 auto;
+    margin-top: 60px;
+
+  }
+
+  .footer {
+    margin-top: 50px;
+    font: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #222;
+  }
 
 }
 
 .thin {
   font-weight: 300;
   font-size: 18px;
-  /*margin-top: 15px;*/
-  /*margin-bottom: 15px;*/
   font-family: Lato, Helvetica, Arial, sans-serif;
 
 }
@@ -24,40 +99,13 @@
   color: #27D3B4 !important;
 }
 
-.contact-info {
-  color: rgba(0, 0, 0, 0.7);
-  font-family: Lato, Helvetica, Arial, sans-serif;
-  font-size: 16px !important;
-}
-
-.contact-block {
-  margin-left: 558px;
-}
-
-.body {
-  padding-top: 70px;
-}
-
 body {
-  font-family: 15px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   opacity: 0;
   transition: opacity 2s;
   -webkit-transition: opacity 2s; /* Safari */
   min-width: 600px;
   max-width: 1200px;
-}
-
-.container {
-  width: 980px;
-  margin: 0 auto;
-  margin-top: 60px;
-
-}
-
-.footer {
-  margin-top: 50px;
-  font: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  color: #222;
 }
 
 .black-font {

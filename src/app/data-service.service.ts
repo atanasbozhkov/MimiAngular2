@@ -18,7 +18,7 @@ export class DataServiceService {
       new MenuItemComponent('Music', '/Music', false),
       new MenuItemComponent('Live', '/Live', false),
       new MenuItemComponent('Gallery', '/Gallery', false),
-      // new MenuItemComponent('Teaching', '/Teaching', false),
+      new MenuItemComponent('Teaching', '/Teaching', false),
       new MenuItemComponent('Contact', '/Contact', false)
     ]
   }
@@ -28,14 +28,12 @@ export class DataServiceService {
   }
 
   getHomePageData(): HomePageData {
-    var homePageData: HomePageData = new HomePageData('Marina', 'Staneva', 'PIANIST', 'assets/img/1.jpg');
-    return homePageData;
+    return new HomePageData('Marina', 'Staneva', 'PIANIST', 'assets/img/1.jpg');
   }
 
   // Live events month starts from 0 to 11.
   getEvents(): LiveEvent[] {
     return [new LiveEvent(new Date(2017, 2, 24, 19, 0, 0), "Piano Duo", "Milton Court Concert Hall, London", "https://www.facebook.com/events/1240883842673624/", "https://goo.gl/maps/RjZ3Ysc1pRT2"),
-      new LiveEvent(new Date(2017, 4, 30, 13, 0, 0), "Voice and Piano Duo Recital - alongside Karen Schriesheim", "St. Stephen Walbrook, London", "", "https://www.google.co.uk/maps/place/St+Stephen+Walbrook/@51.5126385,-0.0920613,17z/data=!3m1!4b1!4m5!3m4!1s0x48760354f4032875:0xc1fad2aa0247618c!8m2!3d51.5126352!4d-0.0898726"),
       new LiveEvent(new Date(2017, 4, 7, 13, 0, 0), "Songs of Britain", "Music Hall, Silk Street, London", "https://www.facebook.com/events/1304819516297956/", "https://goo.gl/maps/fWG2DGM7HpQ2"),
       new LiveEvent(new Date(2017, 5, 20, 10, 0, 0), "Piano Recital", "Milton Court Concert Hall, London", "", "https://goo.gl/maps/RjZ3Ysc1pRT2"),
       new LiveEvent(new Date(2017, 2, 6, 13, 0, 0), "Bagatelles and Musical Momenets for Piano", "1901 Arts Club", "https://www.facebook.com/events/1240883842673624/", "https://www.google.co.uk/maps/place/%201901+Arts+Club/@51.5042148,-0.1130541,17z/data=!3m1!4b1!4m5!3m4!%201s0x487604ba07ca9bb5:0x81557c8a691516a6!8m2!3d51.5042115!%204d-0.1108654"),
@@ -51,7 +49,7 @@ export class DataServiceService {
   }
 
   getContactPageData(): ContactPageData {
-    return new ContactPageData("contact@marinastaneva.com", "+44 (0)7399 443763", "London, United Kingdom");
+    return new ContactPageData("contact@marinastaneva.com", "+44 (0)7399 443763", "London, United Kingdom", "https://twitter.com/StanevaM", "https://www.youtube.com/channel/UCgMM6D_YCuTpsw9fFya691Q");
   }
 
   getGalleryImages(): GalleryImage[] {

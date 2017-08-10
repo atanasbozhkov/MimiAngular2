@@ -10,10 +10,11 @@ import {DataServiceService} from "./data-service.service";
 import {HomePageComponent} from './home-page/home-page.component';
 import {RouterModule} from "@angular/router";
 import {AboutPageComponent} from './about-page/about-page.component';
-import { MusicPageComponent } from './music-page/music-page.component';
-import { LivePageComponent } from './live-page/live-page.component';
-import { ContactPageComponent } from './contact-page/contact-page.component';
-import { GalleryPageComponent } from './gallery-page/gallery-page.component';
+import {MusicPageComponent} from './music-page/music-page.component';
+import {LivePageComponent} from './live-page/live-page.component';
+import {ContactPageComponent} from './contact-page/contact-page.component';
+import {GalleryPageComponent} from './gallery-page/gallery-page.component';
+import {TeachingPageComponent} from "./teaching-page/teaching-page-component";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { GalleryPageComponent } from './gallery-page/gallery-page.component';
     MusicPageComponent,
     LivePageComponent,
     ContactPageComponent,
-    GalleryPageComponent
+    GalleryPageComponent,
+    TeachingPageComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,7 @@ import { GalleryPageComponent } from './gallery-page/gallery-page.component';
       {path: 'Music', component: MusicPageComponent},
       {path: 'Live', component: LivePageComponent},
       {path: 'Gallery', component: GalleryPageComponent},
+      {path: 'Teaching', component: TeachingPageComponent},
       {path: 'Contact', component: ContactPageComponent}
     ])
   ],
