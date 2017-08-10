@@ -1,0 +1,21 @@
+import {Component, OnInit} from '@angular/core';
+import {DataServiceService} from "../data-service.service";
+
+@Component({
+  selector: 'teaching-about-page',
+  templateUrl: './teaching-page.component.html',
+  styleUrls: ['./teaching-page.component.css']
+})
+export class TeachingPageComponent implements OnInit {
+  aboutText: string;
+  moto: string;
+
+  constructor(private dataService: DataServiceService) {
+    this.aboutText = 'Coming Soon';
+    this.moto = 'TEACHING';
+  }
+
+  ngOnInit() {
+  }
+
+}

@@ -1,0 +1,20 @@
+<div class="container fadeIn">
+  <div>
+    <app-menu [active]="'teaching'"></app-menu>
+  </div>
+
+  <div class="body">
+    <div class="photoContainer">
+      <span class="moto"> {{ moto }} </span>
+      <img class="aboutPhoto" src="assets/img/6.jpg"/>
+    </div>
+    <div>
+      <div class="bodyText niceText" [innerHTML]='aboutText'></div>
+    </div>
+    <div class="footer">
+      © 2016 by MARINA STANEVA
+    </div>
+
+  </div>
+
+</div>

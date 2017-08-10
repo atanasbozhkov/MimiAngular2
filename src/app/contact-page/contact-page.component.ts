@@ -11,13 +11,17 @@ export class ContactPageComponent implements OnInit {
   email: string;
   phone: string;
   location: string;
+  twitter: string;
+  youtube: string;
 
 
   constructor(dataService: DataServiceService) {
-    var contactPageData = dataService.getContactPageData();
+    let contactPageData = dataService.getContactPageData();
     this.email = contactPageData.email;
     this.phone = contactPageData.phone;
     this.location = contactPageData.location;
+    this.twitter = contactPageData.twitter;
+    this.youtube = contactPageData.youtube;
   }
 
   ngOnInit() {
