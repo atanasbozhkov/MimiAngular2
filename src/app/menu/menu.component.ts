@@ -24,6 +24,7 @@ export class MenuComponent implements OnInit {
   }
 
   changeState() {
+    window.scrollTo(0, 0);
     this.state === 'fadeIn' ? this.state = 'fadeOut' : this.state = 'fadeIn';
     this.menuClass === false ? this.menuClass = true : this.menuClass = false;
   }

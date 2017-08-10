@@ -1,9 +1,89 @@
+@media (max-width: 1023px) {
+  .moto {
+    background-color: #fff;
+    font: normal normal bold 80px/1.1em raleway, sans-serif;
+    font-size: 2.14em;
+    padding-right: 10px;
+    color: #222;
+  }
+
+  .gallery {
+    width: 100%;
+    float: none;
+  }
+
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .photoContainer {
+    position: relative;
+    margin-top: 10px;
+    margin-left: 0;
+  }
+
+  img {
+    width: 30vw !important;
+    height: 30vw !important;
+  }
+
+  .footer {
+    float: right;
+    margin-right: 20px;
+    font: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #222;
+  }
+
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    margin-left: 200px;
+    font: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #222;
+  }
+
+  .moto {
+    background-color: #fff;
+    font: normal normal bold 80px/1.1em raleway, sans-serif;
+    padding-right: 10px;
+    color: #222;
+    /*margin-left:-150px;*/
+    position: absolute;
+    top: 300px;
+    left: -300px;
+  }
+
+  .gallery {
+    width: 80%;
+    float: right;
+  }
+
+  .container {
+    width: 980px;
+    margin: 0 auto;
+  }
+
+  .photoContainer {
+    position: relative;
+    margin-top: 60px;
+    margin-left: 200px;
+  }
+
+  .mainPhoto {
+    width: 911px;
+    height: 685px;
+    border: 0;
+    object-fit: cover;
+    background-repeat: no-repeat;
+
+  }
+
+}
+
 a {
   text-decoration: none;
-}
-.gallery {
-  width: 80%;
-  float: right;
 }
 
 body {
@@ -13,43 +93,6 @@ body {
   -webkit-transition: opacity 2s; /* Safari */
   min-width: 600px;
   max-width: 1200px;
-}
-
-.container {
-  width: 980px;
-  margin: 0 auto;
-}
-
-.photoContainer {
-  position: relative;
-  margin-top: 60px;
-  margin-left: 200px;
-}
-
-.mainPhoto {
-  width: 911px;
-  height: 685px;
-  border: 0;
-  object-fit: cover;
-  background-repeat: no-repeat;
-
-}
-
-.footer {
-  margin-left: 200px;
-  font: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  color: #222;
-}
-
-.moto {
-  background-color: #fff;
-  font: normal normal bold 80px/1.1em raleway, sans-serif;
-  padding-right: 10px;
-  color: #222;
-  /*margin-left:-150px;*/
-  position: absolute;
-  top: 300px;
-  left: -300px;
 }
 
 .name {
@@ -313,7 +356,6 @@ body.lb-disable-scrolling {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
-
 
 /*TODO: Remove this and resize images.*/
 img {
