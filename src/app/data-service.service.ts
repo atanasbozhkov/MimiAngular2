@@ -28,7 +28,8 @@ export class DataServiceService {
   }
 
   getHomePageData(): HomePageData {
-    return new HomePageData('Marina', 'Staneva', 'PIANIST', 'assets/img/1.jpg');
+    var homePageData: HomePageData = new HomePageData('Marina', 'Staneva', 'PIANIST', 'assets/img/1.jpg');
+    return homePageData;
   }
 
   // Live events month starts from 0 to 11.
@@ -49,7 +50,7 @@ export class DataServiceService {
   }
 
   getContactPageData(): ContactPageData {
-    return new ContactPageData("contact@marinastaneva.com", "+44 (0)7399 443763", "London, United Kingdom", "https://twitter.com/StanevaM", "https://www.youtube.com/channel/UCgMM6D_YCuTpsw9fFya691Q");
+    return new ContactPageData("contact@marinastaneva.com", "+44 (0)7399 443763", "London, United Kingdom");
   }
 
   getGalleryImages(): GalleryImage[] {
