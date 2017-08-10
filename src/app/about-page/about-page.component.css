@@ -1,3 +1,58 @@
+@media (max-width: 1023px) {
+  .footer {
+    float:right;
+    margin-right: 20px;
+    font: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #222;
+  }
+
+  .moto {
+    background-color: #fff;
+    font: normal normal bold 80px/1.1em raleway, sans-serif;
+    padding-right: 10px;
+    color: #222;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    font-size:2.14em;
+  }
+
+  .photoContainer {
+    position: relative;
+    margin-top: 10px;
+    margin-left: 0;
+  }
+
+  .aboutPhoto {
+    width: 100%;
+    /*height: 685px;*/
+    border: 0;
+    object-fit: cover;
+    background-repeat: no-repeat;
+  }
+
+  .moto {
+    background-color: #fff;
+    font: normal normal bold 80px/1em raleway, sans-serif;
+    font-size: 2.14em;
+    padding-right: 10px;
+    color: #222;
+    position: absolute;
+    top: 50px;
+    left: 0px;
+  }
+
+  .photoContainer {
+    position: relative;
+    margin-top: 10px;
+    margin-left: 0;
+  }
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
 body {
   font-family: 15px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   opacity: 0;
@@ -7,25 +62,34 @@ body {
   max-width: 1200px;
 }
 
-.container {
-  width: 980px;
-  margin: 0 auto;
-}
+@media (min-width: 1024px) {
+  .container {
+    width: 980px;
+    margin: 0 auto;
+  }
 
-.photoContainer {
-  position: relative;
-  margin-top: 60px;
-  margin-left: 200px;
-}
+  .photoContainer {
+    position: relative;
+    margin-top: 60px;
+    margin-left: 200px;
+  }
+  .moto {
+    background-color: #fff;
+    font: normal normal bold 80px/1.1em raleway, sans-serif;
+    padding-right: 10px;
+    color: #222;
+    position: absolute;
+    top: 300px;
+    left: -265px;
+  }
 
-.moto {
-  background-color: #fff;
-  font: normal normal bold 80px/1.1em raleway, sans-serif;
-  padding-right: 10px;
-  color: #222;
-  position: absolute;
-  top: 300px;
-  left: -265px;
+  .footer {
+    margin-left: 200px;
+    font: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #222;
+  }
+
+
 }
 
 .aboutPhoto {
@@ -100,10 +164,4 @@ body {
   -webkit-animation-duration: 1s;
   -moz-animation-duration: 1s;
   animation-duration: 1s;
-}
-
-.footer {
-  margin-left: 200px;
-  font: 11px/1.1em "Helvetica-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  color: #222;
 }

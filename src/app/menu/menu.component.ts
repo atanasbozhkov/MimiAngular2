@@ -10,28 +10,28 @@ import {DataServiceService} from '../data-service.service';
 export class MenuComponent implements OnInit {
   menuItems: MenuItemComponent[];
   @Input() active: string;
-  showStyle: boolean = false;
-  menuClass: boolean = false;
-  state: string = 'fadeIn';
+  showStyle = false;
+  menuClass = false;
+  state = 'fadeIn';
 
   constructor(private dataService: DataServiceService) {
     this.menuItems = dataService.getMenuItems();
   }
 
   ngOnInit() {
-    //Set the active tab.
+    // Set the active tab.
     this.changeActive(this.active);
   }
 
   changeState() {
-    this.state == 'fadeIn' ? this.state = 'fadeOut' : this.state = 'fadeIn';
-    this.menuClass == false ? this.menuClass = true : this.menuClass = false;
+    this.state === 'fadeIn' ? this.state = 'fadeOut' : this.state = 'fadeIn';
+    this.menuClass === false ? this.menuClass = true : this.menuClass = false;
   }
 
 
   changeActive(title: string) {
     for (let menuItem of this.menuItems) {
-      menuItem.isActive = menuItem.title.toLowerCase() == title.toLowerCase();
+      menuItem.isActive = menuItem.title.toLowerCase() === title.toLowerCase();
     }
   }
 
