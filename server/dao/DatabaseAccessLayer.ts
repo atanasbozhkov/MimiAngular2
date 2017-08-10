@@ -1,5 +1,5 @@
 import * as assert from "assert";
-import * as Q from "@types/q";
+import * as Q from "q";
 import {LivePage} from "./LivePage";
 import {Pages} from "./Pages";
 import {HomePageData} from "./types/HomePageData";
