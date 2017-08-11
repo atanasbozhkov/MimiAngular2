@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { DataServiceService } from '../data-service.service';
+import {Component, OnInit} from '@angular/core';
+import {DataServiceService} from '../data-service.service';
 
 @Component({
   selector: 'app-contact-page',

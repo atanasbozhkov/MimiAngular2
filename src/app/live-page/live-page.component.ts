@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {LiveEvent} from "../common/LiveEvent";
-import {DataServiceService} from "../data-service.service";
+import {LiveEvent} from '../common/LiveEvent';
+import {DataServiceService} from '../data-service.service';
 
 @Component({
   selector: 'app-live-page',
@@ -31,6 +31,7 @@ export class LivePageComponent implements OnInit {
       return d1.date.getTime() - d2.date.getTime();
     });
   }
+
   sortEventsDesc(events: LiveEvent[]): LiveEvent[] {
     return events.sort((d1, d2) => {
       return d2.date.getTime() - d1.date.getTime();
