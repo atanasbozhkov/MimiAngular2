@@ -4,12 +4,14 @@ import {HomePageData} from './common/HomePageData';
 import {LiveEvent} from './common/LiveEvent';
 import {ContactPageData} from './common/ContactPageData';
 import {GalleryImage} from './common/GalleryImage';
+import {Observable} from 'rxjs/Observable';
+import {Http} from '@angular/http';
 
 @Injectable()
 export class DataServiceService {
 
 
-  constructor() {
+  constructor(private http: Http) {
   }
 
   getMenuItems(): MenuItemComponent[] {
@@ -27,8 +29,9 @@ export class DataServiceService {
     return 'Marina completed a Bachelor in Piano Performance at the National Academy of Music in Sofia, Bulgaria with a first class under Stella Dimitrova-Maystorova and Iliya Chernaev. Alongside her studies, she has been giving performances in the UK, Italy, Bulgaria, Turkey, Greece and Ukraine, both as a soloist and as a collaborative pianist. Her prizes include Airola International Piano Competition, Italy and International Competition for Japanese and Bulgarian Music to name a few. She has participated in different festivals such as <i>“Liszt Piano Festival”</i> - London, <i>“Dopo il rumore”</i> - Italy, <i>“ppIANISSIMO, Bulgaria, Varna Summer”</i> - Bulgaria.<br> <br> She is currently undertaking Guildhall Artist Masters in Piano Performance at the Guildhall School of Music and Drama under Philip Jenkins. Her studies are generously supported by the Guildhall Trust.';
   }
 
-  getHomePageData(): HomePageData {
-    return new HomePageData('Marina', 'Staneva', 'PIANIST', 'assets/img/1.jpg');
+  getHomePageData(): Observable<HomePageData> {
+    return this.http.get('api/Home').map(res => <HomePageData>res.json()[1]);
+    // return new HomePageData('Marina', 'Staneva', 'PIANIST', 'assets/img/1.jpg');
   }
 
   // Live events month starts from 0 to 11.

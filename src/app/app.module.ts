@@ -43,7 +43,6 @@ import {TeachingPageComponent} from './teaching-page/teaching-page-component';
       {path: 'Contact', component: ContactPageComponent}
     ])
   ],
-  // providers: [DataServiceService, { provide: 'Window', useValue: window}],
   providers: [DataServiceService],
   bootstrap: [AppComponent]
 })

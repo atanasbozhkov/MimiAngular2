@@ -8,7 +8,7 @@ import {ContactPageData} from './types/ContactPageData';
 export class Utils {
 
   static HopePageDataFromJSON(jsonData: JSON): HomePageData {
-    return new HomePageData(jsonData['firstWord'], jsonData['secondWord'], jsonData['moto'], jsonData['pictureUrl']);
+    return new HomePageData(jsonData['firstName'], jsonData['lastName'], jsonData['moto'], jsonData['photoUrl']);
   }
 
   static ContactPageDataFromJSON(jsonData: JSON): ContactPageData {
