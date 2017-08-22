@@ -6,15 +6,16 @@ import {HttpModule} from '@angular/http';
 import {AppComponent} from './app.component';
 import {MenuComponent} from './menu/menu.component';
 import {MenuItemComponent} from './menu-item/menu-item.component';
-import {DataServiceService} from "./data-service.service";
+import {DataServiceService} from './data-service.service';
 import {HomePageComponent} from './home-page/home-page.component';
-import {RouterModule} from "@angular/router";
+import {RouterModule} from '@angular/router';
 import {AboutPageComponent} from './about-page/about-page.component';
 import {MusicPageComponent} from './music-page/music-page.component';
 import {LivePageComponent} from './live-page/live-page.component';
 import {ContactPageComponent} from './contact-page/contact-page.component';
 import {GalleryPageComponent} from './gallery-page/gallery-page.component';
-import {TeachingPageComponent} from "./teaching-page/teaching-page-component";
+import {TeachingPageComponent} from './teaching-page/teaching-page-component';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +44,6 @@ import {TeachingPageComponent} from "./teaching-page/teaching-page-component";
       {path: 'Contact', component: ContactPageComponent}
     ])
   ],
-  // providers: [DataServiceService, { provide: 'Window', useValue: window}],
   providers: [DataServiceService],
   bootstrap: [AppComponent]
 })

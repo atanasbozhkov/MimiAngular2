@@ -13,6 +13,7 @@ body {
   margin: 0 auto;
 }
 
+
 /*MOBILE VERSION*/
 @media (max-width: 1023px) {
   .mainPhoto {
@@ -38,14 +39,15 @@ body {
     position: absolute;
     top: 50px;
     left: 0;
-    font-size:2.14em;
+    font-size: 2.14em;
+
   }
 
   .name {
     height: 42px;
-    font-size:1em;
+    font-size: 1em;
     letter-spacing: 0.3em;
-    font-family: "Marzo-W00-Regular" !important;
+    font-family: "Marzo-W00-Regular", serif !important;
     font-weight: bold;
     position: absolute;
     top: 0;
@@ -117,9 +119,10 @@ body {
 
 @font-face {
   font-family: "Marzo-W00-Regular";
-  src: url("assets/fonts/1e6ec96c95301fa73aa1d026f161a269.eot");
-  src: url("assets/fonts/1e6ec96c95301fa73aa1d026f161a269.woff") format("woff");
-  src: url("assets/fonts/1e6ec96c95301fa73aa1d026f161a269.woff2") format("woff2");
+  src: url("../../assets/fonts/1e6ec96c95301fa73aa1d026f161a269.eot");
+  src: url("../../assets/fonts/1e6ec96c95301fa73aa1d026f161a269.woff") format("woff");
+  src: url("../../assets/fonts/1e6ec96c95301fa73aa1d026f161a269.woff2") format("woff2");
+
 }
 
 @-webkit-keyframes fadeIn {
@@ -137,7 +140,35 @@ body {
   }
   to {
     opacity: 1;
+
   }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  opacity: 0; /* make things invisible upon start */
+  -webkit-animation: fadeIn ease-in 1; /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  -moz-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode: forwards; /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
 }
 
 @keyframes fadeIn {

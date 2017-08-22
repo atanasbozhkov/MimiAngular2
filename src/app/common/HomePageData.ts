@@ -2,7 +2,6 @@
  * Created by atanasbozhkov on 07/11/2016.
  */
 export class HomePageData {
-
   private _firstName: string;
   private _lastName: string;
   private _moto: string;
@@ -15,16 +14,21 @@ export class HomePageData {
     this._photoUrl = photoUrl;
   }
 
-  get photoUrl(): string {
-    return this._photoUrl;
+  get firstName(): string {
+    return this._firstName;
   }
-  get moto(): string {
-    return this._moto;
-  }
+
+
   get lastName(): string {
     return this._lastName;
   }
-  get firstName(): string {
-    return this._firstName;
+
+  get moto(): string {
+    return this._moto;
+  }
+
+
+  get photoUrl(): string {
+    return this._photoUrl;
   }
 }

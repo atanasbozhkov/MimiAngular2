@@ -1,22 +1,24 @@
-import * as assert from "assert";
-import * as Q from "q";
-import {LivePage} from "./LivePage";
-import {Pages} from "./Pages";
-import {HomePageData} from "./types/HomePageData";
+import * as assert from 'assert';
+import * as Q from 'q';
+import {HomePageData} from './types/HomePageData';
+import {Collection} from './enums/Collection';
+import {ContactPageData} from './types/ContactPageData';
+import {Utils} from './Utils';
+import {PageType} from './enums/PageType';
+import {Db} from 'mongodb';
+
 /**
  * Created by atanasbozhkov on 19/04/2017.
  */
 export class DatabaseAccessLayer {
-  private dbConnection: any;
-  private PagesCollection: string = 'Pages';
-  private PageNameField: string = 'pageName';
+  private dbConnection: Db;
 
-  constructor(dbConnection: any) {
+  constructor(dbConnection: Db) {
     this.dbConnection = dbConnection;
   }
 
   private closeDbConnection() {
-    if (this.dbConnection != null) {
+    if (this.dbConnection !== null) {
       this.dbConnection.close();
       this.dbConnection = null;
     }
@@ -39,52 +41,44 @@ export class DatabaseAccessLayer {
   public getDocumentCount(collectionName: string): any {
     let deferred = Q.defer();
     console.log(this.dbConnection);
-    this.dbConnection && this.dbConnection.collection(collectionName).count((err, result) => {
-      assert.equal(err, null);
-      if (err) {
-        deferred.reject(new Error(JSON.stringify(err)));
-      }
-      deferred.resolve(result);
-    });
+    if (this.dbConnection) {
+      this.dbConnection.collection(collectionName).count((err, result) => {
+        assert.equal(err, null);
+        if (err) {
+          deferred.reject(new Error(JSON.stringify(err)));
+        }
+        deferred.resolve(result);
+      });
+    }
     return deferred.promise;
   }
 
-
-  public getHomePageData(): Q.Promise<HomePageData> {
-    let deferred = Q.defer<HomePageData>();
+  public getPageData(pageType: PageType): Q.Promise<HomePageData | ContactPageData> {
+    let deferred = Q.defer<HomePageData | ContactPageData>();
     if (this.dbConnection) {
-      let document = this.dbConnection.collection(this.PagesCollection).findOne({'pageName': Pages.Home});
-      if (document == null) {
-        deferred.reject(new Error(JSON.stringify('')));
-      } else {
-        deferred.resolve(new HomePageData(document.firstWord, document.secondWord, document.moto, document.pictureUrl));
-      }
+      this.dbConnection.collection(Collection.PAGES).findOne({'pageType': pageType})
+        .then((data) => {
+          if (data === null) {
+            deferred.reject(new Error(JSON.stringify('Error getting page data')));
+          } else {
+            if (pageType === PageType.HOME) {
+              deferred.resolve(Utils.HopePageDataFromJSON(data));
+            } else if (pageType === PageType.CONTACT) {
+              deferred.resolve(Utils.ContactPageDataFromJSON(data));
+            }
+
+          }
+        });
+
 
     }
     return deferred.promise;
   }
 
-  public getLivePage(): Q.Promise<LivePage> {
-    let deferred = Q.defer<LivePage>();
-    if (this.dbConnection) {
-      let cursor = this.dbConnection.collection(this.PagesCollection).find({[this.PageNameField]: Pages.Live});
-      cursor.each((err, document) => {
-        deferred.resolve(document);
-      })
-    }
-    return deferred.promise;
+  private create<T>(c: { new(): T }) {
+    return new c();
   }
 
-  public getLiveEvents(): Q.Promise<number[]> {
-    let deferred = Q.defer<number[]>();
-    this.getLivePage().then((livePage: LivePage) => {
-      deferred.resolve(livePage.liveEvents);
-    }).fail((error) => {
-      console.error(error);
-      deferred.reject(error);
-    });
-    return deferred.promise;
-  }
 
 }
 
