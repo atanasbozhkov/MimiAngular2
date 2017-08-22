@@ -1,13 +1,11 @@
 <img width="150" src="https://i.cloudup.com/zfY6lL7eFa-3000x3000.png" />
-<img width="50" src="https://angular.io/resources/images/logos/angular2/angular.svg" />
+<img width="50" src="https://angular.io/assets/images/logos/angular/angular.svg" />
 
-## Angular2 Express Starter ( Advanced )
+## Stack
 
-- Angular 2 ( 2.x )
+- Angular 4 ( 4.x )
 - ExpressJS ( 4.x - with compression )
 - Webpack ( angular-cli )
-
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 ## Concepts
 
@@ -16,24 +14,17 @@
 - AOT: Ahead-of-Time compilation
 - Advanced routing ( lazy loading, router outlets...)
 
-## Support
-
-If you’d like to support me developing this project you’re able to do so by donating on PayPal or if you have any special needs/ feature requests don’t hesitate to send me an email.
-
-[![Support via PayPal](https://cdn.rawgit.com/twolfson/paypal-github-button/1.0.0/dist/button.svg)](https://www.paypal.me/ngsemantic)
-
-
 ## Install / Development
 
 ```bash
-git clone https://github.com/vladotesanovic/angular2-express-starter
-cd angular2-express-starter
+git clone https://github.com/atanasbozhkov/MimiAngular2
+cd MimiAngular2
 
 # Install dependencies
-npm install
+yarn install
 
 # start server
-npm run start
+yarn run start
 
 # Client url: http://localhost:4200
 # Application ( epxress ) API: http://localhost:4300
@@ -47,19 +38,13 @@ https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfk
 
 ```bash
 
-npm run build
+yarn run build
 
 ## Deploy dist folder to app server
 
 Structure of dist folder:
 
 /dist/server <-- expressjs
-/dist/client <-- angular2
+/dist/client <-- angular4
 
 ```
-
-## Note
-
-All html and css are from: http://www.w3schools.com/howto/
-
-

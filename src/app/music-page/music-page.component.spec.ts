@@ -1,9 +1,7 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { MusicPageComponent } from './music-page.component';
+import {MusicPageComponent} from './music-page.component';
 
 describe('MusicPageComponent', () => {
   let component: MusicPageComponent;
@@ -11,9 +9,9 @@ describe('MusicPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MusicPageComponent ]
+      declarations: [MusicPageComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
