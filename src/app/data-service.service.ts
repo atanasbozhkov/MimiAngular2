@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { MenuItemComponent } from './menu-item/menu-item.component';
-import { HomePageData } from './common/HomePageData';
-import { LiveEvent } from './common/LiveEvent';
-import { ContactPageData } from './common/ContactPageData';
-import { GalleryImage } from './common/GalleryImage';
-import { Http } from '@angular/http';
+import {Injectable} from '@angular/core';
+import {MenuItemComponent} from './menu-item/menu-item.component';
+import {HomePageData} from './common/HomePageData';
+import {LiveEvent} from './common/LiveEvent';
+import {ContactPageData} from './common/ContactPageData';
+import {GalleryImage} from './common/GalleryImage';
+import {Observable} from 'rxjs/Observable';
+import {Http} from '@angular/http';
 import { MusicPageData, Song } from './common/MusicPageData';
-
 
 @Injectable()
 export class DataServiceService {
