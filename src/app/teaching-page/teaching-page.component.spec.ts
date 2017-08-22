@@ -16,6 +16,7 @@ describe('AboutPageComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TeachingPageComponent);
+
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

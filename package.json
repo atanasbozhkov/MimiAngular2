@@ -6,7 +6,7 @@
   "license": "All rights reserved.",
   "angular-cli": {},
   "scripts": {
-    "start": "ng serve --host localhost --port 9000 --aot=false --proxy-config proxy.conf.json |npm run _server:run",
+    "start": "ng serve --host 0.0.0.0 --aot=true --proxy-config proxy.conf.json |npm run _server:run",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test --watch=false",
     "pree2e": "webdriver-manager update",

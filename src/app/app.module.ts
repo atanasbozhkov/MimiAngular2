@@ -16,6 +16,7 @@ import {ContactPageComponent} from './contact-page/contact-page.component';
 import {GalleryPageComponent} from './gallery-page/gallery-page.component';
 import {TeachingPageComponent} from './teaching-page/teaching-page-component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

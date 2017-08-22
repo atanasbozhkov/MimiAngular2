@@ -17,6 +17,7 @@ export class ContactPageComponent implements OnInit {
 
   constructor(dataService: DataServiceService) {
     const contactPageData = dataService.getContactPageData();
+
     this.email = contactPageData.email;
     this.phone = contactPageData.phone;
     this.location = contactPageData.location;
