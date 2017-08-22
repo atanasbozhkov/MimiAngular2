@@ -29,14 +29,14 @@ export class DataServiceService {
     return 'Marina completed a Bachelor in Piano Performance at the National Academy of Music in Sofia, Bulgaria with a first class under Stella Dimitrova-Maystorova and Iliya Chernaev. Alongside her studies, she has been giving performances in the UK, Italy, Bulgaria, Turkey, Greece and Ukraine, both as a soloist and as a collaborative pianist. Her prizes include Airola International Piano Competition, Italy and International Competition for Japanese and Bulgarian Music to name a few. She has participated in different festivals such as <i>“Liszt Piano Festival”</i> - London, <i>“Dopo il rumore”</i> - Italy, <i>“ppIANISSIMO, Bulgaria, Varna Summer”</i> - Bulgaria.<br> <br> She is currently undertaking Guildhall Artist Masters in Piano Performance at the Guildhall School of Music and Drama under Philip Jenkins. Her studies are generously supported by the Guildhall Trust.';
   }
 
-  getHomePageData(): Observable<HomePageData> {
-    return this.http.get('api/Home').map(res => <HomePageData>res.json()[1]);
-    // return new HomePageData('Marina', 'Staneva', 'PIANIST', 'assets/img/1.jpg');
+  getHomePageData(): HomePageData {
+    return new HomePageData('Marina', 'Staneva', 'PIANIST', 'assets/img/1.jpg');
   }
 
   // Live events month starts from 0 to 11.
   getEvents(): LiveEvent[] {
     return [new LiveEvent(new Date(2017, 2, 24, 19, 0, 0), 'Piano Duo', 'Milton Court Concert Hall, London', 'https://www.facebook.com/events/1240883842673624/', 'https://goo.gl/maps/RjZ3Ysc1pRT2'),
+      new LiveEvent(new Date(2017, 7, 24, 20, 0, 0), 'Piano Recital - Debussy, Rachmaninov and Vladigerov', 'Remonstrantse Kerk', '', 'https://goo.gl/maps/WCffsxkejzt'),
       new LiveEvent(new Date(2017, 4, 7, 13, 0, 0), 'Songs of Britain', 'Music Hall, Silk Street, London', 'https://www.facebook.com/events/1304819516297956/', 'https://goo.gl/maps/fWG2DGM7HpQ2'),
       new LiveEvent(new Date(2017, 5, 20, 10, 0, 0), 'Piano Recital', 'Milton Court Concert Hall, London', '', 'https://goo.gl/maps/RjZ3Ysc1pRT2'),
       new LiveEvent(new Date(2017, 2, 6, 13, 0, 0), 'Bagatelles and Musical Momenets for Piano', '1901 Arts Club', 'https://www.facebook.com/events/1240883842673624/', 'https://www.google.co.uk/maps/place/%201901+Arts+Club/@51.5042148,-0.1130541,17z/data=!3m1!4b1!4m5!3m4!%201s0x487604ba07ca9bb5:0x81557c8a691516a6!8m2!3d51.5042115!%204d-0.1108654'),
