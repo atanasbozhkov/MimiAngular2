@@ -182,11 +182,7 @@ Her studies are generously supported by the Guildhall Trust.`
   }
 
   getContactPageData(): ContactPageData {
-    return new ContactPageData('contact@marinastaneva.com',
-                               '+44 (0)7399 443763',
-                               'London, United Kingdom',
-                               'https://twitter.com/StanevaM',
-                               'https://www.youtube.com/channel/UCgMM6D_YCuTpsw9fFya691Q');
+    return new ContactPageData("contact@marinastaneva.com", "+44 (0)7399 443763", "London, United Kingdom", "https://twitter.com/StanevaM", "https://www.youtube.com/channel/UCgMM6D_YCuTpsw9fFya691Q");
   }
 
   getGalleryImages(): GalleryImage[] {

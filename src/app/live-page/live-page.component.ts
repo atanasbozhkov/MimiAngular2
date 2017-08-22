@@ -31,7 +31,6 @@ export class LivePageComponent implements OnInit {
       return d1.date.getTime() - d2.date.getTime();
     });
   }
-
   sortEventsDesc(events: LiveEvent[]): LiveEvent[] {
     return events.sort((d1, d2) => {
       return d2.date.getTime() - d1.date.getTime();
