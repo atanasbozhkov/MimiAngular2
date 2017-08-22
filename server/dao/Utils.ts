@@ -1,10 +1,17 @@
-import {HomePageData} from "./types/HomePageData";
-/**
- * Created by atanasbozhkov on 03/05/2017.
- */
-export class Utils{
+import {HomePageData} from './types/HomePageData';
+import {ContactPageData} from './types/ContactPageData';
 
-  static JSONtoHomePageData(jsonData:JSON): HomePageData {
+/**
+ * Created by atanasbozhkov on 03/0    static ContactPageDataFromJSON: any;
+ 5/2017.
+ */
+export class Utils {
+
+  static HopePageDataFromJSON(jsonData: JSON): HomePageData {
     return new HomePageData(jsonData['firstWord'], jsonData['secondWord'], jsonData['moto'], jsonData['pictureUrl']);
+  }
+
+  static ContactPageDataFromJSON(jsonData: JSON): ContactPageData {
+    return new ContactPageData(jsonData['email'], jsonData['phone'], jsonData['location']);
   }
 }

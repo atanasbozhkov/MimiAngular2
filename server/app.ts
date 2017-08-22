@@ -9,6 +9,13 @@ import {publicRouter} from './routes/public';
 import {feedRouter} from './routes/feed';
 import {userRouter} from './routes/user';
 import {frontPageRouter} from './routes/frontPageRouter';
+import {DatabaseAccessLayer} from './dao/DatabaseAccessLayer';
+import {HomePageData} from './dao/types/HomePageData';
+import {Utils} from './dao/Utils';
+import {Collection} from './dao/enums/Collection';
+import {ContactPageData} from './dao/types/ContactPageData';
+import {PageType} from './dao/enums/PageType';
+import {Db, MongoClient} from 'mongodb';
 
 const app: express.Application = express();
 
@@ -51,29 +58,25 @@ app.use(function (err: any, req: express.Request, res: express.Response, next: e
   });
 });
 
-//
-// function testConnection() {
-//   console.log('Starting conn test');
-//   const host: string = "mongodb://127.0.0.1:";
-//   const port: number = 27017;
-//   const db: string = 'MarinaStaneva';
-//   const shareItUrl: string = host + port + '/' + db;
-//   console.log(shareItUrl);
-//   const MongoClient: any = require('mongodb').MongoClient;
-//
-//   MongoClient.connect(shareItUrl, (err, db) => {
-//     assert.equal(null, err);
-//     console.log("Connected correctly to MongoDB server.");
-//     let dal = new DatabaseAccessLayer(db);
-//     dal.getHomePageData().then((data: JSON) => {
-//       console.log('Got the page data');
-//       console.log('reusing types');
-//       let pageData: HomePageData = Utils.JSONtoHomePageData(data);
-//       console.log(pageData.moto);
-//     });
-//   });
-//
-// }
-//
-// testConnection();
+
+function testConnection() {
+  console.log('Starting conn test');
+  const host = 'mongodb://127.0.0.1:';
+  const port = 27017;
+  const dbName = 'MarinaStaneva';
+  const shareItUrl: string = host + port + '/' + dbName;
+  console.log(shareItUrl);
+
+  MongoClient.connect(shareItUrl, (err, db: Db) => {
+    console.log('Connected correctly to MongoDB server.');
+    let dal = new DatabaseAccessLayer(db);
+    dal.getPageData(PageType.CONTACT).then((data: ContactPageData) => {
+      console.log('Got the contact data');
+      console.log(data);
+    });
+  });
+
+}
+
+testConnection();
 export {app}
