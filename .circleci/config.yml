@@ -6,18 +6,18 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Update npm
+        name: update-npm
         command: 'sudo npm install -g npm@latest'
       - restore_cache:
         key: dependency-cache-{{ checksum "package.json" }}
       - run:
-        name: Install npm ng
+        name: npm-install-ng
         command: 'sudo npm install -g @angular-cli'
       - run:
-        name: Install concurently
+        name: npm-install-concur
         command: 'sudo npm install -g concurrently'
       - run:
-        name: Install npm wee
+        name: npm-install-proj
         command: npm install
       - save_cache:
         key: dependency-cache-{{ checksum "package.json" }}
