@@ -8,8 +8,6 @@ jobs:
       - run:
         name: update-npm
         command: 'sudo npm install -g npm@latest'
-      - restore_cache:
-        key: dependency-cache-{{ checksum "package.json" }}
       - run:
         name: npm-install-ng
         command: 'sudo npm install -g @angular-cli'
@@ -19,10 +17,6 @@ jobs:
       - run:
         name: npm-install-proj
         command: 'npm install'
-      - save_cache:
-        key: dependency-cache-{{ checksum "package.json" }}
-        paths:
-          - node_modules
       # Download and cache dependencies
       - restore_cache:
         keys:
