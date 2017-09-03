@@ -13,3 +13,9 @@ jobs:
           name: npm-install-concur
           command: 'sudo yarn global add concurrently'
       - run: yarn install
+deployment:
+  production:
+    branch: master
+    codedeploy:
+      MimiAngular2:
+        deployment_group: MimiAngular2
