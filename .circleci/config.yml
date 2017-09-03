@@ -1,13 +1,14 @@
 version: 2
+dependencies:
+  pre:
+    - npm install npm@latest -g # Should fix bug in ng test
+    - npm install angular-cli@latest -g
 jobs:
   build:
     docker:
       - image: circleci/node:6.10.3
     steps:
       - checkout
-      - run:
-          name: yarn-install-ng
-          command: 'sudo yarn global add @angular-cli'
       - run:
           name: npm-install-concur
           command: 'sudo yarn global add concurrently'
