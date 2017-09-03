@@ -1,0 +1,29 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:6
+    steps:
+      - checkout
+      - run:
+        name: update-npm
+        command: 'sudo npm install -g npm@latest'
+      - run:
+        name: npm-install-ng
+        command: 'sudo npm install -g @angular-cli'
+      - run:
+        name: npm-install-concur
+        command: 'sudo npm install -g concurrently'
+      - run:
+        name: npm-install-proj
+        command: 'npm install'
+      - run: yarn install
+      - save_cache:
+        paths:
+          - node_modules
+        key: v1-dependencies-{{ checksum "package.json" }}
+      # run tests!
+      - run: yarn test
+
+
+
