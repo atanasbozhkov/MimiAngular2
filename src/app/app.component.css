@@ -2,9 +2,9 @@
 
 @font-face {
   font-family: "Marzo-W00-Regular";
-  src: url("assets/fonts/1e6ec96c95301fa73aa1d026f161a269.eot");
-  src: url("assets/fonts/1e6ec96c95301fa73aa1d026f161a269.woff") format("woff");
-  src: url("assets/fonts/1e6ec96c95301fa73aa1d026f161a269.woff2") format("woff2");
+  src: url("../assets/fonts/1e6ec96c95301fa73aa1d026f161a269.eot");
+  src: url("../assets/fonts/1e6ec96c95301fa73aa1d026f161a269.woff") format("woff");
+  src: url("../assets/fonts/1e6ec96c95301fa73aa1d026f161a269.woff2") format("woff2");
 }
 
 @font-face {

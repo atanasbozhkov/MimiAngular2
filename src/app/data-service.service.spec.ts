@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async, inject } from '@angular/core/testing';
-import { DataServiceService } from './data-service.service';
+import {inject, TestBed} from '@angular/core/testing';
+import {DataServiceService} from './data-service.service';
 
 describe('Service: DataService', () => {
   beforeEach(() => {

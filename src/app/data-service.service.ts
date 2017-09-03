@@ -1,15 +1,17 @@
 import {Injectable} from '@angular/core';
-import {MenuItemComponent} from "./menu-item/menu-item.component";
-import {HomePageData} from "./common/HomePageData";
-import {LiveEvent} from "./common/LiveEvent";
-import {ContactPageData} from "./common/ContactPageData";
-import {GalleryImage} from "./common/GalleryImage";
+import {MenuItemComponent} from './menu-item/menu-item.component';
+import {HomePageData} from './common/HomePageData';
+import {LiveEvent} from './common/LiveEvent';
+import {ContactPageData} from './common/ContactPageData';
+import {GalleryImage} from './common/GalleryImage';
+import {Observable} from 'rxjs/Observable';
+import {Http} from '@angular/http';
 
 @Injectable()
 export class DataServiceService {
 
 
-  constructor() {
+  constructor(private http: Http) {
   }
 
   getMenuItems(): MenuItemComponent[] {
@@ -50,7 +52,7 @@ export class DataServiceService {
   }
 
   getContactPageData(): ContactPageData {
-    return new ContactPageData("contact@marinastaneva.com", "+44 (0)7399 443763", "London, United Kingdom", "https://twitter.com/StanevaM", "https://www.youtube.com/channel/UCgMM6D_YCuTpsw9fFya691Q");
+    return new ContactPageData('contact@marinastaneva.com', '+44 (0)7399 443763', 'London, United Kingdom', 'https://twitter.com/StanevaM', 'https://www.youtube.com/channel/UCgMM6D_YCuTpsw9fFya691Q');
   }
 
   getGalleryImages(): GalleryImage[] {
