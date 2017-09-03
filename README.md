@@ -1,4 +1,4 @@
-<img width="150" src="https://circleci.com/gh/atanasbozhkov/MimiAngular2.svg?style=shield&circle-token=:circle-token" />
+<img src="https://circleci.com/gh/atanasbozhkov/MimiAngular2.svg?style=shield&circle-token=:circle-token=52bbcce905893596e581cc77101efc43bacb2470" />
 <img width="150" src="https://i.cloudup.com/zfY6lL7eFa-3000x3000.png" />
 <img width="50" src="https://angular.io/assets/images/logos/angular/angular.svg" />
 
