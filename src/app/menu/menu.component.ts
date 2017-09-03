@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MenuItemComponent} from '../menu-item/menu-item.component';
 import {DataServiceService} from '../data-service.service';
 
