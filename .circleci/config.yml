@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: update-npm
-          command: 'sudo npm install -g npm@latest'
+          command: 'sudo npm update'
       - run:
           name: npm-install-ng-dependencies
           command: 'sudo npm install -g process-nextick-args'
