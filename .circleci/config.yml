@@ -6,15 +6,9 @@ jobs:
     steps:
       - checkout
       - run:
-          name: update-npm
-          command: 'sudo npm update'
-      - run:
-          name: npm-install-ng
-          command: 'sudo npm install -g @angular-cli'
+          name: yarn-install-ng
+          command: 'sudo yarn global add @angular-cli'
       - run:
           name: npm-install-concur
-          command: 'sudo npm install -g concurrently'
-      - run:
-          name: npm-install-proj
-          command: 'npm install'
-      - run: npm install
+          command: 'sudo yarn global add concurrently'
+      - run: yarn install
