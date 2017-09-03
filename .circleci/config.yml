@@ -18,12 +18,4 @@ jobs:
           name: npm-install-proj
           command: 'npm install'
       - run: yarn install
-      - save_cache:
-          paths:
-          - node_modules
-            key: v1-dependencies-{{ checksum "package.json" }}
-      # run tests!
       - run: yarn test
-
-
-
