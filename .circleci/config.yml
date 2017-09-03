@@ -9,9 +9,6 @@ jobs:
           name: update-npm
           command: 'sudo npm update'
       - run:
-          name: npm-install-ng-dependencies
-          command: 'sudo npm install -g process-nextick-args'
-      - run:
           name: npm-install-ng
           command: 'sudo npm install -g @angular-cli'
       - run:
