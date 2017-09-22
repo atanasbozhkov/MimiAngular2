@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {DataServiceService} from '../data-service.service';
+import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from '../data-service.service';
 
 @Component({
   selector: 'app-contact-page',
   templateUrl: './contact-page.component.html',
-  styleUrls: ['./contact-page.component.css']
+  styleUrls: [ './contact-page.component.css' ]
 })
 export class ContactPageComponent implements OnInit {
 

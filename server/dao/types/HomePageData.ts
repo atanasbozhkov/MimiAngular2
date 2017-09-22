@@ -3,11 +3,6 @@
  */
 export class HomePageData {
 
-  private _firstName: string;
-  private _lastName: string;
-  private _moto: string;
-  private _photoUrl: string;
-
   constructor(firstName: string, lastName: string, moto: string, photoUrl: string) {
     this._firstName = firstName;
     this._lastName = lastName;
@@ -15,16 +10,27 @@ export class HomePageData {
     this._photoUrl = photoUrl;
   }
 
-  get photoUrl(): string {
-    return this._photoUrl;
+  private _firstName: string;
+
+  get firstName(): string {
+    return this._firstName;
   }
-  get moto(): string {
-    return this._moto;
-  }
+
+  private _lastName: string;
+
   get lastName(): string {
     return this._lastName;
   }
-  get firstName(): string {
-    return this._firstName;
+
+  private _moto: string;
+
+  get moto(): string {
+    return this._moto;
+  }
+
+  private _photoUrl: string;
+
+  get photoUrl(): string {
+    return this._photoUrl;
   }
 }

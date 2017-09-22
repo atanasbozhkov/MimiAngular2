@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {LivePageComponent} from './live-page.component';
+import { LivePageComponent } from './live-page.component';
 
 describe('LivePageComponent', () => {
   let component: LivePageComponent;
@@ -9,7 +9,7 @@ describe('LivePageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LivePageComponent]
+      declarations: [ LivePageComponent ]
     })
       .compileComponents();
   }));

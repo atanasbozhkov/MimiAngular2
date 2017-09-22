@@ -1,9 +1,9 @@
 import * as express from 'express';
-import {json, urlencoded} from 'body-parser';
+import { json, urlencoded } from 'body-parser';
 import * as path from 'path';
 import * as compression from 'compression';
-import {frontPageRouter} from './routes/frontPageRouter';
-import {apiRouter} from './routes/api';
+import { frontPageRouter } from './routes/frontPageRouter';
+import { apiRouter } from './routes/api';
 
 const app: express.Application = express();
 
@@ -11,7 +11,7 @@ app.disable('x-powered-by');
 
 app.use(json());
 app.use(compression());
-app.use(urlencoded({extended: true}));
+app.use(urlencoded({ extended: true }));
 
 // api routes
 // app.use('/api/secure', protectedRouter);
@@ -47,4 +47,4 @@ app.use(function (err: any, req: express.Request, res: express.Response, next: e
   });
 });
 
-export {app}
+export { app }
