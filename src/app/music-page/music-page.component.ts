@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 
+// tslint: disable
 declare let APlayer: any;
+// tslint: enable
 
 declare function require(name: string);
 
@@ -10,17 +12,17 @@ declare function require(name: string);
   styleUrls: [ './music-page.component.css' ]
 })
 
-
 export class MusicPageComponent implements OnDestroy, AfterViewInit {
   ap: any;
-
 
   ngOnDestroy() {
     this.ap.pause();
   }
 
   ngAfterViewInit() {
+    // tslint: disable
     let APlayer = require('aplayer');
+    // tslint: enable
     this.ap = new APlayer({
       element: document.getElementById('player1'),
       narrow: false,
