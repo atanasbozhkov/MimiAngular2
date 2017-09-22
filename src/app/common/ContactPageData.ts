@@ -3,13 +3,11 @@
  */
 export class ContactPageData {
 
-
   email: string;
   phone: string;
   location: string;
   twitter: string;
   youtube: string;
-
 
   constructor(email: string,
               phone: string,

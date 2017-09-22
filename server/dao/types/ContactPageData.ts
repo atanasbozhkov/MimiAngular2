@@ -3,11 +3,9 @@
  */
 export class ContactPageData {
 
-
   email: string;
   phone: string;
   location: string;
-
 
   constructor(email: string,
               phone: string,

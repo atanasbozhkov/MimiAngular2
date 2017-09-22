@@ -3,7 +3,9 @@ import { DataServiceService } from '../data-service.service';
 import { MusicPageData } from '../common/MusicPageData';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
+// tslint: disable
 declare let APlayer: any;
+// tslint: enable
 
 declare function require(name: string);
 
@@ -11,7 +13,6 @@ declare function require(name: string);
              templateUrl: './music-page.component.html',
              styleUrls  : [ './music-page.component.css' ]
 })
-
 
 export class MusicPageComponent implements OnDestroy, AfterViewInit {
   ap: any;
@@ -32,7 +33,9 @@ export class MusicPageComponent implements OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    // tslint: disable
     let APlayer = require('aplayer');
+    // tslint: enable
     const playerConfig = {
       element : document.getElementById('player'),
       narrow  : false,

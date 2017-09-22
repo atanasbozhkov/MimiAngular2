@@ -29,7 +29,6 @@ export class MenuComponent implements OnInit {
     this.menuClass === false ? this.menuClass = true : this.menuClass = false;
   }
 
-
   changeActive(title: string) {
     for (let menuItem of this.menuItems) {
       menuItem.isActive = menuItem.title.toLowerCase() === title.toLowerCase();
