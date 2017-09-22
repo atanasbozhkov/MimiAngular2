@@ -1,5 +1,3 @@
-import {AfterViewInit, Component, OnDestroy} from '@angular/core';
-
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { DataServiceService } from '../data-service.service';
 import { MusicPageData } from '../common/MusicPageData';
@@ -15,7 +13,7 @@ declare function require(name: string);
 })
 
 
-export class MusicPageComponent implements OnDestroy, AfterViewInit{
+export class MusicPageComponent implements OnDestroy, AfterViewInit {
   ap: any;
   musicPageData: MusicPageData;
   videos: Array<SafeResourceUrl>;

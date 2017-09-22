@@ -1,11 +1,11 @@
 import * as assert from 'assert';
 import * as Q from 'q';
-import {HomePageData} from './types/HomePageData';
-import {Collection} from './enums/Collection';
-import {ContactPageData} from './types/ContactPageData';
-import {Utils} from './Utils';
-import {PageType} from './enums/PageType';
-import {Db} from 'mongodb';
+import { HomePageData } from './types/HomePageData';
+import { Collection } from './enums/Collection';
+import { ContactPageData } from './types/ContactPageData';
+import { Utils } from './Utils';
+import { PageType } from './enums/PageType';
+import { Db } from 'mongodb';
 
 /**
  * Created by atanasbozhkov on 19/04/2017.
@@ -15,13 +15,6 @@ export class DatabaseAccessLayer {
 
   constructor(dbConnection: Db) {
     this.dbConnection = dbConnection;
-  }
-
-  private closeDbConnection() {
-    if (this.dbConnection !== null) {
-      this.dbConnection.close();
-      this.dbConnection = null;
-    }
   }
 
   public insertDocument(document: any, collectionName: string): any {
@@ -56,7 +49,7 @@ export class DatabaseAccessLayer {
   public getPageData(pageType: PageType): Q.Promise<HomePageData | ContactPageData> {
     let deferred = Q.defer<HomePageData | ContactPageData>();
     if (this.dbConnection) {
-      this.dbConnection.collection(Collection.PAGES).findOne({'pageType': pageType})
+      this.dbConnection.collection(Collection.PAGES).findOne({ 'pageType': pageType })
         .then((data) => {
           if (data === null) {
             deferred.reject(new Error(JSON.stringify('Error getting page data')));
@@ -73,6 +66,13 @@ export class DatabaseAccessLayer {
 
     }
     return deferred.promise;
+  }
+
+  private closeDbConnection() {
+    if (this.dbConnection !== null) {
+      this.dbConnection.close();
+      this.dbConnection = null;
+    }
   }
 
   private create<T>(c: { new(): T }) {

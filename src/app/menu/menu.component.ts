@@ -1,11 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {MenuItemComponent} from '../menu-item/menu-item.component';
-import {DataServiceService} from '../data-service.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { MenuItemComponent } from '../menu-item/menu-item.component';
+import { DataServiceService } from '../data-service.service';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css', './hamburgers.css']
+  styleUrls: [ './menu.component.css', './hamburgers.css' ]
 })
 export class MenuComponent implements OnInit {
   menuItems: MenuItemComponent[];

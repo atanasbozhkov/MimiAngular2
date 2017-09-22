@@ -1,8 +1,8 @@
-import {Request, Response, Router} from 'express';
-import {Db, MongoClient} from 'mongodb';
-import {DatabaseAccessLayer} from '../dao/DatabaseAccessLayer';
-import {PageType} from '../dao/enums/PageType';
-import {HomePageData} from '../dao/types/HomePageData';
+import { Request, Response, Router } from 'express';
+import { Db, MongoClient } from 'mongodb';
+import { DatabaseAccessLayer } from '../dao/DatabaseAccessLayer';
+import { PageType } from '../dao/enums/PageType';
+import { HomePageData } from '../dao/types/HomePageData';
 
 const apiRouter: Router = Router();
 
@@ -24,4 +24,4 @@ apiRouter.get('/' + 'Home', (request: Request, response: Response) => {
 
 });
 
-export {apiRouter};
+export { apiRouter };
