@@ -15,7 +15,6 @@ export class LiveEvent {
   facebookLink: string;
   googleMapsLink: string;
 
-
   constructor(date: Date,
               eventName: string,
               eventLocation: string,
@@ -39,7 +38,7 @@ export class LiveEvent {
     hours = hours % 12;
     hours = hours ? hours : 12; // the hour '0' should be '12'
     minutes = minutes < 10 ? '0' + minutes : minutes;
-    if (minutes != '00') {
+    if (minutes !== '00') {
       return hours + ':' + minutes + ampm;
     }
     return hours + ampm;

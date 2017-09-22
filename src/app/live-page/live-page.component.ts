@@ -38,7 +38,6 @@ export class LivePageComponent implements OnInit {
     });
   }
 
-
   ngOnInit() {
   }
 

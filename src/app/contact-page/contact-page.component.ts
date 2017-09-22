@@ -14,7 +14,6 @@ export class ContactPageComponent implements OnInit {
   twitter: string;
   youtube: string;
 
-
   constructor(dataService: DataServiceService) {
     const contactPageData = dataService.getContactPageData();
 
