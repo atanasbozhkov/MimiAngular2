@@ -21,7 +21,7 @@ Promise.all([
   System.import('@angular/platform-browser-dynamic/testing')
 ])
 // First, initialize the Angular testing environment.
-  .then(([testing, testingBrowser]) => {
+  .then(([ testing, testingBrowser ]) => {
     testing.getTestBed().initTestEnvironment(
       testingBrowser.BrowserDynamicTestingModule,
       testingBrowser.platformBrowserDynamicTesting()

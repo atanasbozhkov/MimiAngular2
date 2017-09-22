@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnDestroy} from '@angular/core';
+import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 
 declare let APlayer: any;
 
@@ -7,11 +7,11 @@ declare function require(name: string);
 @Component({
   selector: 'app-music-page',
   templateUrl: './music-page.component.html',
-  styleUrls: ['./music-page.component.css']
+  styleUrls: [ './music-page.component.css' ]
 })
 
 
-export class MusicPageComponent implements OnDestroy, AfterViewInit{
+export class MusicPageComponent implements OnDestroy, AfterViewInit {
   ap: any;
 
 

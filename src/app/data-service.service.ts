@@ -1,11 +1,10 @@
-import {Injectable} from '@angular/core';
-import {MenuItemComponent} from './menu-item/menu-item.component';
-import {HomePageData} from './common/HomePageData';
-import {LiveEvent} from './common/LiveEvent';
-import {ContactPageData} from './common/ContactPageData';
-import {GalleryImage} from './common/GalleryImage';
-import {Observable} from 'rxjs/Observable';
-import {Http} from '@angular/http';
+import { Injectable } from '@angular/core';
+import { MenuItemComponent } from './menu-item/menu-item.component';
+import { HomePageData } from './common/HomePageData';
+import { LiveEvent } from './common/LiveEvent';
+import { ContactPageData } from './common/ContactPageData';
+import { GalleryImage } from './common/GalleryImage';
+import { Http } from '@angular/http';
 
 @Injectable()
 export class DataServiceService {
@@ -15,7 +14,7 @@ export class DataServiceService {
   }
 
   getMenuItems(): MenuItemComponent[] {
-    return [new MenuItemComponent('Home', '/', true),
+    return [ new MenuItemComponent('Home', '/', true),
       new MenuItemComponent('About', '/About', false),
       new MenuItemComponent('Music', '/Music', false),
       new MenuItemComponent('Live', '/Live', false),
@@ -35,7 +34,7 @@ export class DataServiceService {
 
   // Live events month starts from 0 to 11.
   getEvents(): LiveEvent[] {
-    return [new LiveEvent(new Date(2017, 2, 24, 19, 0, 0), 'Piano Duo', 'Milton Court Concert Hall, London', 'https://www.facebook.com/events/1240883842673624/', 'https://goo.gl/maps/RjZ3Ysc1pRT2'),
+    return [ new LiveEvent(new Date(2017, 2, 24, 19, 0, 0), 'Piano Duo', 'Milton Court Concert Hall, London', 'https://www.facebook.com/events/1240883842673624/', 'https://goo.gl/maps/RjZ3Ysc1pRT2'),
       new LiveEvent(new Date(2017, 7, 24, 20, 0, 0), 'Piano Recital - Debussy, Rachmaninov and Vladigerov', 'Remonstrantse Kerk', '', 'https://goo.gl/maps/WCffsxkejzt'),
       new LiveEvent(new Date(2017, 4, 7, 13, 0, 0), 'Songs of Britain', 'Music Hall, Silk Street, London', 'https://www.facebook.com/events/1304819516297956/', 'https://goo.gl/maps/fWG2DGM7HpQ2'),
       new LiveEvent(new Date(2017, 5, 20, 10, 0, 0), 'Piano Recital', 'Milton Court Concert Hall, London', '', 'https://goo.gl/maps/RjZ3Ysc1pRT2'),
@@ -48,7 +47,7 @@ export class DataServiceService {
       new LiveEvent(new Date(2016, 4, 20, 18, 0, 0), 'SONGS AT SIX: FRENCH', 'Milton Court Concert Hall, London', 'https://www.facebook.com/events/858192900990832/', 'https://goo.gl/maps/RjZ3Ysc1pRT2'),
       new LiveEvent(new Date(2016, 4, 10, 19, 30, 0), 'Mahler Symphony No. 4 for Chamber Ensemble', 'Music Hall Silk Street, London', 'https://www.facebook.com/events/230447690645821/', 'https://goo.gl/maps/fWG2DGM7HpQ2'),
       new LiveEvent(new Date(2016, 3, 29, 19, 0, 0), 'Piano Duo Project', 'Music Hall Silk Street, London', '', 'https://goo.gl/maps/RjZ3Ysc1pRT2'),
-      new LiveEvent(new Date(2016, 3, 1, 13, 0, 0), 'Viola and Piano Recital', 'St. John\'s Waterloo, London', 'https://www.facebook.com/events/991420074226759/', 'https://goo.gl/maps/cwUDczDKTTA2')];
+      new LiveEvent(new Date(2016, 3, 1, 13, 0, 0), 'Viola and Piano Recital', 'St. John\'s Waterloo, London', 'https://www.facebook.com/events/991420074226759/', 'https://goo.gl/maps/cwUDczDKTTA2') ];
   }
 
   getContactPageData(): ContactPageData {
@@ -65,7 +64,7 @@ export class DataServiceService {
       new GalleryImage('assets/img/4.jpg', 'assets/img/thumbs/4.jpg'),
       new GalleryImage('assets/img/about.jpg', 'assets/img/thumbs/about.jpg'),
       new GalleryImage('assets/img/DSC_4217.jpg', 'assets/img/thumbs/DSC_4217.jpg'),
-      new GalleryImage('assets/img/main.jpg', 'assets/img/thumbs/main.jpg')];
+      new GalleryImage('assets/img/main.jpg', 'assets/img/thumbs/main.jpg') ];
   }
 
 
