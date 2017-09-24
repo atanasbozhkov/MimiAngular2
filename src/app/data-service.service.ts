@@ -9,7 +9,6 @@ import { Http } from '@angular/http';
 @Injectable()
 export class DataServiceService {
 
-
   constructor(private http: Http) {
   }
 
@@ -66,6 +65,5 @@ export class DataServiceService {
       new GalleryImage('assets/img/DSC_4217.jpg', 'assets/img/thumbs/DSC_4217.jpg'),
       new GalleryImage('assets/img/main.jpg', 'assets/img/thumbs/main.jpg') ];
   }
-
 
 }
