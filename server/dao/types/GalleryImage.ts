@@ -6,9 +6,8 @@ export class GalleryImage {
   href: string;
   thumb: string;
 
-  constructor(href: string, thumb: string) {
-    this.href = href;
-    this.thumb = thumb;
+  constructor(galleryImage: Partial<GalleryImage>) {
+    Object.assign(this, galleryImage);
   }
 
 }

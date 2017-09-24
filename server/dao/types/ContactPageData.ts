@@ -7,11 +7,7 @@ export class ContactPageData {
   phone: string;
   location: string;
 
-  constructor(email: string,
-              phone: string,
-              location: string) {
-    this.email = email;
-    this.phone = phone;
-    this.location = location;
+  constructor(contactPageData: Partial<ContactPageData>) {
+    Object.assign(this, contactPageData);
   }
 }
