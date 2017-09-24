@@ -11,7 +11,6 @@ import { MusicPageData, Song } from './common/MusicPageData';
 @Injectable()
 export class DataServiceService {
 
-
   constructor(private http: Http) {
   }
 
@@ -197,6 +196,5 @@ Her studies are generously supported by the Guildhall Trust.`
       new GalleryImage('assets/img/DSC_4217.jpg', 'assets/img/thumbs/DSC_4217.jpg'),
       new GalleryImage('assets/img/main.jpg', 'assets/img/thumbs/main.jpg') ];
   }
-
 
 }
