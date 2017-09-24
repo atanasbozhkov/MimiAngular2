@@ -19,13 +19,13 @@ protectedRouter.use((request: Request & { headers: { authorization: string } }, 
 });
 
 protectedRouter.get('/', (request: Request, response: Response) => {
-  response.json({
-    text: 'Greetings, you have valid token.',
-    title: 'Protected call'
-  });
+    response.json({
+        text: 'Greetings, you have valid token.',
+        title: 'Protected call'
+    });
 });
 
-export {protectedRouter}
+export { protectedRouter }
 
 
 
