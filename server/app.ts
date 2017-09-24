@@ -2,8 +2,10 @@ import * as express from 'express';
 import { json, urlencoded } from 'body-parser';
 import * as path from 'path';
 import * as compression from 'compression';
-import { frontPageRouter } from './routes/frontPageRouter';
-import { apiRouter } from './routes/api';
+import {frontPageRouter} from './routes/frontPageRouter';
+import {apiRouter} from './routes/api';
+import {loginRouter} from './routes/login';
+import {protectedRouter} from './routes/protected';
 
 const app: express.Application = express();
 
@@ -14,8 +16,6 @@ app.use(compression());
 app.use(urlencoded({ extended: true }));
 
 // api routes
-// app.use('/api/secure', protectedRouter);
-// app.use('/api/login', loginRouter);
 // app.use('/api/public', publicRouter);
 // app.use('/api/feed', feedRouter);
 // app.use('/api/user', userRouter);
@@ -29,7 +29,8 @@ if (app.get('env') === 'production') {
   // Handle all public pages routing for Angular2;
   app.use('/', frontPageRouter);
 }
-
+app.use('/admin', protectedRouter);
+app.use('/login', loginRouter);
 // catch 404 and forward to error handler
 app.use(function (req: express.Request, res: express.Response, next) {
   let err = new Error('Not Found');

@@ -6,7 +6,7 @@
   "license": "All rights reserved.",
   "angular-cli": {},
   "scripts": {
-    "start": "ng serve --host 0.0.0.0 --aot=false --proxy-config proxy.conf.json |npm run _server:run",
+    "start": "ng serve --host 0.0.0.0 --port 9000 --aot=false --proxy-config proxy.conf.json |npm run _server:run",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test --watch=false",
     "pree2e": "webdriver-manager update",
@@ -74,6 +74,7 @@
   "devDependencies": {
     "codelyzer": "^3.1.1",
     "concurrently": "^3.1.0",
+    "firebase": "^4.4.0",
     "jasmine-core": "2.6.4",
     "jasmine-spec-reporter": "4.1.1",
     "karma": "1.7.0",

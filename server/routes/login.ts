@@ -1,35 +1,34 @@
-import { NextFunction, Request, Response, Router } from 'express';
-import { pbkdf2, randomBytes } from 'crypto';
-import { digest, length } from '../config';
+import {NextFunction, Request, Response, Router} from 'express';
+import {pbkdf2} from 'crypto';
+import {sign} from 'jsonwebtoken';
+import {digest, length, secret} from '../config';
 
 const loginRouter: Router = Router();
-
+const ONE_DAY = '1d';
+// TODO: Move this to the database at some point.
 const user = {
-  hashedPassword: '6fb3a68cb5fe34d0c2c9fc3807c8fa9bc0e7dd10023065ea4233d40a2d6bb4a' +
-  '7e336a82f48bcb5a7cc95b8a590cf03a4a07615a226d09a89420a342584a' +
-  'a28748336aa0feb7ac3a12200d13641c8f8e26398cfdaf268dd68746982bcf' +
-  '59415670655edf4e9ac30f6310bd2248cb9bc185db8059fe979294dd3611fdf28c2b731',
-  salt: 'OxDZYpi9BBJUZTTaC/yuuF3Y634YZ90KjpNa+Km4qGgZXGI6vhSWW0T91' +
-  'rharcQWIjG2uPZEPXiKGnSAQ73s352aom56AIYpYCfk7uNsd+7AzaQ6dxTnd9AzCCdIc/J' +
-  '62JohpHPJ5eGHUJJy3PAgHYcfVzvBHnIQlTJCQdQAonQ=',
-  username: 'john'
+  hashedPassword: 'be778015c3cd6d985bfcddb44a9f5e5bcb830fb233c6b3e450622ff58795d5e21057a1a1d4169f2c29eff09d715aabcb44b633687174b3c4d4bb08ab5479c8' +
+  '8eb676eb2cc15aceb4c771648c68d69379f36302b219aa3c49f4d574b85e4db272a3d50f20a3c749ba60af73c0ec2114d2f54517e6f93e435324602070601b103a',
+  salt: 'wtuBPQK/YYtr8BrzQS94lNyW617R+oY/Jf8OLWhY+R49ax1DbOTu6o+9XYThDdV7kdMxgmXCkLJIYnvEqg1TgfhOLmZHhadmwCBFFrp2UM3xWuwJTgLjTd2EjvgHo4' +
+  'tx3EYGxMp/t0Ui0Lnf2wbule4yW+M/BvBv0oRtCDQ2S60=',
+  username: 'marinastaneva'
 };
 
-loginRouter.post('/signup', function (request: Request, response: Response, next: NextFunction) {
-  if (!request.body.hasOwnProperty('password')) {
-    let err = new Error('No password');
-    return next(err);
-  }
-
-  const salt = randomBytes(128).toString('base64');
-
-  pbkdf2(request.body.password, salt, 10000, length, digest, (err: Error, hash: Buffer) => {
-    response.json({
-      hashed: hash.toString('hex'),
-      salt: salt
-    });
-  });
-});
+// loginRouter.post('/signup', function (request: Request, response: Response, next: NextFunction) {
+//     if (!request.body.hasOwnProperty('password')) {
+//         let err = new Error('No password');
+//         return next(err);
+//     }
+//
+//     const salt = randomBytes(128).toString('base64');
+//
+//     pbkdf2(request.body.password, salt, 10000, length, digest, (err: Error, hash: Buffer) => {
+//         response.json({
+//             hashed: hash.toString('hex'),
+//             salt: salt
+//         });
+//     });
+// });
 
 // login method
 loginRouter.post('/', function (request: Request, response: Response, next: NextFunction) {
@@ -42,14 +41,16 @@ loginRouter.post('/', function (request: Request, response: Response, next: Next
     // check if password is active
     if (hash.toString('hex') === user.hashedPassword) {
 
-      // const token = sign({'user': user.username, permissions: []}, secret, { expiresIn: '7d' });
-      response.json({ 'jwt': '' });
+
+
+      const token = sign({'user': user.username, permissions: []}, secret, {expiresIn: ONE_DAY});
+      response.json({'jwt': token});
 
     } else {
-      response.json({ message: 'Wrong password' });
+      response.json({message: 'Wrong password'});
     }
 
   });
 });
 
-export { loginRouter }
+export {loginRouter}
