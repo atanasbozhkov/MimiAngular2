@@ -34,7 +34,7 @@ Competition, Italy, Music and Earth International Competition and International 
 She has participated in different festivals such as “Liszt Piano Festival” - London, “Dopo il rumore” - Italy, “ppIANISSIMO” - Bulgaria,
 “Varna Summer” - Bulgaria. <br/><br/>
 Recently she attended The Holland International Music Sessions with a scholarship where she studied with Pavel Gililov. <br/><br/>
-She is currently undertaking Advanced Certificate at The Guildhall School of a Music and Drama under Philip Jenkins and Pamela Lidiard.
+She is currently undertaking Advanced Certificate at the Guildhall School of a Music and Drama under Philip Jenkins and Pamela Lidiard.
 Her studies are generously supported by the Guildhall Trust.`
   }
 
