@@ -45,8 +45,8 @@ Her studies are generously supported by the Guildhall Trust.`
   // Live events month starts from 0 to 11.
   getEvents(): LiveEvent[] {
     return [
-      new LiveEvent(new Date(2017, 9, 9, 12, 0, 0), 'First Global Granados Marathon', 'Live at https://www.fimte.org', 'https://www.facebook.com/events/347228682371868/?__mref=mb', 'https://goo.gl/maps/RjZ3Ysc1pRT2'),
-      new LiveEvent(new Date(2017, 9, 3, 19, 0, 0), 'Masterclass with Julius Drake', 'Parliament Chamber Inner Temple, London', 'https://www.facebook.com/events/424018774651775?%3Fti=ia&__mref=mb', 'https://goo.gl/maps/FCmoQEZpGDw'),
+      new LiveEvent(new Date(2017, 9, 9, 12, 0, 0), 'First Global Granados Marathon', 'Live at <a href="https://www.fimte.org">FIMTE</a> ', 'https://www.facebook.com/events/347228682371868/?__mref=mb', 'https://goo.gl/maps/RjZ3Ysc1pRT2'),
+      new LiveEvent(new Date(2017, 9, 3, 19, 0, 0), 'Masterclass with Julius Drake <br> performing with Annie Reilly', '<a href="https://www.templemusic.org/shop/masterclass-with-julius-drake/"> TICKETS </a> Parliament Chamber Inner Temple, London', 'https://www.facebook.com/events/424018774651775?%3Fti=ia&__mref=mb', 'https://goo.gl/maps/FCmoQEZpGDw'),
       new LiveEvent(new Date(2017, 9, 2, 10, 0, 0), 'Masterclass with Read Gainsford', 'Music Hall, Silk Street, London', '', 'https://goo.gl/maps/fWG2DGM7HpQ2'),
       new LiveEvent(new Date(2017, 8, 30, 10, 45, 0), 'Piano Recital - Granados, Debussy, Vladigerov', 'Morden College Hall', '', 'https://goo.gl/maps/rn2tywygnfz'),
       new LiveEvent(new Date(2017, 2, 24, 19, 0, 0), 'Piano Duo', 'Milton Court Concert Hall, London', 'https://www.facebook.com/events/1240883842673624/', 'https://goo.gl/maps/RjZ3Ysc1pRT2'),
