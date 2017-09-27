@@ -5,7 +5,7 @@
 
   <div class="body">
     <div class="photoContainer">
-      <img class="aboutPhoto" src="assets/img/main.jpg" />
+      <img class="aboutPhoto" src="assets/img/main.jpg"/>
 
       <div class="text">
         <span class="moto">MUSIC</span>
@@ -13,6 +13,10 @@
     </div>
     <div class="music">
       <div id="player1" class="aplayer"></div>
+    </div>
+    <div class="youtube-videos" *ngFor="let video of videos">
+      <iframe class="video-embed" [src]="video" frameborder="0"
+              allowfullscreen></iframe>
     </div>
     <div class="footer">
       © 2016 by MARINA STANEVA
