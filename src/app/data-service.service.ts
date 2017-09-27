@@ -52,13 +52,13 @@ export class DataServiceService {
   }
 
   getMenuItems(): MenuItemComponent[] {
-    return [ new MenuItemComponent('Home', '/', true),
-      new MenuItemComponent('About', '/About', false),
-      new MenuItemComponent('Music', '/Music', false),
-      new MenuItemComponent('Live', '/Live', false),
-      new MenuItemComponent('Gallery', '/Gallery', false),
-      new MenuItemComponent('Teaching', '/Teaching', false),
-      new MenuItemComponent('Contact', '/Contact', false)
+    return [ new MenuItemComponent('Home', '/'),
+      new MenuItemComponent('About', '/About'),
+      new MenuItemComponent('Music', '/Music'),
+      new MenuItemComponent('Live', '/Live'),
+      new MenuItemComponent('Gallery', '/Gallery'),
+      new MenuItemComponent('Teaching', '/Teaching'),
+      new MenuItemComponent('Contact', '/Contact')
     ]
   }
 

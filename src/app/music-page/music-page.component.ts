@@ -32,10 +32,9 @@ export class MusicPageComponent implements OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // tslint: disable-next-line
     let APlayer = require('aplayer');
     const playerConfig = {
-      element : document.getElementById('player1'),
+      element : document.getElementById('player'),
       narrow  : false,
       autoplay: false,
       showlrc : false,
