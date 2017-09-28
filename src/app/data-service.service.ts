@@ -7,6 +7,7 @@ import { GalleryImage } from './common/GalleryImage';
 import { Http } from '@angular/http';
 import { MusicPageData, Song } from './common/MusicPageData';
 
+
 @Injectable()
 export class DataServiceService {
 
