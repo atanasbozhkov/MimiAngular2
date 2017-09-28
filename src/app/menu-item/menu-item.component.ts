@@ -10,7 +10,7 @@ export class MenuItemComponent implements OnInit {
   url: string;
   isActive: boolean;
 
-  constructor(title: string, url: string, isActive: boolean) {
+  constructor(title: string, url: string, isActive: boolean = false) {
     this.title = title;
     this.url = url;
     this.isActive = isActive;

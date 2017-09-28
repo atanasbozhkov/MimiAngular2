@@ -25,14 +25,14 @@
                   <span class="time">{{event.hour}}</span>
                 </time>
                 <div class="info">
-                  <h2 class="title">{{event.eventName}}</h2>
+                  <h2 class="title" [innerHTML]="event.eventName"></h2>
                   <!--TODO: Rename this to description?-->
-                  <p class="desc">{{event.eventLocation}}</p>
+                  <p class="desc" [innerHTML]="event.eventLocation"></p>
                   <span class="buttons">
                     <a class="myButton" href="{{event.googleMapsLink}}" target="_blank">
                       <i class="fa fa-map-marker" aria-hidden="true"></i>
                     </a>
-                      <a *ngIf="event.facebookLink"  class="myButton" href="{{event.facebookLink}}"  target="_blank">
+                      <a *ngIf="event.facebookLink" class="myButton" href="{{event.facebookLink}}" target="_blank">
                         <i class="fa fa-facebook-square" aria-hidden="true"></i>
                       </a>
                   </span>
@@ -48,13 +48,13 @@
                   <span class="time">{{event.hour}}</span>
                 </time>
                 <div class="info">
-                  <h2 class="title">{{event.eventName}}</h2>
-                  <p class="desc">{{event.eventLocation}}</p>
+                  <h2 class="title" [innerHTML]="event.eventName"></h2>
+                  <p class="desc" [innerHTML]="event.eventLocation"></p>
                   <span class="buttons">
                     <a class="myButton" href="{{event.googleMapsLink}}" target="_blank">
                       <i class="fa fa-map-marker" aria-hidden="true"></i>
                     </a>
-                      <a *ngIf="event.facebookLink"  class="myButton" href="{{event.facebookLink}}"  target="_blank">
+                      <a *ngIf="event.facebookLink" class="myButton" href="{{event.facebookLink}}" target="_blank">
                         <i class="fa fa-facebook-square" aria-hidden="true"></i>
                       </a>
                   </span>
