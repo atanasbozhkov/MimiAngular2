@@ -91,7 +91,7 @@ Her studies are generously supported by the Guildhall Trust.`
                     'https://goo.gl/maps/RjZ3Ysc1pRT2'),
       new LiveEvent(new Date(2017, 9, 3, 19, 0, 0),
                     'Masterclass with Julius Drake',
-        'Performing with Annie Blahblah at the Parliament Chamber Inner Temple, London. Tickets can be bought' +
+        'Performing with Annie Reilly at the Parliament Chamber Inner Temple, London. Tickets can be bought' +
         '<a href="https://www.templemusic.org/shop/masterclass-with-julius-drake/"> here </a>.',
                     'https://www.facebook.com/events/424018774651775?%3Fti=ia&__mref=mb', 'https://goo.gl/maps/FCmoQEZpGDw'),
       new LiveEvent(new Date(2017, 9, 2, 10, 0, 0), 'Masterclass with Read Gainsford', 'Music Hall, Silk Street, London', '',
