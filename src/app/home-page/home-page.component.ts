@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../data-service.service';
 import { HomePageData } from '../common/HomePageData';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-home-page',
@@ -14,11 +15,13 @@ export class HomePageComponent implements OnInit {
   photoUrl: string;
 
   constructor(private dataService: DataServiceService) {
-    let homePageData: HomePageData = dataService.getHomePageData();
-    this.firstName = homePageData.firstName;
-    this.lastName = homePageData.lastName;
-    this.moto = homePageData.moto;
-    this.photoUrl = homePageData.photoUrl;
+    let obs: Observable<HomePageData> = dataService.getHomePageData();
+    obs.subscribe((data) => {
+      this.firstName = data.firstName;
+      this.lastName = data.lastName;
+      this.moto = data.moto;
+      this.photoUrl = data.photoUrl;
+    });
   }
 
   ngOnInit() {

@@ -11,7 +11,9 @@ export class AboutPageComponent implements OnInit {
   moto: string;
 
   constructor(private dataService: DataServiceService) {
-    this.aboutText = dataService.getAboutText();
+    dataService.getAboutText().subscribe((data) => {
+      this.aboutText = data.aboutText;
+    });
     this.moto = 'ABOUT';
   }
 
