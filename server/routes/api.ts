@@ -9,13 +9,13 @@ import { LivePageData } from '../dao/types/LivePageData';
 import { ContactPageData } from '../dao/types/ContactPageData';
 
 const apiRouter: Router = Router();
-let dal: FireBase       = new FireBase();
+let dal: FireBase = new FireBase();
 
 apiRouter.get('/' + 'Home', (request: Request, response: Response) => {
   dal.getPageData(PageType.HOME, (data: PageData) => {
     const homePageData = data as HomePageData;
-response.send(homePageData);
-});
+    response.send(homePageData);
+  });
 });
 
 apiRouter.get('/' + 'About', (request: Request, response: Response) => {
@@ -33,7 +33,7 @@ apiRouter.get('/' + 'Music', (request: Request, response: Response) => {
 });
 
 apiRouter.get('/' + 'Live', (request: Request, response: Response) => {
-  dal.getPageData(PageType.LIVE, (data: PageData) => {
+  dal.getPageData(PageType.LIVE, (data: any) => {
     const homePageData = data as LivePageData;
     response.send(homePageData);
   });

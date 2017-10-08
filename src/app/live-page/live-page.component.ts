@@ -14,17 +14,21 @@ export class LivePageComponent implements OnInit {
   pastEvents: LiveEvent[];
 
   constructor(dataService: DataServiceService) {
+    const observable = dataService.getEvents().subscribe((data) => {
+      this.events = data.liveEvents;
+      console.log(this.events[0].date);
+      this.futureEvents = this.sortEventAsc(this.events.filter(event => {
+        return event.date.getTime() > Date.now();
+      }));
 
-    this.events = dataService.getEvents();
+      this.pastEvents = this.sortEventsDesc(this.events.filter(event => {
+        return event.date.getTime() < Date.now();
+      }));
 
-    this.futureEvents = this.sortEventAsc(this.events.filter(event => {
-      return event.date.getTime() > Date.now();
-    }));
+    });
 
-    this.pastEvents = this.sortEventsDesc(this.events.filter(event => {
-      return event.date.getTime() < Date.now();
-    }));
   }
+
 
   sortEventAsc(events: LiveEvent[]): LiveEvent[] {
     return events.sort((d1, d2) => {

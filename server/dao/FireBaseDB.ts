@@ -36,7 +36,11 @@ export class FireBase implements IDatabase {
             callback(new MusicPageData(snapshot.val()));
             break;
           case PageType.LIVE:
-            callback(new LivePageData(snapshot.val()))
+            let events = [];
+            snapshot.val().liveEvents.forEach(function (item) {
+              events.push(item);
+            });
+            callback(new LivePageData({ liveEvents: events }))
         }
 
       }).catch(error => {

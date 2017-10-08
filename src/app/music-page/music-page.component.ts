@@ -1,8 +1,9 @@
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
+import { DataServiceService } from '../data-service.service';
+import { MusicPageData } from '../common/MusicPageData';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
-// tslint: disable
 declare let APlayer: any;
-// tslint: enable
 
 declare function require(name: string);
 
@@ -14,48 +15,46 @@ declare function require(name: string);
 
 export class MusicPageComponent implements OnDestroy, AfterViewInit {
   ap: any;
+  musicPageData: MusicPageData;
+  videos: Array<SafeResourceUrl>;
+
+  constructor(dataService: DataServiceService, public sanitizer: DomSanitizer) {
+    const observable = dataService.getMusicPageData();
+    observable.subscribe((data) => {
+      console.log('Update arrived');
+      console.log(data);
+      this.musicPageData = data;
+      this.videos = this.getVideoUrls();
+      this.initPlayer();
+    })
+  }
+
+  private getVideoUrls(): Array<SafeResourceUrl> {
+    if (this.musicPageData.videos === undefined) {
+      console.error('Videos came back empty.');
+      this.musicPageData.videos = [];
+    }
+    return this.musicPageData.videos.map(videoUrl => this.sanitizer.bypassSecurityTrustResourceUrl(videoUrl));
+  }
 
   ngOnDestroy() {
     this.ap.pause();
   }
 
   ngAfterViewInit() {
-    // tslint: disable
+  }
+
+  initPlayer() {
     let APlayer = require('aplayer');
-    // tslint: enable
-    this.ap = new APlayer({
-      element: document.getElementById('player1'),
+    const playerConfig = {
+      element: document.getElementById('player'),
       narrow: false,
       autoplay: false,
       showlrc: false,
       theme: '#27D3B4',
-      music: [
-        {
-          title: 'Bartok - 14 Bagatelles No 1',
-          author: 'Marina Staneva',
-          url: 'assets/recordings/Bartok-14-Bagatelles-No-1.mp3',
-          pic: 'assets/img/square-xl.png'
-        },
-        {
-          title: 'Bartok - 14 Bagatelles No 2',
-          author: 'Marina Staneva',
-          url: 'assets/recordings/Bartok-14-Bagatelles-No-2.mp3',
-          pic: 'assets/img/square-xl.png'
-        },
-        {
-          title: 'Bartok - 14 Bagatelles No 3',
-          author: 'Marina Staneva',
-          url: 'assets/recordings/Bartok-14-Bagatelles-No-3.mp3',
-          pic: 'assets/img/square-xl.png'
-        },
-        {
-          title: 'Bartok - 14 Bagatelles No 4',
-          author: 'Marina Staneva',
-          url: 'assets/recordings/Bartok-14-Bagatelles-No-4.mp3',
-          pic: 'assets/img/square-xl.png'
-        }
-      ]
-    });
+      music: this.musicPageData.songs
+    };
+    this.ap = new APlayer(playerConfig);
   }
 
 }
