@@ -6,7 +6,7 @@ import { DataServiceService } from '../data-service.service';
   templateUrl: './contact-page.component.html',
   styleUrls: [ './contact-page.component.css' ]
 })
-export class ContactPageComponent implements OnInit {
+export class ContactPageComponent {
 
   email: string;
   phone: string;
@@ -15,16 +15,16 @@ export class ContactPageComponent implements OnInit {
   youtube: string;
 
   constructor(dataService: DataServiceService) {
-    const contactPageData = dataService.getContactPageData();
+    const observable = dataService.getContactPageData();
+    observable.subscribe((data) => {
+      const contactPageData = data;
 
-    this.email = contactPageData.email;
-    this.phone = contactPageData.phone;
-    this.location = contactPageData.location;
-    this.twitter = contactPageData.twitter;
-    this.youtube = contactPageData.youtube;
+      this.email = contactPageData.email;
+      this.phone = contactPageData.phone;
+      this.location = contactPageData.location;
+      this.twitter = contactPageData.twitter;
+      this.youtube = contactPageData.youtube;
+    });
+
   }
-
-  ngOnInit() {
-  }
-
 }

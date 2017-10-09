@@ -11,6 +11,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { AboutPageData } from './common/AboutPageData';
 import { MusicPageData } from './common/MusicPageData';
+import { GalleryPageData } from './common/GalleryPageData';
 
 @Injectable()
 export class DataServiceService {
@@ -60,8 +61,8 @@ export class DataServiceService {
             event.facebookLink,
             event.googleMapsLink);
         });
-        console.log({ liveEvents: liveEvents})
-        return { liveEvents: liveEvents};
+        console.log({liveEvents: liveEvents})
+        return {liveEvents: liveEvents};
       })
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     // return [
@@ -112,25 +113,32 @@ export class DataServiceService {
     //     'https://www.facebook.com/events/991420074226759/', 'https://goo.gl/maps/cwUDczDKTTA2') ];
   }
 
-  getContactPageData(): ContactPageData {
-    return new ContactPageData('contact@marinastaneva.com',
-      '+44 (0)7399 443763',
-      'London, United Kingdom',
-      'https://twitter.com/StanevaM',
-      'https://www.youtube.com/channel/UCgMM6D_YCuTpsw9fFya691Q');
+  getContactPageData(): Observable<ContactPageData> {
+    // return new ContactPageData('contact@marinastaneva.com',
+    //   '+44 (0)7399 443763',
+    //   'London, United Kingdom',
+    //   'https://twitter.com/StanevaM',
+    //   'https://www.youtube.com/channel/UCgMM6D_YCuTpsw9fFya691Q');
+    return this.http.get('api/Contact')
+      .map((res, index) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
-  getGalleryImages(): GalleryImage[] {
-    return [
-      new GalleryImage('assets/img/5.jpg', 'assets/img/thumbs/DSC_9502.jpg'),
-      new GalleryImage('assets/img/6.jpg', 'assets/img/thumbs/DSC_9559.jpg'),
-      new GalleryImage('assets/img/Liszt Piano Festival.jpg', 'assets/img/thumbs/LisztPianoFestival.jpg'),
-      new GalleryImage('assets/img/1.jpg', 'assets/img/thumbs/1.jpg'),
-      new GalleryImage('assets/img/2.jpg', 'assets/img/thumbs/2.jpg'),
-      new GalleryImage('assets/img/4.jpg', 'assets/img/thumbs/4.jpg'),
-      new GalleryImage('assets/img/about.jpg', 'assets/img/thumbs/about.jpg'),
-      new GalleryImage('assets/img/DSC_4217.jpg', 'assets/img/thumbs/DSC_4217.jpg'),
-      new GalleryImage('assets/img/main.jpg', 'assets/img/thumbs/main.jpg') ];
+  getGalleryImages(): Observable<GalleryPageData> {
+    return this.http.get('api/Gallery')
+      .map((res, index) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    // return [
+    //   new GalleryImage('assets/img/5.jpg', 'assets/img/thumbs/DSC_9502.jpg'),
+    //   new GalleryImage('assets/img/6.jpg', 'assets/img/thumbs/DSC_9559.jpg'),
+    //   new GalleryImage('assets/img/Liszt Piano Festival.jpg', 'assets/img/thumbs/LisztPianoFestival.jpg'),
+    //   new GalleryImage('assets/img/1.jpg', 'assets/img/thumbs/1.jpg'),
+    //   new GalleryImage('assets/img/2.jpg', 'assets/img/thumbs/2.jpg'),
+    //   new GalleryImage('assets/img/4.jpg', 'assets/img/thumbs/4.jpg'),
+    //   new GalleryImage('assets/img/about.jpg', 'assets/img/thumbs/about.jpg'),
+    //   new GalleryImage('assets/img/DSC_4217.jpg', 'assets/img/thumbs/DSC_4217.jpg'),
+    //   new GalleryImage('assets/img/main.jpg', 'assets/img/thumbs/main.jpg') ];
+
   }
 
 }

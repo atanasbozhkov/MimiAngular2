@@ -21,8 +21,6 @@ export class MusicPageComponent implements OnDestroy, AfterViewInit {
   constructor(dataService: DataServiceService, public sanitizer: DomSanitizer) {
     const observable = dataService.getMusicPageData();
     observable.subscribe((data) => {
-      console.log('Update arrived');
-      console.log(data);
       this.musicPageData = data;
       this.videos = this.getVideoUrls();
       this.initPlayer();
@@ -31,7 +29,7 @@ export class MusicPageComponent implements OnDestroy, AfterViewInit {
 
   private getVideoUrls(): Array<SafeResourceUrl> {
     if (this.musicPageData.videos === undefined) {
-      console.error('Videos came back empty.');
+      console.warn('Videos came back empty.');
       this.musicPageData.videos = [];
     }
     return this.musicPageData.videos.map(videoUrl => this.sanitizer.bypassSecurityTrustResourceUrl(videoUrl));
@@ -45,7 +43,7 @@ export class MusicPageComponent implements OnDestroy, AfterViewInit {
   }
 
   initPlayer() {
-    let APlayer = require('aplayer');
+    let APlayer = require('aplayer'); // tslint:disable-line
     const playerConfig = {
       element: document.getElementById('player'),
       narrow: false,

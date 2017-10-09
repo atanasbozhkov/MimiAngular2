@@ -6,6 +6,8 @@ import { HomePageData } from './types/HomePageData';
 import { AboutPageData } from './types/AboutPageData';
 import { MusicPageData } from './types/MusicPageData';
 import { LivePageData } from './types/LivePageData';
+import { GalleryPageData } from './types/GalleryPageData';
+import { ContactPageData } from './types/ContactPageData';
 
 /**
  * Created by atanasbozhkov on 19/04/2017.
@@ -19,6 +21,29 @@ export class FireBase implements IDatabase {
     // Initialize Firebase
     this.fireBase = firebase.initializeApp(firebaseConfig);
     this.database = this.fireBase.database();
+  }
+
+  login(email: string, password: string) {
+    this.fireBase.auth().signInWithEmailAndPassword(email, password)
+      .catch(function(error) {
+        // Handle Errors here.
+        let errorCode = error.code;
+        let errorMessage = error.message;
+        if (errorCode === 'auth/wrong-password') {
+          alert('Wrong password.');
+        } else {
+          alert(errorMessage);
+        }
+        console.log(error);
+      });
+  }
+
+  setPageData(page: PageType, pageData: PageData) {
+    switch (page) {
+      case PageType.HOME:
+        this.database.ref('pages/' + page).set(pageData);
+        break;
+    }
   }
 
   getPageData(page: PageType, callback: (data: PageData) => any) {
@@ -35,12 +60,18 @@ export class FireBase implements IDatabase {
           case PageType.MUSIC:
             callback(new MusicPageData(snapshot.val()));
             break;
+          case PageType.GALLERY:
+            callback(new GalleryPageData(snapshot.val()));
+            break;
+          case PageType.CONTACT:
+            callback(new ContactPageData(snapshot.val()));
+            break;
           case PageType.LIVE:
             let events = [];
             snapshot.val().liveEvents.forEach(function (item) {
               events.push(item);
             });
-            callback(new LivePageData({ liveEvents: events }))
+            callback(new LivePageData({liveEvents: events}))
         }
 
       }).catch(error => {

@@ -8,10 +8,7 @@ export class HomePageData {
   moto: string;
   photoUrl: string;
 
-  constructor(firstName: string, lastName: string, moto: string, photoUrl: string) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.moto = moto;
-    this.photoUrl = photoUrl;
+  constructor(data: Partial<HomePageData>) {
+    Object.assign(this, data);
   }
 }

@@ -18,7 +18,10 @@ export class GalleryPageComponent implements OnInit {
 
   constructor(dataServices: DataServiceService) {
     this.moto = 'PHOTOS';
-    this.images = dataServices.getGalleryImages();
+    const observable = dataServices.getGalleryImages();
+    observable.subscribe((data) => {
+      this.images = data.galleryImages;
+    })
 
   }
 
