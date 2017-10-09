@@ -21,3 +21,8 @@ export class ContactPageData {
     this.youtube = youtube;
   }
 }
+// return new ContactPageData('contact@marinastaneva.com',
+//   '+44 (0)7399 443763',
+//   'London, United Kingdom',
+//   'https://twitter.com/StanevaM',
+//   'https://www.youtube.com/channel/UCgMM6D_YCuTpsw9fFya691Q');

@@ -15,7 +15,7 @@ import { LivePageComponent } from './live-page/live-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { GalleryPageComponent } from './gallery-page/gallery-page.component';
 import { TeachingPageComponent } from './teaching-page/teaching-page-component';
-
+import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -28,20 +28,22 @@ import { TeachingPageComponent } from './teaching-page/teaching-page-component';
     LivePageComponent,
     ContactPageComponent,
     GalleryPageComponent,
-    TeachingPageComponent
+    TeachingPageComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot([
-      { path: '', component: HomePageComponent },
-      { path: 'About', component: AboutPageComponent },
-      { path: 'Music', component: MusicPageComponent },
-      { path: 'Live', component: LivePageComponent },
-      { path: 'Gallery', component: GalleryPageComponent },
-      { path: 'Teaching', component: TeachingPageComponent },
-      { path: 'Contact', component: ContactPageComponent }
+      {path: '', component: HomePageComponent},
+      {path: 'About', component: AboutPageComponent},
+      {path: 'Music', component: MusicPageComponent},
+      {path: 'Live', component: LivePageComponent},
+      {path: 'Gallery', component: GalleryPageComponent},
+      {path: 'Teaching', component: TeachingPageComponent},
+      {path: 'Contact', component: ContactPageComponent},
+      {path: 'login', component: LoginPageComponent}
     ])
   ],
   providers: [ DataServiceService ],
