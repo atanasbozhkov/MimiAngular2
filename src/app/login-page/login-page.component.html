@@ -1,6 +1,5 @@
-<form class="example-form">
-  <md-input-container class="example-full-width">
-    <input matInput placeholder="Favorite food" value="Sushi">
-  </md-input-container>
-</form>
-git
+<div class="form-group-lg form">
+  <input name="email" placeholder="Email" class="form-control form-item" [(ngModel)]="email">
+  <input type="password" name="email" placeholder="Password" class="form-control form-item" [(ngModel)]="password">
+  <button type="button" class="btn btn-primary login-button" (click)="onClick()">Login</button>
+</div>

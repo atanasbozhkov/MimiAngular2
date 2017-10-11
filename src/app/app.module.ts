@@ -16,13 +16,18 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
 import { GalleryPageComponent } from './gallery-page/gallery-page.component';
 import { TeachingPageComponent } from './teaching-page/teaching-page-component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import { HomePageViewComponent } from './admin-page/sub-views/home-page-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AdminPageComponent,
     MenuComponent,
     MenuItemComponent,
     HomePageComponent,
+    HomePageViewComponent,
     AboutPageComponent,
     MusicPageComponent,
     LivePageComponent,
@@ -35,6 +40,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    BsDropdownModule.forRoot(),
     RouterModule.forRoot([
       {path: '', component: HomePageComponent},
       {path: 'About', component: AboutPageComponent},
@@ -43,7 +49,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
       {path: 'Gallery', component: GalleryPageComponent},
       {path: 'Teaching', component: TeachingPageComponent},
       {path: 'Contact', component: ContactPageComponent},
-      {path: 'login', component: LoginPageComponent}
+      {path: 'login', component: LoginPageComponent},
+      {path: 'admin', component: AdminPageComponent}
     ])
   ],
   providers: [ DataServiceService ],

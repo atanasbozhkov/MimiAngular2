@@ -1,20 +1,7 @@
-import { Component, NgModule, OnInit } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  MatButtonModule,
-  MatFormField,
-  MatCardModule,
-  MatCheckboxModule,
-  MatIconModule,
-  MatMenuModule,
-  MatToolbarModule
-} from '@angular/material';
-import { FormControl, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
-
-const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-import { MatInputModule } from '@angular/material';
-import { BrowserModule } from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { Data, Router } from '@angular/router';
+import { DataServiceService } from '../data-service.service';
 
 @Component({
   selector: 'app-login-page',
@@ -23,11 +10,23 @@ import { HttpModule } from '@angular/http';
 })
 
 export class LoginPageComponent {
-  email = new FormControl('', [ Validators.required, Validators.email ]);
+  email: string;
+  password: string;
+  router: Router;
+  dataService: DataServiceService;
 
-  getErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-      this.email.hasError('email') ? 'Not a valid email' :
-        '';
+  constructor(router: Router, dataService: DataServiceService) {
+    this.router = router;
+    this.dataService = dataService;
+  }
+
+  onClick() {
+    this.login();
+  }
+
+  login() {
+    console.log(this.email + ' ' + this.password);
+    this.dataService.login(this.email, this.password)
+    this.router.navigateByUrl('/admin');
   }
 }

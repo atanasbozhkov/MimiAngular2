@@ -6,6 +6,7 @@ import { ContactPageData } from './common/ContactPageData';
 import { GalleryImage } from './common/GalleryImage';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs';
+
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -15,6 +16,7 @@ import { GalleryPageData } from './common/GalleryPageData';
 
 @Injectable()
 export class DataServiceService {
+  private loggeedIn = true;
 
   constructor(private http: Http) {
   }
@@ -139,6 +141,14 @@ export class DataServiceService {
     //   new GalleryImage('assets/img/DSC_4217.jpg', 'assets/img/thumbs/DSC_4217.jpg'),
     //   new GalleryImage('assets/img/main.jpg', 'assets/img/thumbs/main.jpg') ];
 
+  }
+
+  login(email, password) {
+    this.loggeedIn = true;
+  }
+
+  isAuthenticated(): boolean {
+    return this.loggeedIn;
   }
 
 }
