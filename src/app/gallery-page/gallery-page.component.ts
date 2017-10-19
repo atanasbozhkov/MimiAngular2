@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // let $: any = require('jquery');
 // let Lighbox: any = require('lightbox2');
-import { GalleryImage } from '../common/GalleryImage';
+import { GalleryImage } from '../../../types';
 import { DataServiceService } from '../data-service.service';
 
 declare function require(name: string);

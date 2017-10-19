@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../data-service.service';
-import { HomePageData } from '../common/HomePageData';
+import { HomePageData } from '../../../types';
 import { Observable } from 'rxjs/Observable';
 
 @Component({

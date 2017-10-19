@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataServiceService } from '../data-service.service';
 import { MenuItemComponent } from '../menu-item/menu-item.component';
-import { HomePageData } from '../common/HomePageData';
-import { PageType } from './PageType';
+import { HomePageData } from '../../../types';
 
 @Component({
   selector: 'app-login-page',

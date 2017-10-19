@@ -18,7 +18,7 @@ import { TeachingPageComponent } from './teaching-page/teaching-page-component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AdminPageComponent } from './admin-page/admin-page.component';
-import { HomePageViewComponent } from './admin-page/sub-views/home-page-view.component';
+import { HomePageViewComponent } from './admin-page/sub-views/home-page-view/home-page-view.component';
 
 @NgModule({
   declarations: [

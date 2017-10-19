@@ -2,12 +2,7 @@ import * as firebase from 'firebase';
 import { firebaseConfig } from '../config';
 import { IDatabase, PageData } from './IDatabase';
 import { PageType } from './enums/PageType';
-import { HomePageData } from './types/HomePageData';
-import { AboutPageData } from './types/AboutPageData';
-import { MusicPageData } from './types/MusicPageData';
-import { LivePageData } from './types/LivePageData';
-import { GalleryPageData } from './types/GalleryPageData';
-import { ContactPageData } from './types/ContactPageData';
+import { AboutPageData, ContactPageData, GalleryPageData, HomePageData, LivePageData, MusicPageData } from '../../types';
 
 /**
  * Created by atanasbozhkov on 19/04/2017.
@@ -25,7 +20,7 @@ export class FireBase implements IDatabase {
 
   login(email: string, password: string) {
     this.fireBase.auth().signInWithEmailAndPassword(email, password)
-      .catch(function(error) {
+      .catch(function (error) {
         // Handle Errors here.
         let errorCode = error.code;
         let errorMessage = error.message;

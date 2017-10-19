@@ -2,11 +2,7 @@ import { Request, Response, Router } from 'express';
 import { FireBase } from '../dao/FireBaseDB';
 import { PageType } from '../dao/enums/PageType';
 import { PageData } from '../dao/IDatabase';
-import { HomePageData } from '../dao/types/HomePageData';
-import { AboutPageData } from '../dao/types/AboutPageData';
-import { MusicPageData } from '../dao/types/MusicPageData';
-import { LivePageData } from '../dao/types/LivePageData';
-import { ContactPageData } from '../dao/types/ContactPageData';
+import { AboutPageData, ContactPageData, GalleryPageData, HomePageData, LivePageData, MusicPageData } from '../../types';
 
 const apiRouter: Router = Router();
 let dal: FireBase = new FireBase();

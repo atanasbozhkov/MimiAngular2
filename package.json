@@ -6,14 +6,15 @@
   "license": "All rights reserved.",
   "angular-cli": {},
   "scripts": {
-    "start": "ng serve --host 0.0.0.0 --port 9000 --aot=false --proxy-config proxy.conf.json |npm run _server:run",
+    "start": "npm run _common:build | ng serve --host 0.0.0.0 --port 9000 --aot=false --proxy-config proxy.conf.json |npm run _server:run",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test --watch=false",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor",
-    "build": "ng build --prod --sm=false --aot=false --output-path=dist/client && npm run _server:build",
+    "build": "npm run _common:build && ng build --prod --sm=false --aot=false --output-path=dist/client && npm run _server:build",
     "_server:run": "tsc -p ./server && concurrently \"tsc -w -p ./server\" \"nodemon dist/server/bin/www.js\" ",
     "_server:build": "tsc -p ./server",
+    "_common:build": "tsc -p ./types",
     "postinstall": "npm run build"
   },
   "author": "Atanas Bozhkov",
