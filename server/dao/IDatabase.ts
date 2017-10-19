@@ -1,10 +1,5 @@
 import { PageType } from './enums/PageType';
-import { HomePageData } from './types/HomePageData';
-import { ContactPageData } from './types/ContactPageData';
-import { AboutPageData } from './types/AboutPageData';
-import { MusicPageData } from './types/MusicPageData';
-import { LivePageData } from './types/LivePageData';
-import { GalleryPageData } from './types/GalleryPageData';
+import { AboutPageData, ContactPageData, GalleryPageData, HomePageData, LivePageData, MusicPageData } from '../../types';
 
 export type PageData = HomePageData    |
                       AboutPageData    |

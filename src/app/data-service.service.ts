@@ -1,18 +1,13 @@
 import { Injectable } from '@angular/core';
 import { MenuItemComponent } from './menu-item/menu-item.component';
-import { HomePageData } from './common/HomePageData';
-import { LiveEvent } from './common/LiveEvent';
-import { ContactPageData } from './common/ContactPageData';
-import { GalleryImage } from './common/GalleryImage';
+import { LiveEvent } from '../../types';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs';
+import { AboutPageData, ContactPageData, GalleryImage, GalleryPageData, HomePageData, LivePageData, MusicPageData } from '../../types';
 
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { AboutPageData } from './common/AboutPageData';
-import { MusicPageData } from './common/MusicPageData';
-import { GalleryPageData } from './common/GalleryPageData';
 
 @Injectable()
 export class DataServiceService {

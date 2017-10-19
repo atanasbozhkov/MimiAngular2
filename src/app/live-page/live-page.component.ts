@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LiveEvent } from '../common/LiveEvent';
+import { LiveEvent } from '../../../types';
 import { DataServiceService } from '../data-service.service';
 
 @Component({

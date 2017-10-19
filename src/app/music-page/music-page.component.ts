@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { DataServiceService } from '../data-service.service';
-import { MusicPageData } from '../common/MusicPageData';
+import { MusicPageData } from '../../../types';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 declare let APlayer: any;

@@ -1,0 +1,19 @@
+<form class="form-wrap">
+  <div class="form-group">
+    <label for="exampleTextarea">First Name</label>
+    <input class="form-control form-input"
+           *ngIf="homePageData.firstName"
+           [(ngModel)]="homePageData.firstName"
+           name="first">
+    <label for="exampleTextarea">Last Name</label>
+    <input class="form-control form-input"
+           *ngIf="homePageData.lastName"
+           [(ngModel)]="homePageData.lastName"
+           name="second">
+    <label for="exampleTextarea">Moto</label>
+    <input class="form-control form-input"
+           [(ngModel)]="homePageData.moto"
+           name="third">
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="saveHomePageData()">Update</button>
+</form>
