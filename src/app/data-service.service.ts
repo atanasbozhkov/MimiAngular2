@@ -65,9 +65,9 @@ export class DataServiceService {
 
   getAboutText(): string {
     return `
-Marina holds a Masters Degree in Piano Performance from the Guildhall School of Music and Drama under Philip Jenkins. Previously she
-completed a Bachelor in Piano Performance at the National Academy of Music in Sofia, Bulgaria under Stella Dimitrova-Maystorova and
-Iliya Chernaev. <br/><br/>
+Marina holds a First Class Masters Degree in Piano Performance from the Guildhall School of Music and Drama under Philip Jenkins.
+Previously she completed a Bachelor in Piano Performance at the National Academy of Music in Sofia, Bulgaria under Stella
+Dimitrova-Maystorova and Iliya Chernaev. <br/><br/>
 Marina performs throughout the UK and Europe both as a soloist and as a collaborative pianist. Her prizes include Airola International Piano
 Competition, Italy, Music and Earth International Competition and International Competition for Japanese and Bulgarian Music to name a few.
 She has participated in different festivals such as “Liszt Piano Festival” - London, “Dopo il rumore” - Italy, “ppIANISSIMO” - Bulgaria,
