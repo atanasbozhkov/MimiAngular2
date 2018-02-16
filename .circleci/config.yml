@@ -6,13 +6,12 @@ dependencies:
 jobs:
   build:
     docker:
-      - image: circleci/node:6.10.3
+      - image: circleci/node:8.9
     steps:
       - checkout
       - run:
           name: npm-install-concur
-          command: 'sudo yarn global add concurrently'
-      - run: yarn install
+      - run: npm install
 deployment:
   production:
     branch: master
