@@ -9,8 +9,6 @@ jobs:
       - image: circleci/node:8.9
     steps:
       - checkout
-      - run:
-          name: npm-install-concur
       - run: npm install
 deployment:
   production:
