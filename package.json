@@ -55,7 +55,7 @@
     "@types/q": "^1.0.0",
     "aplayer": "^1.5.8",
     "body-parser": "~1.17.2",
-    "bootstrap": "^4.0.0-beta",
+    "bootstrap": "4.0.0",
     "compression": "^1.6.2",
     "cookie-parser": "~1.4.3",
     "core-js": "^2.4.1",
@@ -67,6 +67,7 @@
     "lightbox2": "^2.9.0",
     "ngrx-store-freeze": "^0.2.0",
     "normalize.css": "^7.0.0",
+    "ngx-bootstrap": "^1.9.3",
     "path": "^0.12.7",
     "q": "^1.5.0",
     "ts-helpers": "^1.1.2",
@@ -92,6 +93,7 @@
     "karma-remap-istanbul": "^0.6.0",
     "nodemon": "^1.11.0",
     "protractor": "5.1.2",
-    "webdriver-manager": "12.0.6"
+    "webdriver-manager": "12.0.6",
+    "webpack": "^3.11.0"
   }
 }

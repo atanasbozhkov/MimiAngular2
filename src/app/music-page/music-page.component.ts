@@ -3,15 +3,14 @@ import { DataServiceService } from '../data-service.service';
 import { MusicPageData } from '../../../types';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
-// tslint: disable
 declare let APlayer: any;
-// tslint: enable
 
 declare function require(name: string);
 
-@Component({ selector   : 'app-music-page',
-             templateUrl: './music-page.component.html',
-             styleUrls  : [ './music-page.component.css' ]
+@Component({
+  selector: 'app-music-page',
+  templateUrl: './music-page.component.html',
+  styleUrls: [ './music-page.component.css' ]
 })
 
 export class MusicPageComponent implements OnDestroy, AfterViewInit {
@@ -20,11 +19,19 @@ export class MusicPageComponent implements OnDestroy, AfterViewInit {
   videos: Array<SafeResourceUrl>;
 
   constructor(dataService: DataServiceService, public sanitizer: DomSanitizer) {
-    this.musicPageData = dataService.getMusicPageData();
-    this.videos = this.getVideoUrls();
+    const observable = dataService.getMusicPageData();
+    observable.subscribe((data) => {
+      this.musicPageData = data;
+      this.videos = this.getVideoUrls();
+      this.initPlayer();
+    })
   }
 
   private getVideoUrls(): Array<SafeResourceUrl> {
+    if (this.musicPageData.videos === undefined) {
+      console.warn('Videos came back empty.');
+      this.musicPageData.videos = [];
+    }
     return this.musicPageData.videos.map(videoUrl => this.sanitizer.bypassSecurityTrustResourceUrl(videoUrl));
   }
 
@@ -33,16 +40,17 @@ export class MusicPageComponent implements OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // tslint: disable
-    let APlayer = require('aplayer');
-    // tslint: enable
+  }
+
+  initPlayer() {
+    let APlayer = require('aplayer'); // tslint:disable-line
     const playerConfig = {
-      element : document.getElementById('player'),
-      narrow  : false,
+      element: document.getElementById('player'),
+      narrow: false,
       autoplay: false,
-      showlrc : false,
-      theme   : '#27D3B4',
-      music   : this.musicPageData.songs
+      showlrc: false,
+      theme: '#27D3B4',
+      music: this.musicPageData.songs
     };
     this.ap = new APlayer(playerConfig);
   }

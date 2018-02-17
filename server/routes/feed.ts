@@ -1,5 +1,4 @@
 import { Router, Response, Request } from 'express';
-import * as uuid from 'node-uuid';
 
 const feedRouter: Router = Router();
 
