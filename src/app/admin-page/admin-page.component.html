@@ -7,7 +7,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item"
-          *ngFor="let menuItem of menuItems">
+          *ngFor="let menuItem of menuItems"
+          [ngClass]="{'active':selectedView === menuItem.title}"
+          >
         <a class="nav-link" (click)="onMenuItemClick(menuItem.title)">{{menuItem.title}}<span class="sr-only">(current)</span></a>
       </li>
     </ul>
