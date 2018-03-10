@@ -18,13 +18,16 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
+        "../node_modules/froala-editor/css/froala_editor.pkgd.min.css",
+        "../node_modules/froala-editor/css/froala_style.min.css",
         "../node_modules/lightbox2/dist/css/lightbox.min.css",
         "../node_modules/normalize.css/normalize.css",
         "styles.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.js",
-        "../node_modules/lightbox2/dist/js/lightbox.min.js"
+        "../node_modules/lightbox2/dist/js/lightbox.min.js",
+        "../node_modules/froala-editor/js/froala_editor.pkgd.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

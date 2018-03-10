@@ -2,11 +2,12 @@
   <div class="form-group">
     <div class="form-group">
       <label for="aboutText">About text:</label>
-      <textarea class="form-control"
-                id="aboutText"
-                rows="15"
-                name="aboutText"
-                [(ngModel)]="aboutPageData.aboutText"></textarea>
+
+      <div
+        id="aboutText"
+        [froalaEditor]
+        [(froalaModel)]="aboutPageData.aboutText"
+      ></div>
     </div>
   </div>
   <button

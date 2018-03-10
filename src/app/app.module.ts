@@ -20,6 +20,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { HomePageViewComponent, AboutPageViewComponent }  from './admin-page/sub-views/';
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,8 @@ import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
     BrowserModule,
     FormsModule,
     HttpModule,
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot(),
     BsDropdownModule.forRoot(),
     SweetAlert2Module.forRoot(),
     RouterModule.forRoot([
