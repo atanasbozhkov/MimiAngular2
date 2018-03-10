@@ -25,3 +25,8 @@
   [homePageData]="homePageData"
 >
 </app-home-page-view>
+<app-about-page-view
+  *ngIf="selectedView === 'About'"
+  [aboutPageData]="aboutPageData"
+>
+</app-about-page-view>

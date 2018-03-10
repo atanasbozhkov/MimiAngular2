@@ -18,7 +18,8 @@ import { TeachingPageComponent } from './teaching-page/teaching-page-component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AdminPageComponent } from './admin-page/admin-page.component';
-import { HomePageViewComponent } from './admin-page/sub-views/home-page-view/home-page-view.component';
+import { HomePageViewComponent, AboutPageViewComponent }  from './admin-page/sub-views/';
+import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { HomePageViewComponent } from './admin-page/sub-views/home-page-view/hom
     MenuItemComponent,
     HomePageComponent,
     HomePageViewComponent,
+    AboutPageViewComponent,
     AboutPageComponent,
     MusicPageComponent,
     LivePageComponent,
@@ -41,6 +43,7 @@ import { HomePageViewComponent } from './admin-page/sub-views/home-page-view/hom
     FormsModule,
     HttpModule,
     BsDropdownModule.forRoot(),
+    SweetAlert2Module.forRoot(),
     RouterModule.forRoot([
       {path: '', component: HomePageComponent},
       {path: 'About', component: AboutPageComponent},

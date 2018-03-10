@@ -1,7 +1,7 @@
 import * as firebase from 'firebase';
 import { firebaseConfig } from '../config';
 import { IDatabase, PageData } from './IDatabase';
-import { PageType } from './enums/PageType';
+import { PageType } from '../../src/app/common/PageType';
 import { AboutPageData, ContactPageData, GalleryPageData, HomePageData, LivePageData, MusicPageData } from '../../types';
 
 /**
@@ -33,12 +33,21 @@ export class FireBase implements IDatabase {
       });
   }
 
-  setPageData(page: PageType, pageData: PageData) {
-    switch (page) {
-      case PageType.HOME:
-        this.database.ref('pages/' + page).set(pageData);
-        break;
-    }
+  setPageData(page: PageType, pageData: PageData): Promise<undefined | Error> {
+    return new Promise((resolve, reject) => {
+      switch (page) {
+        case PageType.HOME:
+          this.database.ref('pages/' + page).set(pageData)
+            .then(() => {
+              console.log('then');
+            resolve();
+          }). catch( rejected => {
+            console.log('reject');
+            reject(new Error(rejected));
+          });
+          break;
+      }
+    });
   }
 
   getPageData(page: PageType, callback: (data: PageData) => any) {

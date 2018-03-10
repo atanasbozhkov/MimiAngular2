@@ -1,13 +1,14 @@
-import { Injectable } from '@angular/core';
-import { MenuItemComponent } from './menu-item/menu-item.component';
-import { LiveEvent } from '../../types';
-import { Http } from '@angular/http';
-import { Observable } from 'rxjs';
-import { AboutPageData, ContactPageData, GalleryImage, GalleryPageData, HomePageData, LivePageData, MusicPageData } from '../../types';
-
+import {Injectable} from '@angular/core';
+import {MenuItemComponent} from './menu-item/menu-item.component';
+import {AboutPageData, ContactPageData, GalleryPageData, HomePageData, LiveEvent, MusicPageData} from '../../types';
+import {Http, Response} from '@angular/http';
+import {Observable} from 'rxjs';
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/merge';
+
+export type PageData = HomePageData | AboutPageData;
 
 @Injectable()
 export class DataServiceService {
@@ -44,6 +45,16 @@ export class DataServiceService {
     return this.http.get('api/Home')
       .map((res, index) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  getPageData(): Observable<PageData> {
+    let mergedObservable = Observable.merge(this.getHomePageData(), this.getAboutText());
+    return mergedObservable;
+  }
+
+  updateHomePageData(homePageData: HomePageData): Observable<Response> {
+    console.log('Updating home page data');
+    return this.http.post('api/Home', homePageData);
   }
 
   // Live events month starts from 0 to 11.

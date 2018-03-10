@@ -1,5 +1,8 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input, ViewChild} from '@angular/core';
 import { HomePageData } from '../../../../../types';
+import {DataServiceService} from "../../../data-service.service";
+import {SwalComponent} from "@toverux/ngx-sweetalert2";
+import {Observable} from "rxjs/Rx";
 
 @Component({
   selector: 'app-home-page-view',
@@ -8,8 +11,21 @@ import { HomePageData } from '../../../../../types';
 })
 export class HomePageViewComponent {
   @Input('homePageData') homePageData: HomePageData;
+  @ViewChild('changesSaved') private changesSavedAlert: SwalComponent;
+  @ViewChild('errorSaving') private errorSavingAlert: SwalComponent;
+  constructor(public readonly dataService: DataServiceService) {
 
+  }
   saveHomePageData() {
-    console.log(this.homePageData);
+    this.dataService.updateHomePageData(this.homePageData)
+      .catch((err, caught) => {
+        this.errorSavingAlert.text = 'There was a problem saving your changes. ' + err;
+        this.errorSavingAlert.show();
+        return Observable.throw(err);
+    }).subscribe(val => {
+      if(val !== undefined) {
+        this.changesSavedAlert.show();
+      }
+    });
   }
 }

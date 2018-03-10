@@ -1,4 +1,4 @@
-import { PageType } from './enums/PageType';
+import { PageType } from '../../src/app/common/PageType';
 import { AboutPageData, ContactPageData, GalleryPageData, HomePageData, LivePageData, MusicPageData } from '../../types';
 
 export type PageData = HomePageData    |

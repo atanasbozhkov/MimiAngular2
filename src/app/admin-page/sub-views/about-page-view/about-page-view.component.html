@@ -1,19 +1,32 @@
 <form class="form-wrap">
   <div class="form-group">
-    <label for="exampleTextarea">First Name</label>
-    <input class="form-control form-input"
-           *ngIf="homePageData.firstName"
-           [(ngModel)]="homePageData.firstName"
-           name="first">
-    <label for="exampleTextarea">Last Name</label>
-    <input class="form-control form-input"
-           *ngIf="homePageData.lastName"
-           [(ngModel)]="homePageData.lastName"
-           name="second">
-    <label for="exampleTextarea">Moto</label>
-    <input class="form-control form-input"
-           [(ngModel)]="homePageData.moto"
-           name="third">
+    <div class="form-group">
+      <label for="aboutText">About text:</label>
+      <textarea class="form-control"
+                id="aboutText"
+                rows="15"
+                name="aboutText"
+                [(ngModel)]="aboutPageData.aboutText"></textarea>
+    </div>
   </div>
-  <button type="submit" class="btn btn-primary" (click)="saveHomePageData()">Update</button>
+  <button
+    type="submit"
+    class="btn btn-primary"
+    (click)="saveAboutPageData()"> Update </button>
+  <swal
+    #changesSaved
+    type="submit"
+    text="Your changes have been saved"
+    type="success"
+    position="top-end"
+    showConfirmButton="false"
+    timer="1500"
+  ></swal>
+  <swal
+    #errorSaving
+    type="submit"
+    text=""
+    type="error"
+    showConfirmButton="true"
+  ></swal>
 </form>

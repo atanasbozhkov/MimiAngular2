@@ -1,8 +1,9 @@
 import { Request, Response, Router } from 'express';
 import { FireBase } from '../dao/FireBaseDB';
-import { PageType } from '../dao/enums/PageType';
+import { PageType } from '../../src/app/common/PageType';
 import { PageData } from '../dao/IDatabase';
 import { AboutPageData, ContactPageData, GalleryPageData, HomePageData, LivePageData, MusicPageData } from '../../types';
+import {ResponseType} from "@angular/http";
 
 const apiRouter: Router = Router();
 let dal: FireBase = new FireBase();
@@ -12,6 +13,19 @@ apiRouter.get('/' + 'Home', (request: Request, response: Response) => {
     const homePageData = data as HomePageData;
     response.send(homePageData);
   });
+});
+
+apiRouter.post('/' + 'Home', (request: Request, response: Response) => {
+  dal.setPageData(PageType.HOME, request.body)
+    .then(() => {
+    response.send();
+  }).catch(rejected => {
+    console.log('Promise was rejected by Database');
+    console.log(rejected);
+    response.status(500);
+    response.statusMessage = rejected;
+    response.send();
+  })
 });
 
 apiRouter.get('/' + 'About', (request: Request, response: Response) => {
