@@ -1,7 +1,7 @@
 import * as firebase from 'firebase';
 import { firebaseConfig } from '../config';
 import { IDatabase, PageData } from './IDatabase';
-import { PageType } from '../../src/app/common/PageType';
+import { PageType } from '../../src/app/common/page-models/page-type';
 import { AboutPageData, ContactPageData, GalleryPageData, HomePageData, LivePageData, MusicPageData } from '../../types';
 
 /**

@@ -1,4 +1,4 @@
-import { LiveEvent } from './LiveEvent';
+import { LiveEvent } from './live-events';
 
 export class LivePageData {
   liveEvents: Array<LiveEvent>;

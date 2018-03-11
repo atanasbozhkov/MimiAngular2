@@ -13,7 +13,7 @@ export class GalleryImage {
 }
 
 export class GalleryPageData {
-  galleryImages: Array<GalleryImage>
+  galleryImages: Array<GalleryImage>;
 
   constructor(galleryImage: Partial<GalleryPageData>) {
     Object.assign(this, galleryImage);

@@ -1,8 +1,9 @@
 import { Request, Response, Router } from 'express';
 import { FireBase } from '../dao/FireBaseDB';
-import { PageType } from '../../src/app/common/PageType';
+import { PageType } from '../../src/app/common/page-models/page-type';
 import { PageData } from '../dao/IDatabase';
 import { AboutPageData, ContactPageData, HomePageData, LivePageData, MusicPageData } from '../../types';
+import { urlMapping } from '../../src/app/common/url-mapping';
 
 const apiRouter: Router = Router();
 let dal: FireBase = new FireBase();
@@ -28,7 +29,7 @@ apiRouter.post('/' + 'Home', (request: Request, response: Response) => {
 });
 
 // TODO: extract page urls to mapping and read from there.
-apiRouter.post('/' + 'About', (request: Request, response: Response) => {
+apiRouter.post(urlMapping(PageType.ABOUT), (request: Request, response: Response) => {
   dal.setPageData(PageType.ABOUT, request.body)
     .then(() => {
     response.send();
