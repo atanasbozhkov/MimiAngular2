@@ -1,8 +1,15 @@
-import {Injectable} from '@angular/core';
-import {MenuItemComponent} from './menu-item/menu-item.component';
-import {AboutPageData, ContactPageData, GalleryPageData, HomePageData, LiveEvent, MusicPageData} from '../../types';
-import {Http, Response} from '@angular/http';
-import {Observable} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { MenuItemComponent } from './menu-item/menu-item.component';
+import {
+  AboutPageData,
+  ContactPageData,
+  GalleryPageData,
+  HomePageData,
+  LiveEvent,
+  MusicPageData
+} from '../../types';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs';
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -52,9 +59,13 @@ export class DataServiceService {
     return mergedObservable;
   }
 
+  // TODO: Extract urls to a mapping enum?
   updateHomePageData(homePageData: HomePageData): Observable<Response> {
-    console.log('Updating home page data');
     return this.http.post('api/Home', homePageData);
+  }
+
+  updateAboutPageData(aboutPageData: AboutPageData): Observable<Response> {
+    return this.http.post('api/About', aboutPageData);
   }
 
   // Live events month starts from 0 to 11.
@@ -69,8 +80,8 @@ export class DataServiceService {
             event.facebookLink,
             event.googleMapsLink);
         });
-        console.log({liveEvents: liveEvents})
-        return {liveEvents: liveEvents};
+        console.log({ liveEvents: liveEvents })
+        return { liveEvents: liveEvents };
       })
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     // return [

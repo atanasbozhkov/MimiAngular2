@@ -9,10 +9,12 @@ import { DataServiceService } from '../data-service.service';
 export class AboutPageComponent implements OnInit {
   aboutText: string;
   moto: string;
+  photoUrl: string;
 
   constructor(private dataService: DataServiceService) {
     dataService.getAboutText().subscribe((data) => {
       this.aboutText = data.aboutText;
+      this.photoUrl = data.photoUrl;
     });
     this.moto = 'ABOUT';
   }

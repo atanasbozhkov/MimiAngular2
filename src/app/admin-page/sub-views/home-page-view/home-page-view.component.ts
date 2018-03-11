@@ -1,8 +1,8 @@
 import {Component, Input, ViewChild} from '@angular/core';
 import { HomePageData } from '../../../../../types';
-import {DataServiceService} from "../../../data-service.service";
-import {SwalComponent} from "@toverux/ngx-sweetalert2";
-import {Observable} from "rxjs/Rx";
+import {DataServiceService} from '../../../data-service.service';
+import {SwalComponent} from '@toverux/ngx-sweetalert2';
+import {Observable} from 'rxjs/Rx';
 
 @Component({
   selector: 'app-home-page-view',
@@ -13,6 +13,7 @@ export class HomePageViewComponent {
   @Input('homePageData') homePageData: HomePageData;
   @ViewChild('changesSaved') private changesSavedAlert: SwalComponent;
   @ViewChild('errorSaving') private errorSavingAlert: SwalComponent;
+  private readonly ASSET_PATH: string = 'assets/img/';
   constructor(public readonly dataService: DataServiceService) {
 
   }
@@ -23,7 +24,7 @@ export class HomePageViewComponent {
         this.errorSavingAlert.show();
         return Observable.throw(err);
     }).subscribe(val => {
-      if(val !== undefined) {
+      if (val !== undefined) {
         this.changesSavedAlert.show();
       }
     });

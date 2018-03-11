@@ -38,14 +38,13 @@ export class FireBase implements IDatabase {
       switch (page) {
         case PageType.HOME:
           this.database.ref('pages/' + page).set(pageData)
-            .then(() => {
-              console.log('then');
-            resolve();
-          }). catch( rejected => {
-            console.log('reject');
-            reject(new Error(rejected));
-          });
+            .then(() => resolve())
+            .catch( rejected => reject(new Error(rejected)));
           break;
+        case PageType.ABOUT:
+          this.database.ref('pages/' + page).set(pageData)
+            .then(() => resolve())
+            .catch( rejected => reject(new Error(rejected)));
       }
     });
   }

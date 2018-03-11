@@ -13,10 +13,10 @@
         <a class="nav-link" (click)="onMenuItemClick(menuItem.title)">{{menuItem.title}}<span class="sr-only">(current)</span></a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <!--<form class="form-inline my-2 my-lg-0">-->
+      <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+      <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+    <!--</form>-->
   </div>
 </nav>
 
@@ -30,3 +30,7 @@
   [aboutPageData]="aboutPageData"
 >
 </app-about-page-view>
+<app-music-page-view
+  *ngIf="selectedView === 'Music'"
+>
+</app-music-page-view>

@@ -7,3 +7,14 @@
   width: 800px;
   margin: 0 auto;
 }
+
+.about-image {
+  width: 100%;
+}
+
+label {
+  border-top: 1px solid #cccccc;
+  width: 100%;
+  padding-top: 15px;
+  margin-bottom: 2px;
+}

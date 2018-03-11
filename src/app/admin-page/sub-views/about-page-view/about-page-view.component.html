@@ -4,10 +4,16 @@
       <label for="aboutText">About text:</label>
 
       <div
+        *ngIf="aboutPageData"
         id="aboutText"
         [froalaEditor]
         [(froalaModel)]="aboutPageData.aboutText"
       ></div>
+      <label for="about-image">About image:</label>
+      <img *ngIf="aboutPageData"
+           id="about-image"
+           src="{{ aboutPageData.photoUrl }}"
+           class="about-image">
     </div>
   </div>
   <button

@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import {DataServiceService, PageData} from '../data-service.service';
 import { MenuItemComponent } from '../menu-item/menu-item.component';
 import {AboutPageData, HomePageData} from '../../../types';
 import {Observable} from 'rxjs';
+import { includes } from 'lodash';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-login-page',
@@ -11,7 +13,7 @@ import {Observable} from 'rxjs';
   styleUrls: [ './admin-page.component.css' ]
 })
 
-export class AdminPageComponent {
+export class AdminPageComponent implements OnInit  {
   email: string;
   password: string;
   router: Router;
@@ -21,7 +23,17 @@ export class AdminPageComponent {
   private selectedView: string;
   private readonly HOME_PAGE_ID = 'Home';
 
-  constructor(router: Router, dataService: DataServiceService) {
+  static isHomePageData(pageData: PageData): pageData is HomePageData {
+    return (<HomePageData>pageData).firstName !== undefined;
+  }
+
+  static isAboutPageData(pageData: PageData): pageData is AboutPageData {
+    return (<AboutPageData>pageData).aboutText !== undefined;
+  }
+  constructor(router: Router,
+              dataService: DataServiceService,
+              private route: ActivatedRoute,
+              private location: Location) {
     this.router = router;
     let isNotAuthenticated = dataService === undefined ||
       dataService.isAuthenticated === undefined ||
@@ -35,22 +47,38 @@ export class AdminPageComponent {
     observable.subscribe(pageData => {
       if (AdminPageComponent.isHomePageData(pageData)) {
         this.homePageData = pageData;
-        this.selectedView = this.HOME_PAGE_ID; // Set default view for admin panel.
       } else if (AdminPageComponent.isAboutPageData(pageData)) {
         this.aboutPageData = pageData;
       }
     });
   }
 
-  static isHomePageData(pageData: PageData): pageData is HomePageData {
-    return (<HomePageData>pageData).firstName !== undefined;
-  }
-
-  static isAboutPageData(pageData: PageData): pageData is AboutPageData {
-    return (<AboutPageData>pageData).aboutText !== undefined;
-  }
   onMenuItemClick(id) {
     this.selectedView = id;
+    // Generate the URL:
+    this.router.navigate([], {
+      queryParams: {
+        view: id
+      }
+    });
+  }
+
+  ngOnInit() {
+    // get param
+    let selectedView = this.route.snapshot.queryParams['view'];
+    console.log(`Got view of: ${selectedView}`);
+    if ( selectedView !== null && selectedView !== undefined ) {
+      if (this.matchesAnyView(selectedView)) {
+        this.selectedView = selectedView;
+        return;
+      }
+    }
+    this.selectedView = this.HOME_PAGE_ID; // Set default view for admin panel.
+
+  }
+
+  private matchesAnyView(selectedView: string): boolean {
+    return includes(['Home', 'About'], selectedView);
   }
 
 }
