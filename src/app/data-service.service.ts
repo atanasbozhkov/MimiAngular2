@@ -168,4 +168,8 @@ export class DataServiceService {
     return this.loggeedIn;
   }
 
+  getPageList(): Array<string> {
+    return [ 'Home', 'About', 'Music', 'Live', 'Gallery', 'Teaching', 'Contact'];
+  }
+
 }

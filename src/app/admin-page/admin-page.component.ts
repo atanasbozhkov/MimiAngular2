@@ -22,6 +22,8 @@ export class AdminPageComponent implements OnInit  {
   private aboutPageData: AboutPageData;
   private selectedView: string;
   private readonly HOME_PAGE_ID = 'Home';
+  private readonly LOGIN_URL = '/login';
+  private readonly VIEW_PARAM: string = 'view';
 
   static isHomePageData(pageData: PageData): pageData is HomePageData {
     return (<HomePageData>pageData).firstName !== undefined;
@@ -30,18 +32,12 @@ export class AdminPageComponent implements OnInit  {
   static isAboutPageData(pageData: PageData): pageData is AboutPageData {
     return (<AboutPageData>pageData).aboutText !== undefined;
   }
-  constructor(router: Router,
-              dataService: DataServiceService,
-              private route: ActivatedRoute,
-              private location: Location) {
-    this.router = router;
-    let isNotAuthenticated = dataService === undefined ||
-      dataService.isAuthenticated === undefined ||
-      !dataService.isAuthenticated();
 
-    if (isNotAuthenticated) {
-      this.router.navigateByUrl('/login');
-    }
+  constructor(router: Router,
+              private dataService: DataServiceService,
+              private route: ActivatedRoute) {
+    this.router = router;
+    this.redirectIfUnauthenticated();
     this.menuItems = dataService.getMenuItems();
     const observable: Observable<PageData> = dataService.getPageData();
     observable.subscribe(pageData => {
@@ -55,18 +51,16 @@ export class AdminPageComponent implements OnInit  {
 
   onMenuItemClick(id) {
     this.selectedView = id;
-    // Generate the URL:
+    // Generate the URL params
     this.router.navigate([], {
       queryParams: {
-        view: id
+        [this.VIEW_PARAM]: id
       }
     });
   }
 
   ngOnInit() {
-    // get param
-    let selectedView = this.route.snapshot.queryParams['view'];
-    console.log(`Got view of: ${selectedView}`);
+    let selectedView = this.route.snapshot.queryParams[this.VIEW_PARAM];
     if ( selectedView !== null && selectedView !== undefined ) {
       if (this.matchesAnyView(selectedView)) {
         this.selectedView = selectedView;
@@ -74,11 +68,19 @@ export class AdminPageComponent implements OnInit  {
       }
     }
     this.selectedView = this.HOME_PAGE_ID; // Set default view for admin panel.
+  }
 
+  private redirectIfUnauthenticated() {
+    let isNotAuthenticated = this.dataService === undefined ||
+      this.dataService.isAuthenticated === undefined ||
+      !this.dataService.isAuthenticated();
+    if (isNotAuthenticated) {
+      this.router.navigateByUrl(this.LOGIN_URL);
+    }
   }
 
   private matchesAnyView(selectedView: string): boolean {
-    return includes(['Home', 'About'], selectedView);
+    return includes(this.dataService.getPageList(), selectedView);
   }
 
 }
