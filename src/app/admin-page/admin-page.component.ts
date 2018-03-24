@@ -5,8 +5,12 @@ import { MenuItemComponent } from '../menu-item/menu-item.component';
 import {AboutPageData, HomePageData} from '../../../types';
 import {Observable} from 'rxjs';
 import { includes } from 'lodash';
-import { Location } from '@angular/common';
-
+enum SUBVIEW_MAPPING {
+  HOME = 'Home',
+  ABOUT = 'About',
+  ASSET = 'Asset Library',
+  MUSIC = 'Music'
+}
 @Component({
   selector: 'app-login-page',
   templateUrl: './admin-page.component.html',
@@ -18,12 +22,14 @@ export class AdminPageComponent implements OnInit  {
   password: string;
   router: Router;
   private menuItems: MenuItemComponent[];
+  private pageList: Array<string>;
   private homePageData: HomePageData;
   private aboutPageData: AboutPageData;
   private selectedView: string;
-  private readonly HOME_PAGE_ID = 'Home';
+  private readonly HOME_PAGE_ID = SUBVIEW_MAPPING.HOME;
   private readonly LOGIN_URL = '/login';
   private readonly VIEW_PARAM: string = 'view';
+  private readonly VIEW_MAP = SUBVIEW_MAPPING;
 
   static isHomePageData(pageData: PageData): pageData is HomePageData {
     return (<HomePageData>pageData).firstName !== undefined;
@@ -39,6 +45,8 @@ export class AdminPageComponent implements OnInit  {
     this.router = router;
     this.redirectIfUnauthenticated();
     this.menuItems = dataService.getMenuItems();
+    this.menuItems = this.menuItems.concat(this.getAdminPageViews());
+    this.pageList = this.dataService.getPageList().concat(this.getAdminPageViews().map(view => view.title));
     const observable: Observable<PageData> = dataService.getPageData();
     observable.subscribe(pageData => {
       if (AdminPageComponent.isHomePageData(pageData)) {
@@ -79,8 +87,12 @@ export class AdminPageComponent implements OnInit  {
     }
   }
 
+  private getAdminPageViews(): Array<MenuItemComponent> {
+    return [ new MenuItemComponent('Asset Library', '/assets') ];
+  }
+
   private matchesAnyView(selectedView: string): boolean {
-    return includes(this.dataService.getPageList(), selectedView);
+    return includes(this.pageList, selectedView);
   }
 
 }

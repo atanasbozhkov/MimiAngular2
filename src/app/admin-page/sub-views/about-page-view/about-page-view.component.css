@@ -18,3 +18,14 @@ label {
   padding-top: 15px;
   margin-bottom: 2px;
 }
+
+#aboutText div.fr-wrapper div:nth-child(1):not(.fr-view) {
+  visibility: hidden !important;
+  display:none;
+
+}
+
+#aboutText > div.fr-wrapper > div:nth-child(1) {
+  display:none;
+  visibility: hidden;
+}

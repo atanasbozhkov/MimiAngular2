@@ -17,16 +17,20 @@
 </nav>
 
 <app-home-page-view
-  *ngIf="selectedView === 'Home'"
+  *ngIf="selectedView === VIEW_MAP.HOME"
   [homePageData]="homePageData"
 >
 </app-home-page-view>
 <app-about-page-view
-  *ngIf="selectedView === 'About'"
+  *ngIf="selectedView === VIEW_MAP.ABOUT"
   [aboutPageData]="aboutPageData"
 >
 </app-about-page-view>
 <app-music-page-view
-  *ngIf="selectedView === 'Music'"
+  *ngIf="selectedView === VIEW_MAP.MUSIC"
 >
 </app-music-page-view>
+<app-asset-management-view
+*ngIf="selectedView == VIEW_MAP.ASSET">
+
+</app-asset-management-view>

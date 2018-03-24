@@ -18,7 +18,14 @@ import { TeachingPageComponent } from './teaching-page/teaching-page-component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AdminPageComponent } from './admin-page/admin-page.component';
-import { HomePageViewComponent, AboutPageViewComponent, MusicPageViewComponent }  from './admin-page/sub-views/';
+import { ImageCropperComponent } from 'ngx-img-cropper';
+
+import {
+  HomePageViewComponent,
+  AboutPageViewComponent,
+  MusicPageViewComponent,
+  AssetManagementViewComponent
+}  from './admin-page/sub-views/';
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
@@ -38,7 +45,9 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
     GalleryPageComponent,
     TeachingPageComponent,
     LoginPageComponent,
-    MusicPageViewComponent
+    MusicPageViewComponent,
+    AssetManagementViewComponent,
+    ImageCropperComponent
   ],
   imports: [
     BrowserModule,

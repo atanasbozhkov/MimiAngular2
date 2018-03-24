@@ -8,7 +8,7 @@ import {
   LiveEvent,
   MusicPageData
 } from '../../types';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptionsArgs } from '@angular/http';
 import { Observable } from 'rxjs';
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
@@ -72,7 +72,6 @@ export class DataServiceService {
   getEvents(): Observable<{ liveEvents: LiveEvent[] }> {
     return this.http.get('api/Live')
       .map((res, index) => {
-        console.log('heelo from ds');
         const liveEvents = res.json().liveEvents.map(event => {
           return new LiveEvent(new Date(event.date),
             event.eventName,
@@ -80,7 +79,6 @@ export class DataServiceService {
             event.facebookLink,
             event.googleMapsLink);
         });
-        console.log({ liveEvents: liveEvents })
         return { liveEvents: liveEvents };
       })
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
@@ -171,5 +169,14 @@ export class DataServiceService {
   getPageList(): Array<string> {
     return [ 'Home', 'About', 'Music', 'Live', 'Gallery', 'Teaching', 'Contact'];
   }
+
+  uploadImage(fullSizeImage: any, croppedImage: any) {
+    // TODO: Extract param names into common interface and reference it
+    const formData = new FormData();
+    formData.append('fullSizeImage', fullSizeImage);
+    formData.append('croppedImage', croppedImage);
+    return this.http.post('api/UploadImage', formData);
+  }
+
 
 }
