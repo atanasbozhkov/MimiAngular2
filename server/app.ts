@@ -2,7 +2,7 @@ import * as express from 'express';
 import { json, urlencoded } from 'body-parser';
 import * as path from 'path';
 import * as compression from 'compression';
-import {frontPageRouter} from './routes/frontPageRouter';
+import {frontPageRouter} from './routes/font-page-router';
 import {apiRouter} from './routes/api';
 import {loginRouter} from './routes/login';
 import {protectedRouter} from './routes/protected';

@@ -1,13 +1,12 @@
 import { Request, Response, Router } from 'express';
-import { FireBase } from '../dao/FireBaseDB';
-import { PageType } from '../../src/app/common/page-models/page-type';
-import { PageData } from '../dao/IDatabase';
+import { FireBase } from '../dao/firebase-db';
+import { PageType } from '../../src/app/common/page-models';
+import { PageData } from '../dao/idatabase';
 import { AboutPageData, ContactPageData, HomePageData, LivePageData, MusicPageData } from '../../types';
 import { urlMapping } from '../../src/app/common/url-mapping';
-import {ImageFileType, ImageType, ImageUploader} from '../dao/image-uploader';
-import { Utils } from "../utils/utils";
-import Multer = require("multer");
-
+import { ImageFileType, ImageType, ImageUploader } from '../dao/image-uploader';
+import { Utils } from '../utils/utils';
+import Multer = require('multer');
 
 const apiRouter: Router = Router();
 const dal: FireBase = new FireBase();
@@ -51,7 +50,7 @@ apiRouter.post(urlMapping(PageType.ABOUT), (request: Request, response: Response
   })
 });
 
-apiRouter.post('/' + 'UploadImage', upload.array('fullSizeImage') ,(request: Request, response: Response) => {
+apiRouter.post('/' + 'UploadImage', upload.array('fullSizeImage') , (request: Request, response: Response) => {
   // TODO: Extract param names into common interface and reference it
   const fullSizeImage = request.body['fullSizeImage'];
   const croppedImage = request.body['croppedImage'];
