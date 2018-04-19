@@ -7,11 +7,13 @@ import { urlMapping } from '../../src/app/common/url-mapping';
 import { ImageFileType, ImageType, ImageUploader } from '../dao/image-uploader';
 import { Utils } from '../utils/utils';
 import Multer = require('multer');
+import { ImageUploadForm } from '../../types/form-data-types';
 
 const apiRouter: Router = Router();
 const dal: FireBase = new FireBase();
 const imageUploader: ImageUploader = new ImageUploader();
 let MAX_UPLOAD_SIZE = 25 * 1024 * 1024;
+// Configure Multer to accept files up to 25MBs
 const upload = Multer({
   limits: { fieldSize: MAX_UPLOAD_SIZE }
 });
@@ -50,13 +52,12 @@ apiRouter.post(urlMapping(PageType.ABOUT), (request: Request, response: Response
   })
 });
 
-apiRouter.post('/' + 'UploadImage', upload.array('fullSizeImage') , (request: Request, response: Response) => {
-  // TODO: Extract param names into common interface and reference it
-  const fullSizeImage = request.body['fullSizeImage'];
-  const croppedImage = request.body['croppedImage'];
+apiRouter.post('/' + 'UploadImage', upload.array('fullSizeImage') , (req: Request, res: Response) => {
+  const fullSizeImage = (req.body as ImageUploadForm).fullSizeImage;
+  const croppedImage = (req.body as ImageUploadForm).croppedImage;
   imageUploader.uploadImage(fullSizeImage, ImageType.FULL_SIZE, Utils.getImageFileType(fullSizeImage));
   imageUploader.uploadImage(croppedImage, ImageType.THUMBNAIL, Utils.getImageFileType(croppedImage));
-  response.send();
+  res.send();
 });
 
 apiRouter.get('/' + 'About', (request: Request, response: Response) => {

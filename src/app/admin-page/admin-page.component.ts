@@ -18,9 +18,8 @@ enum SUBVIEW_MAPPING {
 })
 
 export class AdminPageComponent implements OnInit  {
-  email: string;
-  password: string;
-  router: Router;
+  private email: string;
+  private password: string;
   private menuItems: MenuItemComponent[];
   private pageList: Array<string>;
   private homePageData: HomePageData;
@@ -39,10 +38,9 @@ export class AdminPageComponent implements OnInit  {
     return (<AboutPageData>pageData).aboutText !== undefined;
   }
 
-  constructor(router: Router,
+  constructor(private router: Router,
               private dataService: DataServiceService,
               private route: ActivatedRoute) {
-    this.router = router;
     this.redirectIfUnauthenticated();
     this.menuItems = dataService.getMenuItems();
     this.menuItems = this.menuItems.concat(this.getAdminPageViews());
@@ -68,7 +66,7 @@ export class AdminPageComponent implements OnInit  {
   }
 
   ngOnInit() {
-    let selectedView = this.route.snapshot.queryParams[this.VIEW_PARAM];
+    const selectedView = this.route.snapshot.queryParams[this.VIEW_PARAM];
     if ( selectedView !== null && selectedView !== undefined ) {
       if (this.matchesAnyView(selectedView)) {
         this.selectedView = selectedView;
@@ -79,7 +77,7 @@ export class AdminPageComponent implements OnInit  {
   }
 
   private redirectIfUnauthenticated() {
-    let isNotAuthenticated = this.dataService === undefined ||
+    const isNotAuthenticated = this.dataService === undefined ||
       this.dataService.isAuthenticated === undefined ||
       !this.dataService.isAuthenticated();
     if (isNotAuthenticated) {
