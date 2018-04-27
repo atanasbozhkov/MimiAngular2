@@ -19,7 +19,7 @@ export class MusicPageComponent implements OnDestroy, AfterViewInit {
   videos: Array<SafeResourceUrl>;
 
   constructor(dataService: DataServiceService, public sanitizer: DomSanitizer) {
-    const observable = dataService.getMusicPageData();
+    const observable = dataService.musicPageData();
     observable.subscribe((data) => {
       this.musicPageData = data;
       this.videos = this.getVideoUrls();

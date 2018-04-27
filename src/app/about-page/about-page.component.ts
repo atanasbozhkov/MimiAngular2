@@ -12,7 +12,7 @@ export class AboutPageComponent implements OnInit {
   photoUrl: string;
 
   constructor(private dataService: DataServiceService) {
-    dataService.getAboutText().subscribe((data) => {
+    dataService.aboutText().subscribe((data) => {
       this.aboutText = data.aboutText;
       this.photoUrl = data.photoUrl;
     });

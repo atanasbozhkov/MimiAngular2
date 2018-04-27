@@ -15,7 +15,7 @@ export class HomePageComponent implements OnInit {
   photoUrl: string;
 
   constructor(private dataService: DataServiceService) {
-    let obs: Observable<HomePageData> = dataService.getHomePageData();
+    let obs: Observable<HomePageData> = dataService.homePageData();
     obs.subscribe((data) => {
       this.firstName = data.firstName;
       this.lastName = data.lastName;

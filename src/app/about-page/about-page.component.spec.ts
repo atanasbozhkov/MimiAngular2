@@ -18,8 +18,8 @@ describe('AboutPageComponent', () => {
   let fixture: ComponentFixture<AboutPageComponent>;
   const testAboutText: string = 'Test about text';
   const dataService =
-    jasmine.createSpyObj('DataService', ['getAboutText']);
-  const getAboutTextSpy = dataService.getAboutText.and.returnValue(of(testAboutText));
+    jasmine.createSpyObj('DataService', ['aboutText']);
+  const getAboutTextSpy = dataService.aboutText.and.returnValue(of(testAboutText));
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AboutPageComponent, AppMenuStubComponent ],

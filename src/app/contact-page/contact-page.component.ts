@@ -15,7 +15,7 @@ export class ContactPageComponent {
   youtube: string;
 
   constructor(dataService: DataServiceService) {
-    const observable = dataService.getContactPageData();
+    const observable = dataService.contactPageData();
     observable.subscribe((data) => {
       const contactPageData = data;
 
