@@ -1,22 +1,39 @@
 import * as firebase from 'firebase';
 import { firebaseConfig } from '../config';
-import { IDatabase, PageData } from './idatabase';
-import { PageType } from '../../src/app/common/page-models/page-type';
-import { AboutPageData, ContactPageData, GalleryPageData, HomePageData, LivePageData, MusicPageData } from '../../types';
-
+import { IDatabase, PageData } from './interfaces/idatabase';
+import { PageType } from '../../src/app/common/page-models';
+import {
+  AboutPageData,
+  ContactPageData,
+  GalleryPageData,
+  HomePageData,
+  LivePageData,
+  MusicPageData
+} from '../../types';
+import {IImageDatabse} from "./interfaces/iimage-databse";
+import {IImage} from "./image-cache";
+import {ImageType} from "./image-helper";
+import {BucketQuery} from "google-cloud__storage";
+const Storage = require('@google-cloud/storage')
 /**
  * Created by atanasbozhkov on 19/04/2017.
  */
-export class FireBase implements IDatabase {
+export class FireBase implements IDatabase, IImageDatabse {
 
   private fireBase: firebase.app.App;
   private database: firebase.database.Database;
+  private imageStorage: any;
+  private readonly BUCKET_NAME: string = 'marina-website.appspot.com';
 
   constructor() {
     // Initialize Firebase
     this.fireBase = firebase.initializeApp(firebaseConfig);
     this.database = this.fireBase.database();
+    this.imageStorage = Storage({
+      keyFilename: 'marina-website-df2a4be29328.json'
+    });
   }
+
 
   login(email: string, password: string) {
     this.fireBase.auth().signInWithEmailAndPassword(email, password)
@@ -81,6 +98,46 @@ export class FireBase implements IDatabase {
         // TODO: maybe fallback to a static data version of the website if db not available?
         console.error(error);
       });
+  }
+
+  getImage(imageKey: string): IImage {
+    this.imageStorage.bucket(this.BUCKET_NAME).getFile(imageKey).then(result => {
+      console.log(result[1]);
+    });
+    return undefined;
+  }
+
+  listImages(): Array<IImage> {
+    this.getFolderContents('thumbnail');
+    return undefined;
+  }
+
+  private getFolderContents(folder: string) {
+    const queryOptions: BucketQuery = {
+      prefix: `${folder}/`,
+      delimiter: '/'
+    };
+
+    this.imageStorage.bucket(this.BUCKET_NAME)
+      .getFiles(queryOptions)
+      .then(results => {
+        const files = results[0];
+        console.log('Files:');
+        files.filter(file => file.metadata.size != 0) // Filter by size to omit folders.
+          .forEach(file => {
+            file.download().then((buffer: Buffer) => {
+              console.log(buffer.toString('base64'));
+              console.log('Got the file');
+            });
+          });
+      });
+  }
+
+  saveImage(image: IImage): void {
+    this.imageStorage.ref().child(ImageType.FULL_SIZE).child(image.key).put(image.imageData).then(snapshot => {
+      console.log(`uploaded ${image.key}`);
+      console.log(`download URL ${snapshot.downloadURL}`);
+    })
   }
 
 }

@@ -1,5 +1,5 @@
-import { PageType } from '../../src/app/common/page-models/page-type';
-import { AboutPageData, ContactPageData, GalleryPageData, HomePageData, LivePageData, MusicPageData } from '../../types';
+import { PageType } from '../../../src/app/common/page-models/page-type';
+import { AboutPageData, ContactPageData, GalleryPageData, HomePageData, LivePageData, MusicPageData } from '../../../types/index';
 
 export type PageData = HomePageData    |
                       AboutPageData    |

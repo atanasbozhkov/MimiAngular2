@@ -7,6 +7,6 @@ export const firebaseConfig = {
   authDomain: "marina-website.firebaseapp.com",
   databaseURL: "https://marina-website.firebaseio.com",
   projectId: "marina-website",
-  storageBucket: "marina-website.appspot.com",
+  storageBucket: "gs://marina-website.appspot.com",
   messagingSenderId: "839266397921"
 };

@@ -1,17 +1,21 @@
 import { Request, Response, Router } from 'express';
 import { FireBase } from '../dao/firebase-db';
 import { PageType } from '../../src/app/common/page-models';
-import { PageData } from '../dao/idatabase';
+import { PageData } from '../dao/interfaces/idatabase';
 import { AboutPageData, ContactPageData, HomePageData, LivePageData, MusicPageData } from '../../types';
 import { urlMapping } from '../../src/app/common/url-mapping';
-import { ImageFileType, ImageType, ImageUploader } from '../dao/image-uploader';
-import { Utils } from '../utils/utils';
+import { ImageType, ImageHelper } from '../dao/image-helper';
 import Multer = require('multer');
 import { ImageUploadForm } from '../../types/form-data-types';
+import uuid = require("uuid");
+import {IImageCache, ImageCache} from "../dao/image-cache";
+
+
 
 const apiRouter: Router = Router();
 const dal: FireBase = new FireBase();
-const imageUploader: ImageUploader = new ImageUploader();
+const imageCache: IImageCache = new ImageCache();
+const imageHelper: ImageHelper = new ImageHelper(imageCache, dal);
 let MAX_UPLOAD_SIZE = 25 * 1024 * 1024;
 // Configure Multer to accept files up to 25MBs
 const upload = Multer({
@@ -55,9 +59,14 @@ apiRouter.post(urlMapping(PageType.ABOUT), (request: Request, response: Response
 apiRouter.post('/' + 'UploadImage', upload.array('fullSizeImage') , (req: Request, res: Response) => {
   const fullSizeImage = (req.body as ImageUploadForm).fullSizeImage;
   const croppedImage = (req.body as ImageUploadForm).croppedImage;
-  imageUploader.uploadImage(fullSizeImage, ImageType.FULL_SIZE, Utils.getImageFileType(fullSizeImage));
-  imageUploader.uploadImage(croppedImage, ImageType.THUMBNAIL, Utils.getImageFileType(croppedImage));
+  const fileName = uuid();
+  imageHelper.uploadImage(fileName, fullSizeImage, croppedImage);
   res.send();
+});
+
+apiRouter.get('/' + 'GetImages', (request: Request, response: Response) => {
+  imageHelper.listImages();
+  response.send();
 });
 
 apiRouter.get('/' + 'About', (request: Request, response: Response) => {

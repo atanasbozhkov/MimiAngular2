@@ -29,8 +29,8 @@ if (app.get('env') === 'production') {
   // Handle all public pages routing for Angular2;
   app.use('/', frontPageRouter);
 }
-app.use('/admin', protectedRouter);
-app.use('/login', loginRouter);
+// app.use('/admin', protectedRouter);
+// app.use('/login', loginRouter);
 // catch 404 and forward to error handler
 app.use(function (req: express.Request, res: express.Response, next) {
   let err = new Error('Not Found');

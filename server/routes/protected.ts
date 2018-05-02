@@ -9,11 +9,13 @@ protectedRouter.use((request: Request & { headers: { authorization: string } }, 
   const token = request.headers.authorization;
 
   verify(token, secret, function (tokenError) {
+
+    // TODO: Nasco - set this up so that invalid logins are redirected to /login
     if (tokenError) {
       return response.status(403).json({
         message: 'Invalid token, please Log in first'
-      });    }
-
+      });
+    }
     next();
   });
 });

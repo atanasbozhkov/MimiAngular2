@@ -28,3 +28,7 @@ frontPageRouter.get('/About', (req, res) => {
 frontPageRouter.get('/Live', (req, res) => {
   res.sendFile(path.join(__dirname, '/../../client/index.html'));
 });
+// Admin
+frontPageRouter.get('/Admin', (req, res) => {
+  res.sendFile(path.join(__dirname, '/../../client/index.html'));
+});

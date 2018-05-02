@@ -1,4 +1,4 @@
-import {ImageFileType} from "../dao/image-uploader";
+import {ImageFileType} from "../dao/image-helper";
 
 export class Utils {
   public static getImageFileType(base64Data: string): ImageFileType {
