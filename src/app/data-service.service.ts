@@ -8,25 +8,25 @@ import {
   LiveEvent,
   MusicPageData
 } from '../../types';
-import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/merge';
+import {HttpClient} from "@angular/common/http";
 
 export type PageData = HomePageData | AboutPageData;
+
+type IEventsResponse = { liveEvents: LiveEvent[] };
 
 @Injectable()
 export class DataServiceService {
   private loggedIn = true;
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
   }
 
   musicPageData(): Observable<MusicPageData> {
-    return this.http.get('api/Music')
-      .map((res, index) => res.json())
-      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    return this.http.get<MusicPageData>('api/Music');
   }
 
   getMenuItems(): MenuItemComponent[] {
@@ -41,16 +41,11 @@ export class DataServiceService {
   }
 
   aboutText(): Observable<AboutPageData> {
-
-    return this.http.get('api/About')
-      .map((res, index) => res.json())
-      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    return this.http.get<AboutPageData>('api/About');
   }
 
   homePageData(): Observable<HomePageData> {
-    return this.http.get('api/Home')
-      .map((res, index) => res.json())
-      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    return this.http.get<HomePageData>('api/Home');
   }
 
   getPageData(): Observable<PageData> {
@@ -59,31 +54,25 @@ export class DataServiceService {
   }
 
   // Live events month starts from 0 to 11.
-  liveEvents(): Observable<{ liveEvents: LiveEvent[] }> {
-    return this.http.get('api/Live')
-      .map((res, index) => {
-        const liveEvents = res.json().liveEvents.map(event => {
-          return new LiveEvent(new Date(event.date),
-            event.eventName,
-            event.eventLocation,
-            event.facebookLink,
-            event.googleMapsLink);
-        });
-        return { liveEvents: liveEvents };
-      })
-      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  liveEvents(): Observable<IEventsResponse> {
+    return this.http.get<IEventsResponse>('api/Live').map((response: IEventsResponse) => {
+      const liveEvents = response.liveEvents.map(event => {
+        return new LiveEvent(new Date(event.date),
+          event.eventName,
+          event.eventLocation,
+          event.facebookLink,
+          event.googleMapsLink);
+      });
+      return { liveEvents: liveEvents };
+    })
   }
 
   contactPageData(): Observable<ContactPageData> {
-    return this.http.get('api/Contact')
-      .map((res, index) => res.json())
-      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    return this.http.get<ContactPageData>('api/Contact');
   }
 
   galleryPageData(): Observable<GalleryPageData> {
-    return this.http.get('api/Gallery')
-      .map((res, index) => res.json())
-      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    return this.http.get<GalleryPageData>('api/Gallery');
   }
 
   login(email, password) {
@@ -99,12 +88,12 @@ export class DataServiceService {
   }
 
   // TODO: Extract urls to a mapping enum?
-  updateHomePageData(homePageData: HomePageData): Observable<Response> {
-    return this.http.post('api/Home', homePageData);
+  updateHomePageData(homePageData: HomePageData): Observable<HomePageData> {
+    return this.http.post<HomePageData>('api/Home', homePageData);
   }
 
-  updateAboutPageData(aboutPageData: AboutPageData): Observable<Response> {
-    return this.http.post('api/About', aboutPageData);
+  updateAboutPageData(aboutPageData: AboutPageData): Observable<AboutPageData> {
+    return this.http.post<AboutPageData>('api/About', aboutPageData);
   }
 
   uploadImage(fullSizeImage: any, croppedImage: any) {

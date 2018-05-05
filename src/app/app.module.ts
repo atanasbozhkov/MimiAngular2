@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -28,6 +27,7 @@ import {
 }  from './admin-page/sub-views/';
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -52,7 +52,7 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot(),
     BsDropdownModule.forRoot(),
