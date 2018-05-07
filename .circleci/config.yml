@@ -3,6 +3,7 @@ dependencies:
   pre:
     - npm install npm@latest -g
     - npm install @angular/cli@latest -g
+    - npm i -g rxjs
 jobs:
   build:
     docker:
