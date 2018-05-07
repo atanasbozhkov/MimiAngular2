@@ -46,6 +46,9 @@ export class DataServiceService {
     ];
 
     const videos = [
+      'https://www.youtube.com/embed/iobI2aoygTc',
+      'https://www.youtube.com/embed/PZAXqwFi910',
+      'https://www.youtube.com/embed/hVZHv8vbHA8',
       'https://www.youtube.com/embed/Gq331nJ9sjc',
       'https://www.youtube.com/embed/O-YjblqkLAw'
     ];
