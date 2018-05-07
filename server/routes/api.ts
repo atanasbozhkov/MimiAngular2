@@ -8,7 +8,7 @@ import { ImageType, ImageHelper } from '../dao/image-helper';
 import Multer = require('multer');
 import { ImageUploadForm } from '../../types/form-data-types';
 import uuid = require("uuid");
-import {IImageCache, ImageCache} from "../dao/image-cache";
+import {IImage, IImageCache, ImageCache} from "../dao/image-cache";
 
 
 
@@ -65,8 +65,7 @@ apiRouter.post('/' + 'UploadImage', upload.array('fullSizeImage') , (req: Reques
 });
 
 apiRouter.get('/' + 'GetImages', (request: Request, response: Response) => {
-  imageHelper.listImages();
-  response.send();
+  imageHelper.listImages().subscribe( (image: IImage) => response.send(image.key));
 });
 
 apiRouter.get('/' + 'About', (request: Request, response: Response) => {

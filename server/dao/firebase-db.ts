@@ -14,7 +14,10 @@ import {IImageDatabse} from "./interfaces/iimage-databse";
 import {IImage} from "./image-cache";
 import {ImageType} from "./image-helper";
 import {BucketQuery} from "google-cloud__storage";
-const Storage = require('@google-cloud/storage')
+import { get } from 'lodash';
+import {Observable} from "rxjs/Rx";
+
+const Storage = require('@google-cloud/storage');
 /**
  * Created by atanasbozhkov on 19/04/2017.
  */
@@ -107,30 +110,39 @@ export class FireBase implements IDatabase, IImageDatabse {
     return undefined;
   }
 
-  listImages(): Array<IImage> {
-    this.getFolderContents('thumbnail');
-    return undefined;
+  listImages(): Observable<IImage> {
+    return this.getFolderContents('thumbnail');
   }
 
-  private getFolderContents(folder: string) {
+  private getFolderContents(folder: string): Observable<IImage> {
     const queryOptions: BucketQuery = {
       prefix: `${folder}/`,
       delimiter: '/'
     };
+    return Observable.create( observer => {
+      this.imageStorage.bucket(this.BUCKET_NAME)
+        .getFiles(queryOptions)
+        .then(results => {
+          const files = get(results, '0');
+          if(files) {
+            // console.log('Files:');
+            files.filter(file => file.metadata.size != 0) // Filter by size to omit folders.
+              .forEach(file => {
+                const fileName = get(file.metadata.name.split('/'), '1');
+                // console.log(`${fileName}`)
+                file.download().then((buffer: Buffer) => {
+                  const image: IImage = {
+                    key: fileName,
+                    imageData: buffer.toString('base64'),
+                    thumbnailData: buffer.toString('base64')
+                  };
+                  observer.next(image);
+                })
+              });
+          }
+        });
+    });
 
-    this.imageStorage.bucket(this.BUCKET_NAME)
-      .getFiles(queryOptions)
-      .then(results => {
-        const files = results[0];
-        console.log('Files:');
-        files.filter(file => file.metadata.size != 0) // Filter by size to omit folders.
-          .forEach(file => {
-            file.download().then((buffer: Buffer) => {
-              console.log(buffer.toString('base64'));
-              console.log('Got the file');
-            });
-          });
-      });
   }
 
   saveImage(image: IImage): void {
