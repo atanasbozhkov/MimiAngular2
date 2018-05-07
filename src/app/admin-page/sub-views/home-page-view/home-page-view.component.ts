@@ -1,3 +1,7 @@
+
+import {throwError as observableThrowError} from 'rxjs';
+
+import {catchError} from 'rxjs/operators';
 import {Component, Input, ViewChild} from '@angular/core';
 import { HomePageData } from '../../../../../types';
 import {DataServiceService} from '../../../data-service.service';
@@ -18,12 +22,12 @@ export class HomePageViewComponent {
 
   }
   saveHomePageData() {
-    this.dataService.updateHomePageData(this.homePageData)
-      .catch((err, caught) => {
+    this.dataService.updateHomePageData(this.homePageData).pipe(
+      catchError((err, caught) => {
         this.errorSavingAlert.text = 'There was a problem saving your changes. ' + err;
         this.errorSavingAlert.show();
-        return Observable.throw(err);
-    }).subscribe(val => {
+        return observableThrowError(err);
+    })).subscribe(val => {
       if (val !== undefined) {
         this.changesSavedAlert.show();
       }

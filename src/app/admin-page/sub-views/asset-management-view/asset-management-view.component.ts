@@ -1,3 +1,7 @@
+
+import {throwError as observableThrowError} from 'rxjs';
+
+import {catchError} from 'rxjs/operators';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import { CropperSettings, ImageCropperComponent } from "ngx-img-cropper";
 import {DataServiceService} from "../../../data-service.service";
@@ -39,10 +43,10 @@ export class AssetManagementViewComponent {
   }
 
   private onUploadClick(event: Event): void {
-    this.dataService.uploadImage(this.image.src, this.croppedImage.image)
-      .catch((err, caught) => {
-        return Observable.throw(err);
-      }).subscribe(val => {
+    this.dataService.uploadImage(this.image.src, this.croppedImage.image).pipe(
+      catchError((err, caught) => {
+        return observableThrowError(err);
+      })).subscribe(val => {
       if (val !== undefined) {
         console.log('HELLO');
       }

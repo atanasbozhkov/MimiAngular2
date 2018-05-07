@@ -1,3 +1,7 @@
+
+import {merge as observableMerge,  Observable } from 'rxjs';
+
+import {map} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { MenuItemComponent } from './menu-item/menu-item.component';
 import {
@@ -8,10 +12,9 @@ import {
   LiveEvent,
   MusicPageData
 } from '../../types';
-import { Observable } from 'rxjs';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/merge';
+
+
+
 import {HttpClient} from "@angular/common/http";
 
 export type PageData = HomePageData | AboutPageData;
@@ -49,13 +52,13 @@ export class DataServiceService {
   }
 
   getPageData(): Observable<PageData> {
-    let mergedObservable = Observable.merge(this.homePageData(), this.aboutText());
+    let mergedObservable = observableMerge(this.homePageData(), this.aboutText());
     return mergedObservable;
   }
 
   // Live events month starts from 0 to 11.
   liveEvents(): Observable<IEventsResponse> {
-    return this.http.get<IEventsResponse>('api/Live').map((response: IEventsResponse) => {
+    return this.http.get<IEventsResponse>('api/Live').pipe(map((response: IEventsResponse) => {
       const liveEvents = response.liveEvents.map(event => {
         return new LiveEvent(new Date(event.date),
           event.eventName,
@@ -64,7 +67,7 @@ export class DataServiceService {
           event.googleMapsLink);
       });
       return { liveEvents: liveEvents };
-    })
+    }))
   }
 
   contactPageData(): Observable<ContactPageData> {

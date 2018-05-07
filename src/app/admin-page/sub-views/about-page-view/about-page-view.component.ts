@@ -1,8 +1,11 @@
+
+import {throwError as observableThrowError, Observable} from 'rxjs';
+
+import {catchError} from 'rxjs/operators';
 import {AfterViewInit, Component, Input, ViewChild} from '@angular/core';
 import {AboutPageData} from '../../../../../types';
 import {DataServiceService} from '../../../data-service.service';
 import {SwalComponent} from '@toverux/ngx-sweetalert2';
-import {Observable} from 'rxjs';
 import {setTime} from "ngx-bootstrap/timepicker/timepicker.utils";
 
 @Component({
@@ -34,12 +37,12 @@ export class AboutPageViewComponent implements AfterViewInit {
   }
 
   public saveAboutPageData() {
-    this.dataService.updateAboutPageData(this.aboutPageData)
-      .catch((err, caught) => {
+    this.dataService.updateAboutPageData(this.aboutPageData).pipe(
+      catchError((err, caught) => {
         this.errorSavingAlert.text = 'There was a problem saving your changes. ' + err;
         this.errorSavingAlert.show();
-        return Observable.throw(err);
-      }).subscribe(val => {
+        return observableThrowError(err);
+      })).subscribe(val => {
       if (val !== undefined) {
         this.changesSavedAlert.show();
       }
