@@ -10,12 +10,12 @@ import {
   LivePageData,
   MusicPageData
 } from '../../types';
-import {IImageDatabse} from "./interfaces/iimage-databse";
-import {IImage} from "./image-cache";
-import {ImageType} from "./image-helper";
-import {BucketQuery} from "google-cloud__storage";
+import {IImageDatabse} from './interfaces/iimage-databse';
+import {IImage} from './image-cache';
+import {ImageType} from './image-helper';
+import {BucketQuery} from 'google-cloud__storage';
 import { get } from 'lodash';
-import {Observable} from "rxjs/Rx";
+import {Observable} from 'rxjs/Rx';
 
 const Storage = require('@google-cloud/storage');
 /**
@@ -36,7 +36,6 @@ export class FireBase implements IDatabase, IImageDatabse {
       keyFilename: 'marina-website-df2a4be29328.json'
     });
   }
-
 
   login(email: string, password: string) {
     this.fireBase.auth().signInWithEmailAndPassword(email, password)
@@ -124,9 +123,9 @@ export class FireBase implements IDatabase, IImageDatabse {
         .getFiles(queryOptions)
         .then(results => {
           const files = get(results, '0');
-          if(files) {
+          if (files) {
             // console.log('Files:');
-            files.filter(file => file.metadata.size != 0) // Filter by size to omit folders.
+            files.filter(file => file.metadata.size !== 0) // Filter by size to omit folders.
               .forEach(file => {
                 const fileName = get(file.metadata.name.split('/'), '1');
                 // console.log(`${fileName}`)

@@ -14,6 +14,7 @@ app.disable('x-powered-by');
 app.use(json());
 app.use(compression());
 app.use(urlencoded({ extended: true }));
+app.set('view engine', 'html');
 
 // api routes
 // app.use('/api/public', publicRouter);

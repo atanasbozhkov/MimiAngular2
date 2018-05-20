@@ -1,7 +1,7 @@
 import * as fs from 'fs';
-import {IImage, IImageCache} from "./image-cache";
-import {IImageDatabse} from "./interfaces/iimage-databse";
-import {Observable} from "rxjs/Rx";
+import {IImage, IImageCache} from './image-cache';
+import {IImageDatabse} from './interfaces/iimage-databse';
+import {Observable} from 'rxjs/Rx';
 
 const BASE_64 = 'base64';
 export const DEV_ASSET_PATH = '/src/assets/img';

@@ -4,17 +4,18 @@ import { PageType } from '../../src/app/common/page-models';
 import { PageData } from '../dao/interfaces/idatabase';
 import { AboutPageData, ContactPageData, HomePageData, LivePageData, MusicPageData } from '../../types';
 import { urlMapping } from '../../src/app/common/url-mapping';
-import { ImageType, ImageHelper } from '../dao/image-helper';
+import {ImageType, ImageHelper, ImageFileType} from '../dao/image-helper';
 import Multer = require('multer');
 import { ImageUploadForm } from '../../types/form-data-types';
-import uuid = require("uuid");
-import {IImage, IImageCache, ImageCache} from "../dao/image-cache";
-
-
+import uuid = require('uuid');
+import {IImage, IImageCache, ImageCache} from '../dao/image-cache';
+import {FileManager} from '../dao/file-manager';
+import { File } from '../dao/interfaces/ifile-manager'
 
 const apiRouter: Router = Router();
 const dal: FireBase = new FireBase();
 const imageCache: IImageCache = new ImageCache();
+const fileManager: FileManager = new FileManager();
 const imageHelper: ImageHelper = new ImageHelper(imageCache, dal);
 let MAX_UPLOAD_SIZE = 25 * 1024 * 1024;
 // Configure Multer to accept files up to 25MBs
@@ -56,16 +57,47 @@ apiRouter.post(urlMapping(PageType.ABOUT), (request: Request, response: Response
   })
 });
 
+function getImageExtension(base64Image: string): string {
+  // TODO: Make safer
+  return base64Image.split('data:image/')[1].split(';')[0];
+}
+
 apiRouter.post('/' + 'UploadImage', upload.array('fullSizeImage') , (req: Request, res: Response) => {
   const fullSizeImage = (req.body as ImageUploadForm).fullSizeImage;
   const croppedImage = (req.body as ImageUploadForm).croppedImage;
   const fileName = uuid();
-  imageHelper.uploadImage(fileName, fullSizeImage, croppedImage);
+
+  fileManager.saveFile({
+    id: 'fullsize/' + fileName,
+    fileExtension: getImageExtension(fullSizeImage),
+    data: Buffer.from(fullSizeImage)
+  });
+
+  fileManager.saveFile({
+    id: 'thumbnail/' + fileName,
+    fileExtension: getImageExtension(croppedImage),
+  data: Buffer.from(croppedImage)
+  });
   res.send();
 });
 
 apiRouter.get('/' + 'GetImages', (request: Request, response: Response) => {
-  imageHelper.listImages().subscribe( (image: IImage) => response.send(image.key));
+  response.send(fileManager.listFiles());
+  response.end();
+});
+
+apiRouter.get('/' + 'GetImage', (request: Request, response: Response) => {
+  const imageFile: File = fileManager.readFile('test');
+  const contType = 'image/' + imageFile.fileExtension;
+  const data = new Buffer(imageFile.data.toString().split(',')[1], 'base64');
+  const contLength = data.length;
+  console.log(imageFile.data.toString());
+  console.log(contType);
+  console.log(contLength);
+  response.writeHead(200, {
+    'Content-Type': contType,
+    'Content-Length': data.length});
+  response.end(data);
 });
 
 apiRouter.get('/' + 'About', (request: Request, response: Response) => {

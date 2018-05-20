@@ -6,7 +6,7 @@
   "license": "All rights reserved.",
   "angular-cli": {},
   "scripts": {
-    "start": "npm run _common:build | ng serve --host 0.0.0.0 --port 9000 --aot=false --proxy-config proxy.conf.json |npm run _server:run",
+    "start": "npm run _common:build | ng serve --host 127.0.0.1 --port 9000 --aot=false --proxy-config proxy.conf.json |npm run _server:run",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test --watch=false",
     "test-watch": "ng test --watch=true",
@@ -86,7 +86,7 @@
     "ts-helpers": "^1.1.2",
     "ts-node": "~3.3.0",
     "tslint": "^5.8.0",
-    "typescript": "^2.7.2",
+    "typescript": "2.7.2",
     "uuid": "^3.0.1",
     "webpack": "4.4.1",
     "zone.js": "^0.8.14",
@@ -105,7 +105,7 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "karma-remap-istanbul": "^0.6.0",
-    "nodemon": "^1.11.0",
+    "nodemon": "^1.17.4",
     "protractor": "5.1.2",
     "webdriver-manager": "12.0.6"
   }
