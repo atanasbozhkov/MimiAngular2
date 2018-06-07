@@ -87,17 +87,18 @@ apiRouter.get('/' + 'GetImages', (request: Request, response: Response) => {
 });
 
 apiRouter.get('/' + 'GetImage', (request: Request, response: Response) => {
+  // TODO: Read file name from the query param
   const imageFile: File = fileManager.readFile('test');
-  const contType = 'image/' + imageFile.fileExtension;
-  const data = new Buffer(imageFile.data.toString().split(',')[1], 'base64');
-  const contLength = data.length;
-  console.log(imageFile.data.toString());
-  console.log(contType);
-  console.log(contLength);
-  response.writeHead(200, {
-    'Content-Type': contType,
-    'Content-Length': data.length});
-  response.end(data);
+  if (imageFile !== undefined) {
+    const contType = 'image/' + imageFile.fileExtension;
+    const data = new Buffer(imageFile.data.toString().split(',')[1], 'base64');
+    response.writeHead(200, {
+      'Content-Type': contType,
+      'Content-Length': data.length});
+    response.end(data);
+  } else {
+    response.end(JSON.stringify({ error: 'No `imageFile` parameter provided'}));
+  }
 });
 
 apiRouter.get('/' + 'About', (request: Request, response: Response) => {
