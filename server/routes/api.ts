@@ -10,7 +10,7 @@ import { ImageUploadForm } from '../../types/form-data-types';
 import uuid = require('uuid');
 import {IImage, IImageCache, ImageCache} from '../dao/image-cache';
 import {FileManager} from '../dao/file-manager';
-import { File } from '../dao/interfaces/ifile-manager'
+import {AssetType, File} from '../dao/interfaces/ifile-manager'
 
 const apiRouter: Router = Router();
 const dal: FireBase = new FireBase();
@@ -82,22 +82,23 @@ apiRouter.post('/' + 'UploadImage', upload.array('fullSizeImage') , (req: Reques
 });
 
 apiRouter.get('/' + 'GetImages', (request: Request, response: Response) => {
-  response.send(fileManager.listFiles());
+  response.send(fileManager.listFiles(AssetType.IMAGE));
   response.end();
 });
 
 apiRouter.get('/' + 'GetImage', (request: Request, response: Response) => {
   // TODO: Read file name from the query param
-  const imageFile: File = fileManager.readFile('test');
+  const fileName = request.query.imageKey;
+  const imageFile: File = fileManager.readFile(fileName, AssetType.IMAGE);
   if (imageFile !== undefined) {
     const contType = 'image/' + imageFile.fileExtension;
-    const data = new Buffer(imageFile.data.toString().split(',')[1], 'base64');
+    const data = imageFile.data;
     response.writeHead(200, {
       'Content-Type': contType,
       'Content-Length': data.length});
-    response.end(data);
+    response.end(data, 'binary');
   } else {
-    response.end(JSON.stringify({ error: 'No `imageFile` parameter provided'}));
+    response.end(JSON.stringify({ error: 'Image not found.'}));
   }
 });
 
