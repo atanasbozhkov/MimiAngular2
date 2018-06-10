@@ -21,16 +21,20 @@
   [homePageData]="homePageData"
 >
 </app-home-page-view>
+
 <app-about-page-view
   *ngIf="selectedView === VIEW_MAP.ABOUT"
-  [aboutPageData]="aboutPageData"
->
+  [aboutPageData]="aboutPageData">
 </app-about-page-view>
+
 <app-music-page-view
-  *ngIf="selectedView === VIEW_MAP.MUSIC"
->
+  *ngIf="selectedView === VIEW_MAP.MUSIC">
 </app-music-page-view>
+
+<app-gallery-page-view
+  *ngIf="selectedView === VIEW_MAP.GALLERY">
+</app-gallery-page-view>
+
 <app-asset-management-view
 *ngIf="selectedView == VIEW_MAP.ASSET">
-
 </app-asset-management-view>

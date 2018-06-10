@@ -3,9 +3,9 @@ import {throwError as observableThrowError} from 'rxjs';
 
 import {catchError} from 'rxjs/operators';
 import {Component, OnInit, ViewChild} from '@angular/core';
-import { CropperSettings, ImageCropperComponent } from "ngx-img-cropper";
-import {DataServiceService} from "../../../data-service.service";
-import {Observable} from "rxjs/Rx";
+import { CropperSettings, ImageCropperComponent } from 'ngx-img-cropper';
+import {DataServiceService} from '../../../data-service.service';
+import {Observable} from 'rxjs/Rx';
 
 @Component({
   selector: 'app-asset-management-view',
@@ -13,10 +13,10 @@ import {Observable} from "rxjs/Rx";
   styleUrls: ['./asset-management-view.component.css']
 })
 export class AssetManagementViewComponent {
-  croppedImage:any;
+  croppedImage: any;
 
   @ViewChild('cropper', undefined)
-  cropper:ImageCropperComponent;
+  cropper: ImageCropperComponent;
   cropperSettings: CropperSettings;
   image: any;
 
@@ -29,6 +29,8 @@ export class AssetManagementViewComponent {
 
     this.croppedImage = {};
     this.image = new Image(); // TODO: New image type?
+    console.log('Initialising asset page subview')
+
   }
 
   fileChangeListener($event) {

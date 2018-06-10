@@ -23,11 +23,19 @@ import {
   HomePageViewComponent,
   AboutPageViewComponent,
   MusicPageViewComponent,
+  GalleryPageViewComponent,
   AssetManagementViewComponent
 }  from './admin-page/sub-views/';
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from '@angular/common/http';
+const adminPageViews = [
+  HomePageViewComponent,
+  AboutPageViewComponent,
+  MusicPageViewComponent,
+  GalleryPageViewComponent,
+  AssetManagementViewComponent
+];
 
 @NgModule({
   declarations: [
@@ -36,8 +44,6 @@ import {HttpClientModule} from "@angular/common/http";
     MenuComponent,
     MenuItemComponent,
     HomePageComponent,
-    HomePageViewComponent,
-    AboutPageViewComponent,
     AboutPageComponent,
     MusicPageComponent,
     LivePageComponent,
@@ -45,9 +51,8 @@ import {HttpClientModule} from "@angular/common/http";
     GalleryPageComponent,
     TeachingPageComponent,
     LoginPageComponent,
-    MusicPageViewComponent,
-    AssetManagementViewComponent,
-    ImageCropperComponent
+    ImageCropperComponent,
+    ...adminPageViews
   ],
   imports: [
     BrowserModule,

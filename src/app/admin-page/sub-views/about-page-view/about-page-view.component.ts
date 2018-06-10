@@ -6,7 +6,7 @@ import {AfterViewInit, Component, Input, ViewChild} from '@angular/core';
 import {AboutPageData} from '../../../../../types';
 import {DataServiceService} from '../../../data-service.service';
 import {SwalComponent} from '@toverux/ngx-sweetalert2';
-import {setTime} from "ngx-bootstrap/timepicker/timepicker.utils";
+import {setTime} from 'ngx-bootstrap/timepicker/timepicker.utils';
 
 @Component({
   selector: 'app-about-page-view',
@@ -29,7 +29,7 @@ export class AboutPageViewComponent implements AfterViewInit {
     // For removing annoying bar
     setTimeout(() => {
       let frwrapper = document.querySelector('.fr-wrapper div:not(.fr-view)');
-      if(frwrapper !== undefined && frwrapper !== null) {
+      if (frwrapper !== undefined && frwrapper !== null) {
         frwrapper.remove();
       }
     }, 500);

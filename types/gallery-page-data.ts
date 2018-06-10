@@ -5,6 +5,7 @@
 export class GalleryImage {
   href: string;
   thumb: string;
+  active: boolean;
 
   constructor(galleryImage: Partial<GalleryImage>) {
     Object.assign(this, galleryImage);
@@ -13,7 +14,7 @@ export class GalleryImage {
 }
 
 export class GalleryPageData {
-  galleryImages: Array<GalleryImage>
+  galleryImages: Array<GalleryImage>;
 
   constructor(galleryImage: Partial<GalleryPageData>) {
     Object.assign(this, galleryImage);

@@ -2,7 +2,7 @@ import { Request, Response, Router } from 'express';
 import { FireBase } from '../dao/firebase-db';
 import { PageType } from '../../src/app/common/page-models';
 import { PageData } from '../dao/interfaces/idatabase';
-import { AboutPageData, ContactPageData, HomePageData, LivePageData, MusicPageData } from '../../types';
+import * as types from '../../types';
 import { urlMapping } from '../../src/app/common/url-mapping';
 import {ImageType, ImageHelper, ImageFileType} from '../dao/image-helper';
 import Multer = require('multer');
@@ -25,7 +25,7 @@ const upload = Multer({
 
 apiRouter.get('/' + 'Home', (request: Request, response: Response) => {
   dal.getPageData(PageType.HOME, (data: PageData) => {
-    const homePageData = data as HomePageData;
+    const homePageData = data as types.HomePageData;
     response.send(homePageData);
   });
 });
@@ -104,39 +104,39 @@ apiRouter.get('/' + 'GetImage', (request: Request, response: Response) => {
 
 apiRouter.get('/' + 'About', (request: Request, response: Response) => {
   dal.getPageData(PageType.ABOUT, (data: PageData) => {
-    response.send(data as AboutPageData);
+    response.send(data as types.AboutPageData);
   });
 });
 
 apiRouter.get('/' + 'Music', (request: Request, response: Response) => {
   dal.getPageData(PageType.MUSIC, (data: PageData) => {
-    response.send(data as MusicPageData);
+    response.send(data as types.MusicPageData);
   });
 });
 
 apiRouter.get('/' + 'Live', (request: Request, response: Response) => {
   dal.getPageData(PageType.LIVE, (data: any) => {
-    response.send(data as LivePageData);
+    response.send(data as types.LivePageData);
   });
 });
 
 apiRouter.get('/' + 'Gallery', (request: Request, response: Response) => {
   dal.getPageData(PageType.GALLERY, (data: PageData) => {
-    const homePageData = data as HomePageData;
-    response.send(homePageData);
+    const galleryPageData = data as types.GalleryPageData;
+    response.send(galleryPageData);
   });
 });
 
 apiRouter.get('/' + 'Teaching', (request: Request, response: Response) => {
   dal.getPageData(PageType.TEACHING, (data: PageData) => {
-    const homePageData = data as HomePageData;
+    const homePageData = data as types.HomePageData;
     response.send(homePageData);
   });
 });
 
 apiRouter.get('/' + 'Contact', (request: Request, response: Response) => {
   dal.getPageData(PageType.CONTACT, (data: PageData) => {
-    const homePageData = data as ContactPageData;
+    const homePageData = data as types.ContactPageData;
     response.send(homePageData);
   });
 });

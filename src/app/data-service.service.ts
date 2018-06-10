@@ -1,9 +1,8 @@
-
 import {merge as observableMerge,  Observable } from 'rxjs';
-
 import {map} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { MenuItemComponent } from './menu-item/menu-item.component';
+import {HttpClient} from '@angular/common/http';
 import {
   AboutPageData,
   ContactPageData,
@@ -13,11 +12,7 @@ import {
   MusicPageData
 } from '../../types';
 
-
-
-import {HttpClient} from "@angular/common/http";
-
-export type PageData = HomePageData | AboutPageData;
+export type PageData = HomePageData | AboutPageData | GalleryPageData;
 
 type IEventsResponse = { liveEvents: LiveEvent[] };
 
@@ -52,7 +47,7 @@ export class DataServiceService {
   }
 
   getPageData(): Observable<PageData> {
-    let mergedObservable = observableMerge(this.homePageData(), this.aboutText());
+    let mergedObservable = observableMerge(this.homePageData(), this.aboutText(), this.galleryPageData());
     return mergedObservable;
   }
 
@@ -106,6 +101,4 @@ export class DataServiceService {
     formData.append('croppedImage', croppedImage);
     return this.http.post('api/UploadImage', formData);
   }
-
-
 }

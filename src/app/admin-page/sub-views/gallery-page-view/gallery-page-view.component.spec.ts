@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MusicPageViewComponent } from './music-page-view.component';
+import { GalleryPageViewComponent } from './gallery-page-view.component';
 
 describe('GalleryPageViewComponent', () => {
-  let component: MusicPageViewComponent;
-  let fixture: ComponentFixture<MusicPageViewComponent>;
+  let component: GalleryPageViewComponent;
+  let fixture: ComponentFixture<GalleryPageViewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MusicPageViewComponent ]
+      declarations: [ GalleryPageViewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MusicPageViewComponent);
+    fixture = TestBed.createComponent(GalleryPageViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -5,9 +5,11 @@ import { MenuItemComponent } from '../menu-item/menu-item.component';
 import {AboutPageData, HomePageData} from '../../../types';
 import {Observable} from 'rxjs';
 import { includes } from 'lodash';
+
 enum SUBVIEW_MAPPING {
   HOME = 'Home',
   ABOUT = 'About',
+  GALLERY = 'Gallery',
   ASSET = 'Asset Library',
   MUSIC = 'Music'
 }
@@ -46,6 +48,7 @@ export class AdminPageComponent implements OnInit  {
     this.menuItems = this.menuItems.concat(this.getAdminPageViews());
     this.pageList = this.dataService.getPageList().concat(this.getAdminPageViews().map(view => view.title));
     const observable: Observable<PageData> = dataService.getPageData();
+    // TODO: Nasco - I don't know why I wrote this. Consider removing in
     observable.subscribe(pageData => {
       if (AdminPageComponent.isHomePageData(pageData)) {
         this.homePageData = pageData;
@@ -57,7 +60,6 @@ export class AdminPageComponent implements OnInit  {
 
   onMenuItemClick(id) {
     this.selectedView = id;
-    // Generate the URL params
     this.router.navigate([], {
       queryParams: {
         [this.VIEW_PARAM]: id
