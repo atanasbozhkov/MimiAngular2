@@ -65,16 +65,16 @@ export class DataServiceService {
 
   getAboutText(): string {
     return `
-Marina holds a First Class Masters Degree in Piano Performance from the Guildhall School of Music and Drama under Philip Jenkins.
-Previously she completed a Bachelor in Piano Performance at the National Academy of Music in Sofia, Bulgaria under Stella
-Dimitrova-Maystorova and Iliya Chernaev. <br/><br/>
-Marina performs throughout the UK and Europe both as a soloist and as a collaborative pianist. Her prizes include Airola International Piano
-Competition, Italy, Music and Earth International Competition and International Competition for Japanese and Bulgarian Music to name a few.
-She has participated in different festivals such as “Liszt Piano Festival” - London, “Dopo il rumore” - Italy, “ppIANISSIMO” - Bulgaria,
-“Varna Summer” - Bulgaria. <br/><br/>
-Recently she attended The Holland International Music Sessions with a scholarship where she studied with Pavel Gililov. <br/><br/>
-She is currently undertaking Advanced Certificate at the Guildhall School of a Music and Drama under Philip Jenkins and Pamela Lidiard.
-Her studies are generously supported by the Guildhall Trust.`
+Marina holds a Masters Degree with Distinction in Piano Performance from the Guildhall School of Music and Drama under Philip Jenkins. Previously she completed a Bachelor at the National Academy of Music in Sofia, Bulgaria under Stella Dimitrova-Maystorova and Iliya Chernaev. 
+She is a Britten-Pears Young Artist 2018 and recently has performed in the Barbican Hall, Wigmore Hall with the Prince Consort, Milton Court and The Inner Temple in London. She has participated in masterclasses and worked with the renowned pianists Graham Johnson, Alisdair Hogarth, Pavel Gililov, Anne Queffelec, Julius Drake, Malcolm Martineau, Milena Mollova and Svetozar Ivanov and performs regularly in the UK and Europe both as a soloist and as a collaborative pianist.
+<br/><br/>
+This summer Marina is taking part in the Brancaleoni Festival on a full scholarship kindly provided by the pianist Svetozar Ivanov.
+<br/></br>
+She has participated in different festivals such as “The First Global Granados Marathon” broadcast live, “The Holland International Music Sessions” - the Netherlands, “London Contemporary Music Festival”, “Liszt Piano Festival” - London, “Dopo il rumore” - Italy, “ppIANISSIMO” - Bulgaria, “Varna Summer” - Bulgaria. 
+<br/><br/>
+Her prizes include Airola International Piano Competition, Italy, Music and Earth International Competition and International Competition for Japanese and Bulgarian Music to name a few.
+<br/><br/>
+She is currently undertaking Advanced Diploma at the Guildhall under Philip Jenkins and Pamela Lidiard. Her studies have been generously supported by the Guildhall Trust.`
   }
 
   getHomePageData(): HomePageData {
@@ -174,10 +174,20 @@ Her studies are generously supported by the Guildhall Trust.`
         '',
         'https://goo.gl/maps/srnmKcrbsJQ2'),
       new LiveEvent(new Date(2018, 4, 25, 18),
-        'Songs at Six: Russian',
-        'TBC',
+        ' Russian song from Day to Night',
+        'Music Hall Silk Street',
         '',
-        '')
+        ''),
+      new LiveEvent(new Date(2018, 5, 12, 20),
+        'Across the Atlantic: Britten and Copland alongside soprano Katherine McIndoe',
+        'William Goodenough House',
+        '',
+        'https://goo.gl/maps/8qiyULqL7nz'),
+      new LiveEvent(new Date(2018, 5, 15, 14),
+        'Across the Atlantic: Britten and Copland alongside soprano Katherine McIndoe',
+        'Milton Court Concert Hall',
+        '',
+        'https://goo.gl/maps/8qiyULqL7nz'),
   ];
   }
 
