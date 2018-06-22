@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Admin Panel</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item"
+          *ngFor="let menuItem of menuItems"
+          [ngClass]="{'active':selectedView === menuItem.title}"
+          >
+        <a class="nav-link" (click)="onMenuItemClick(menuItem.title)">{{menuItem.title}}<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<app-home-page-view
+  *ngIf="selectedView === VIEW_MAP.HOME"
+  [homePageData]="homePageData"
+>
+</app-home-page-view>
+
+<app-about-page-view
+  *ngIf="selectedView === VIEW_MAP.ABOUT"
+  [aboutPageData]="aboutPageData">
+</app-about-page-view>
+
+<app-music-page-view
+  *ngIf="selectedView === VIEW_MAP.MUSIC">
+</app-music-page-view>
+
+<app-gallery-page-view
+  *ngIf="selectedView === VIEW_MAP.GALLERY">
+</app-gallery-page-view>
+
+<app-asset-management-view
+*ngIf="selectedView == VIEW_MAP.ASSET">
+</app-asset-management-view>

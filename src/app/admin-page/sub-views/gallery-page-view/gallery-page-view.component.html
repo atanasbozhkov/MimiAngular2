@@ -1,0 +1,13 @@
+<div
+  *ngFor="let image of images"
+  class="image-panel">
+  <img [src]="image.thumb"/>
+  <div class="image-info"> Active: {{image.active}}</div>
+  <div class="image-action-panel">
+    <button
+      ngClass="delete-button btn btn-primary"
+      (click)="deleteButtonClick(image.href)"> Remove
+    </button>
+  </div>
+  <hr>
+</div>

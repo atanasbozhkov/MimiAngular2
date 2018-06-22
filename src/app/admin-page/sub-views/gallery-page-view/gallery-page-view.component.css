@@ -1,0 +1,19 @@
+.delete-button {
+  margin-left: 5px;
+}
+
+.image-info {
+  margin-top: 5px;
+}
+
+.image-action-panel {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-panel {
+  margin-left: 10px;
+  width: 260px;
+}

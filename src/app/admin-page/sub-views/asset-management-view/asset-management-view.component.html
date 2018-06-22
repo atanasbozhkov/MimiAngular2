@@ -1,0 +1,11 @@
+<div class="form-wrap">
+  <div class="file-upload">
+    <div class="text">Upload New Image</div>
+    <input id="custom-input" type="file" (change)="fileChangeListener($event)">
+  </div>
+  <img-cropper #cropper [image]="croppedImage" [settings]="cropperSettings"></img-cropper>
+  <div class="result rounded" *ngIf="croppedImage.image" >
+    <img [src]="croppedImage.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight">
+  </div>
+  <button (click)="onUploadClick($event)"> Upload </button>
+</div>

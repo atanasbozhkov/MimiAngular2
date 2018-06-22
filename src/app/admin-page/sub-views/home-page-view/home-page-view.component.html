@@ -1,0 +1,47 @@
+<form class="form-wrap">
+  <div class="form-group">
+    <label for="first-name">First Name</label>
+    <input id="first-name"
+           class="form-control form-input"
+           *ngIf="homePageData"
+           [(ngModel)]="homePageData.firstName"
+           name="first">
+    <label for="last-name">Last Name</label>
+    <input id="last-name"
+           class="form-control form-input"
+           *ngIf="homePageData"
+           [(ngModel)]="homePageData.lastName"
+           name="second">
+    <label for="moto">Moto</label>
+    <input id="moto"
+           *ngIf="homePageData"
+           class="form-control form-input"
+           [(ngModel)]="homePageData.moto"
+           name="third">
+
+    <img
+      *ngIf="homePageData"
+      src="{{ASSET_PATH + homePageData.photoUrl}}"
+    width="500"/>
+  </div>
+  <button
+    type="submit"
+    class="btn btn-primary"
+    (click)="saveHomePageData()"> Update </button>
+  <swal
+    #changesSaved
+    type="submit"
+    text="Your changes have been saved"
+    type="success"
+    position="top-end"
+    showConfirmButton="false"
+    timer="1500"
+  ></swal>
+  <swal
+    #errorSaving
+    type="submit"
+    text=""
+    type="error"
+    showConfirmButton="true"
+  ></swal>
+</form>
