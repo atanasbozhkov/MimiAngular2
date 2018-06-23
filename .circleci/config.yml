@@ -1,0 +1,18 @@
+version: 2
+dependencies:
+  pre:
+    - npm install npm@latest -g
+    - npm install angular-cli@latest -g
+jobs:
+  build:
+    docker:
+      - image: circleci/node:6.10.3
+    steps:
+      - checkout
+      - run: npm install
+deployment:
+  production:
+    branch: master
+    codedeploy:
+      MimiAngular2:
+        deployment_group: MimiAngular2
