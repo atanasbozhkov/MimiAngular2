@@ -14,9 +14,11 @@
     float: none;
   }
 
-  .container {
+  .gallery-container {
     width: 100%;
     margin: 0 auto;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
   .photoContainer {
@@ -63,9 +65,11 @@
     float: right;
   }
 
-  .container {
+  .gallery-container {
     width: 980px;
     margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .photoContainer {
@@ -364,4 +368,8 @@ body.lb-disable-scrolling {
 img {
   width: 257px;
   height: 257px;
+}
+a > img {
+  margin-bottom: 3px;
+  margin-right: 3px;
 }
