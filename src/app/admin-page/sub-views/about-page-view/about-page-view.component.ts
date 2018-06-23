@@ -1,12 +1,7 @@
-
-import {throwError as observableThrowError, Observable} from 'rxjs';
-
-import {catchError} from 'rxjs/operators';
 import {AfterViewInit, Component, Input, ViewChild} from '@angular/core';
-import {AboutPageData} from '../../.././types';
+import {AboutPageData} from '../../../types';
 import {DataServiceService} from '../../../data-service.service';
 import {SwalComponent} from '@toverux/ngx-sweetalert2';
-import {setTime} from 'ngx-bootstrap/timepicker/timepicker.utils';
 
 @Component({
   selector: 'app-about-page-view',
@@ -28,7 +23,7 @@ export class AboutPageViewComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     // For removing annoying bar
     setTimeout(() => {
-      let frwrapper = document.querySelector('.fr-wrapper div:not(.fr-view)');
+      const frwrapper = document.querySelector('.fr-wrapper div:not(.fr-view)');
       if (frwrapper !== undefined && frwrapper !== null) {
         frwrapper.remove();
       }
@@ -37,15 +32,13 @@ export class AboutPageViewComponent implements AfterViewInit {
   }
 
   public saveAboutPageData() {
-    this.dataService.updateAboutPageData(this.aboutPageData).pipe(
-      catchError((err, caught) => {
-        this.errorSavingAlert.text = 'There was a problem saving your changes. ' + err;
-        this.errorSavingAlert.show();
-        return observableThrowError(err);
-      })).subscribe(val => {
-      if (val !== undefined) {
+    this.dataService.updateAboutPageData(this.aboutPageData).then(result => {
+      if (result === undefined) {
         this.changesSavedAlert.show();
       }
+    }).catch(error => {
+      this.errorSavingAlert.text = 'There was a problem saving your changes. ' + error.message;
+      this.errorSavingAlert.show();
     });
   }
 }

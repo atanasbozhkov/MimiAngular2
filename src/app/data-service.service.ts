@@ -92,12 +92,12 @@ export class DataServiceService {
   }
 
   // TODO: Extract urls to a mapping enum?
-  updateHomePageData(homePageData: HomePageData): Observable<HomePageData> {
-    return this.http.post<HomePageData>('api/Home', homePageData);
+  updateHomePageData(homePageData: HomePageData): Promise<undefined | Error> {
+    return this.firebaseService.setPageData(PageType.HOME, homePageData);
   }
 
-  updateAboutPageData(aboutPageData: AboutPageData): Observable<AboutPageData> {
-    return this.http.post<AboutPageData>('api/About', aboutPageData);
+  updateAboutPageData(aboutPageData: AboutPageData): Promise<undefined | Error> {
+    return this.firebaseService.setPageData(PageType.ABOUT, aboutPageData);
   }
 
   uploadImage(fullSizeImage: any, croppedImage: any) {

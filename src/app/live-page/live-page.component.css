@@ -87,6 +87,11 @@
   }
 }
 
+.facebook-button {
+  margin-left: 5px;
+
+}
+
 .myButton {
   -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
   -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
@@ -219,10 +224,15 @@ body {
 }
 
 .event-list {
+  width: 100%;
   list-style: none;
   font-family: 'Lato', sans-serif;
   margin: 0px;
   padding: 0px;
+}
+.event-row {
+  width:100%;
+  margin-top:15px;
 }
 
 .event-list > li {

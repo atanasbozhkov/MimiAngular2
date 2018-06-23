@@ -15,56 +15,53 @@
     <div>
       <div class="container">
         <div class="row event-row">
-          <div>
-            <ul class="event-list">
-              <li *ngFor="let event of futureEvents">
-                <time datetime="2014-07-20 0000">
-                  <span class="day">{{event.day}}</span>
-                  <span class="month">{{event.month}}</span>
-                  <span class="year">{{event.year}}</span>
-                  <span class="time">{{event.hour}}</span>
-                </time>
-                <div class="info">
-                  <h2 class="title" [innerHTML]="event.eventName"></h2>
-                  <!--TODO: Rename this to description?-->
-                  <p class="desc" [innerHTML]="event.eventLocation"></p>
-                  <span class="buttons">
-                    <a class="myButton" href="{{event.googleMapsLink}}" target="_blank">
-                      <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    </a>
-                      <a *ngIf="event.facebookLink" class="myButton" href="{{event.facebookLink}}" target="_blank">
-                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                      </a>
-                  </span>
-                </div>
-              </li>
-              <!--Separator Line for past events-->
-              <hr class="separator">
-              <li *ngFor="let event of pastEvents">
-                <time datetime="2014-07-20 0000">
-                  <span class="day">{{event.day}}</span>
-                  <span class="month">{{event.month}}</span>
-                  <span class="year">{{event.year}}</span>
-                  <span class="time">{{event.hour}}</span>
-                </time>
-                <div class="info">
-                  <h2 class="title" [innerHTML]="event.eventName"></h2>
-                  <p class="desc" [innerHTML]="event.eventLocation"></p>
-                  <span class="buttons">
-                    <a class="myButton" href="{{event.googleMapsLink}}" target="_blank">
-                      <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    </a>
-                      <a *ngIf="event.facebookLink" class="myButton" href="{{event.facebookLink}}" target="_blank">
-                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                      </a>
-                  </span>
-                </div>
-              </li>
-            </ul>
-          </div>
+          <ul class="event-list">
+            <li *ngFor="let event of futureEvents">
+              <time datetime="2014-07-20 0000">
+                <span class="day">{{event.day}}</span>
+                <span class="month">{{event.month}}</span>
+                <span class="year">{{event.year}}</span>
+                <span class="time">{{event.hour}}</span>
+              </time>
+              <div class="info">
+                <h2 class="title" [innerHTML]="event.eventName"></h2>
+                <!--TODO: Rename this to description?-->
+                <p class="desc" [innerHTML]="event.eventLocation"></p>
+                <span class="buttons">
+                <a class="myButton" href="{{event.googleMapsLink}}" target="_blank">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                </a>
+                <a *ngIf="event.facebookLink" class="myButton facebook-button" href="{{event.facebookLink}}" target="_blank">
+                <i class="fa fa-facebook-square facebook-button" aria-hidden="true"></i>
+                </a>
+                </span>
+              </div>
+            </li>
+            <!--Separator Line for past events-->
+            <hr class="separator">
+            <li *ngFor="let event of pastEvents">
+              <time datetime="2014-07-20 0000">
+                <span class="day">{{event.day}}</span>
+                <span class="month">{{event.month}}</span>
+                <span class="year">{{event.year}}</span>
+                <span class="time">{{event.hour}}</span>
+              </time>
+              <div class="info">
+                <h2 class="title" [innerHTML]="event.eventName"></h2>
+                <p class="desc" [innerHTML]="event.eventLocation"></p>
+                <span class="buttons">
+                <a class="myButton" href="{{event.googleMapsLink}}" target="_blank">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                </a>
+                <a *ngIf="event.facebookLink" class="myButton facebook-button" href="{{event.facebookLink}}" target="_blank">
+                <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                </a>
+                </span>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
-
       <div class="footer">
         © 2016 by MARINA STANEVA
       </div>

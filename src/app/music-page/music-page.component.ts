@@ -32,7 +32,7 @@ export class MusicPageComponent implements OnDestroy, AfterViewInit {
       console.warn('Videos came back empty.');
       this.musicPageData.videos = [];
     }
-    return this.musicPageData.videos.map(videoUrl => this.sanitizer.bypassSecurityTrustResourceUrl(videoUrl));
+    return this.musicPageData.videos.map(videoUrl => this.sanitizer.bypassSecurityTrustResourceUrl(videoUrl)).reverse();
   }
 
   ngOnDestroy() {

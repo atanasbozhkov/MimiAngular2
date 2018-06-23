@@ -6,6 +6,7 @@ import {AboutPageData, HomePageData} from '.././types';
 import {Observable} from 'rxjs';
 import { includes } from 'lodash';
 import {AuthService} from '../services/auth.service';
+import {PageUrls} from './page-urls';
 
 enum SUBVIEW_MAPPING {
   HOME = 'Home',
@@ -29,7 +30,6 @@ export class AdminPageComponent implements OnInit  {
   private aboutPageData: AboutPageData;
   private selectedView: string;
   private readonly HOME_PAGE_ID = SUBVIEW_MAPPING.HOME;
-  private readonly LOGIN_URL = '/login';
   private readonly VIEW_PARAM: string = 'view';
   private readonly VIEW_MAP = SUBVIEW_MAPPING;
 
@@ -45,6 +45,7 @@ export class AdminPageComponent implements OnInit  {
               private dataService: DataServiceService,
               private route: ActivatedRoute,
               private authService: AuthService) {
+    console.log(`View initialised`);
     this.redirectIfUnauthenticated();
     this.menuItems = dataService.getMenuItems();
     this.menuItems = this.menuItems.concat(this.getAdminPageViews());
@@ -81,12 +82,11 @@ export class AdminPageComponent implements OnInit  {
   }
 
   private redirectIfUnauthenticated() {
-    const isNotAuthenticated = this.dataService === undefined ||
-      this.dataService.isAuthenticated === undefined ||
-      !this.dataService.isAuthenticated();
-    if (isNotAuthenticated) {
-      this.router.navigateByUrl(this.LOGIN_URL);
+    if (this.authService.isLoggedIn()) {
+      return;
     }
+    console.error('User not authenticated - redirecting to login page');
+    this.router.navigateByUrl(PageUrls.LOGIN);
   }
 
   private getAdminPageViews(): Array<MenuItemComponent> {
@@ -98,8 +98,9 @@ export class AdminPageComponent implements OnInit  {
   }
 
   private logout() {
-    console.log(`Loggig out`);
+    console.log(`Logging out`);
     this.authService.logout();
+    this.router.navigateByUrl(PageUrls.LOGIN);
   }
 
 }

@@ -4,6 +4,7 @@ import * as firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import UserCredential = firebase.auth.UserCredential;
+import Auth = firebase.auth.Auth;
 
 export class User {
   uid: string;
@@ -29,8 +30,12 @@ export class AuthService {
     });
   }
 
-  isLoggedIn(): Promise<any> {
-    return this.afAuth.authState.pipe(first()).toPromise();
+  onSessionChange(handler: (authState: User | null ) => void) {
+    this.afAuth.authState.subscribe(authEvent => handler(authEvent));
+  }
+
+  isLoggedIn(): boolean {
+    return !!firebase.auth().currentUser;
   }
 
   userLogin(username: string, password: string): Promise<boolean> {
