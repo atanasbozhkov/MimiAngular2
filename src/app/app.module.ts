@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { MenuItemComponent } from './menu-item/menu-item.component';
 import { DataServiceService } from './data-service.service';
+import { FirebaseService } from './services/firebase.service';
+import {AuthService} from './services/auth.service';
 import { HomePageComponent } from './home-page/home-page.component';
 import { RouterModule } from '@angular/router';
 import { AboutPageComponent } from './about-page/about-page.component';
@@ -18,6 +20,10 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { ImageCropperComponent } from 'ngx-img-cropper';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 
 import {
   HomePageViewComponent,
@@ -25,10 +31,11 @@ import {
   MusicPageViewComponent,
   GalleryPageViewComponent,
   AssetManagementViewComponent
-}  from './admin-page/sub-views/';
+} from './admin-page/sub-views/';
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import {HttpClientModule} from '@angular/common/http';
+import {angularFireConfig} from './config/config';
 const adminPageViews = [
   HomePageViewComponent,
   AboutPageViewComponent,
@@ -62,6 +69,9 @@ const adminPageViews = [
     FroalaViewModule.forRoot(),
     BsDropdownModule.forRoot(),
     SweetAlert2Module.forRoot(),
+    AngularFireModule.initializeApp(angularFireConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     RouterModule.forRoot([
       {path: '', component: HomePageComponent},
       {path: 'About', component: AboutPageComponent},
@@ -74,7 +84,7 @@ const adminPageViews = [
       {path: 'admin', component: AdminPageComponent}
     ])
   ],
-  providers: [ DataServiceService ],
+  providers: [ DataServiceService, FirebaseService, AuthService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {

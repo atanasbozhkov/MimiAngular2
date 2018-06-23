@@ -5,6 +5,7 @@ import { MenuItemComponent } from '../menu-item/menu-item.component';
 import {AboutPageData, HomePageData} from '.././types';
 import {Observable} from 'rxjs';
 import { includes } from 'lodash';
+import {AuthService} from '../services/auth.service';
 
 enum SUBVIEW_MAPPING {
   HOME = 'Home',
@@ -42,7 +43,8 @@ export class AdminPageComponent implements OnInit  {
 
   constructor(private router: Router,
               private dataService: DataServiceService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private authService: AuthService) {
     this.redirectIfUnauthenticated();
     this.menuItems = dataService.getMenuItems();
     this.menuItems = this.menuItems.concat(this.getAdminPageViews());
@@ -93,6 +95,11 @@ export class AdminPageComponent implements OnInit  {
 
   private matchesAnyView(selectedView: string): boolean {
     return includes(this.pageList, selectedView);
+  }
+
+  private logout() {
+    console.log(`Loggig out`);
+    this.authService.logout();
   }
 
 }

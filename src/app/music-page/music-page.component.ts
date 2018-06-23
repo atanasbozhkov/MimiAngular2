@@ -24,7 +24,7 @@ export class MusicPageComponent implements OnDestroy, AfterViewInit {
       this.musicPageData = data;
       this.videos = this.getVideoUrls();
       this.initPlayer();
-    })
+    });
   }
 
   private getVideoUrls(): Array<SafeResourceUrl> {
@@ -53,6 +53,7 @@ export class MusicPageComponent implements OnDestroy, AfterViewInit {
       music: this.musicPageData.songs
     };
     this.ap = new APlayer(playerConfig);
+    console.log(this.ap)
   }
 
 }

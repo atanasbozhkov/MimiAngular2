@@ -1,4 +1,5 @@
 import {merge as observableMerge,  Observable } from 'rxjs';
+import 'rxjs/add/observable/fromPromise';
 import {map} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { MenuItemComponent } from './menu-item/menu-item.component';
@@ -8,23 +9,23 @@ import {
   ContactPageData,
   GalleryPageData,
   HomePageData,
-  LiveEvent,
+  LiveEvent, LivePageData,
   MusicPageData
 } from './types';
+import {FirebaseService} from './services/firebase.service';
+import {PageType} from './common/page-models';
 
-export type PageData = HomePageData | AboutPageData | GalleryPageData;
+export type PageData = HomePageData | AboutPageData | GalleryPageData | LivePageData | MusicPageData | ContactPageData;
 
-type IEventsResponse = { liveEvents: LiveEvent[] };
+interface IEventsResponse {
+  liveEvents: LiveEvent[];
+}
 
 @Injectable()
 export class DataServiceService {
   private loggedIn = true;
 
-  constructor(private http: HttpClient) {
-  }
-
-  musicPageData(): Observable<MusicPageData> {
-    return this.http.get<MusicPageData>('api/Music');
+  constructor(private http: HttpClient, private firebaseService: FirebaseService) {
   }
 
   getMenuItems(): MenuItemComponent[] {
@@ -35,25 +36,30 @@ export class DataServiceService {
       new MenuItemComponent('Gallery', '/Gallery'),
       new MenuItemComponent('Teaching', '/Teaching'),
       new MenuItemComponent('Contact', '/Contact')
-    ]
+    ];
   }
 
   aboutText(): Observable<AboutPageData> {
-    return this.http.get<AboutPageData>('api/About');
+    return Observable.fromPromise(this.firebaseService.getPageData(PageType.ABOUT) as Promise<AboutPageData>);
   }
 
-  homePageData(): Observable<HomePageData> {
-    return this.http.get<HomePageData>('api/Home');
+   homePageData(): Observable<HomePageData> {
+    return Observable.fromPromise(this.firebaseService.getPageData(PageType.HOME) as Promise<HomePageData>);
+  }
+
+  musicPageData(): Observable<MusicPageData> {
+    return Observable.fromPromise(this.firebaseService.getPageData(PageType.MUSIC) as Promise<MusicPageData>);
   }
 
   getPageData(): Observable<PageData> {
-    let mergedObservable = observableMerge(this.homePageData(), this.aboutText(), this.galleryPageData());
+    const mergedObservable = observableMerge(this.homePageData(), this.aboutText(), this.galleryPageData());
     return mergedObservable;
   }
 
   // Live events month starts from 0 to 11.
   liveEvents(): Observable<IEventsResponse> {
-    return this.http.get<IEventsResponse>('api/Live').pipe(map((response: IEventsResponse) => {
+    return Observable.fromPromise(this.firebaseService.getPageData(PageType.LIVE) as Promise<IEventsResponse>)
+      .pipe(map((response: IEventsResponse) => {
       const liveEvents = response.liveEvents.map(event => {
         return new LiveEvent(new Date(event.date),
           event.eventName,
@@ -62,15 +68,15 @@ export class DataServiceService {
           event.googleMapsLink);
       });
       return { liveEvents: liveEvents };
-    }))
+    }));
   }
 
   contactPageData(): Observable<ContactPageData> {
-    return this.http.get<ContactPageData>('api/Contact');
+    return Observable.fromPromise(this.firebaseService.getPageData(PageType.CONTACT) as Promise<ContactPageData>);
   }
 
   galleryPageData(): Observable<GalleryPageData> {
-    return this.http.get<GalleryPageData>('api/Gallery');
+    return Observable.fromPromise(this.firebaseService.getPageData(PageType.GALLERY) as Promise<GalleryPageData>);
   }
 
   login(email, password) {
