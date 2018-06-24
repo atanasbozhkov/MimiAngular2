@@ -4,5 +4,5 @@ rm -r /tmp/
 cd /home/ubuntu/build
 npm install --no-optional
 npm run build
-mv -v dist/* /home/ubuntu/website/
+mv -v dist/Angular6/* /home/ubuntu/website/
 
