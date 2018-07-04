@@ -16,7 +16,6 @@ export class LivePageComponent implements OnInit {
   constructor(dataService: DataServiceService) {
     const observable = dataService.liveEvents().subscribe((data) => {
       this.events = data.liveEvents;
-      console.log(this.events[0].date);
       this.futureEvents = this.sortEventAsc(this.events.filter(event => {
         return event.date.getTime() > Date.now();
       }));

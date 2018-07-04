@@ -12,7 +12,8 @@ export class HomePageComponent implements OnInit {
   firstName: string;
   lastName: string;
   moto: string;
-  photoUrl: string;
+  // TODO: Nasco change this after waiting for the firebase promises.
+  photoUrl: string = 'assets/img/top-down.jpg';
 
   constructor(private dataService: DataServiceService) {
     let obs: Observable<HomePageData> = dataService.homePageData();

@@ -16,6 +16,7 @@ declare function require(name: string);
 export class MusicPageComponent implements OnDestroy, AfterViewInit {
   ap: any;
   musicPageData: MusicPageData;
+  photoUrl: string = 'assets/img/1.jpg';
   videos: Array<SafeResourceUrl>;
 
   constructor(dataService: DataServiceService, public sanitizer: DomSanitizer) {
@@ -23,6 +24,7 @@ export class MusicPageComponent implements OnDestroy, AfterViewInit {
     observable.subscribe((data) => {
       this.musicPageData = data;
       this.videos = this.getVideoUrls();
+      this.photoUrl = data.photoUrl;
       this.initPlayer();
     });
   }

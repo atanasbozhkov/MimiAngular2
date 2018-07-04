@@ -34,7 +34,7 @@ export class DataServiceService {
       new MenuItemComponent('Music', '/Music'),
       new MenuItemComponent('Live', '/Live'),
       new MenuItemComponent('Gallery', '/Gallery'),
-      new MenuItemComponent('Teaching', '/Teaching'),
+      // new MenuItemComponent('Teaching', '/Teaching'), // TODO: Nasco add teaching when it's ready
       new MenuItemComponent('Contact', '/Contact')
     ];
   }
