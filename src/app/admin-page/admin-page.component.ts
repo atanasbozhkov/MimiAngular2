@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {DataServiceService, PageData} from '../data-service.service';
 import { MenuItemComponent } from '../menu-item/menu-item.component';
-import {AboutPageData, HomePageData} from '.././types';
+import {AboutPageData, HomePageData} from '../types';
 import {Observable} from 'rxjs';
 import { includes } from 'lodash';
 import {AuthService} from '../services/auth.service';
@@ -24,14 +24,14 @@ enum SUBVIEW_MAPPING {
 export class AdminPageComponent implements OnInit  {
   private email: string;
   private password: string;
-  private menuItems: MenuItemComponent[];
+  public menuItems: MenuItemComponent[];
   private pageList: Array<string>;
   private homePageData: HomePageData;
   private aboutPageData: AboutPageData;
-  private selectedView: string;
+  public selectedView: string;
   private readonly HOME_PAGE_ID = SUBVIEW_MAPPING.HOME;
   private readonly VIEW_PARAM: string = 'view';
-  private readonly VIEW_MAP = SUBVIEW_MAPPING;
+  public readonly VIEW_MAP = SUBVIEW_MAPPING;
 
   static isHomePageData(pageData: PageData): pageData is HomePageData {
     return (<HomePageData>pageData).firstName !== undefined;
@@ -97,7 +97,7 @@ export class AdminPageComponent implements OnInit  {
     return includes(this.pageList, selectedView);
   }
 
-  private logout() {
+  public logout() {
     console.log(`Logging out`);
     this.authService.logout();
     this.router.navigateByUrl(PageUrls.LOGIN);

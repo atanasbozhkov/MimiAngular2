@@ -44,7 +44,7 @@ export class AssetManagementViewComponent {
     myReader.readAsDataURL(file);
   }
 
-  private onUploadClick(event: Event): void {
+  public onUploadClick(event: Event): void {
     this.dataService.uploadImage(this.image.src, this.croppedImage.image).pipe(
       catchError((err, caught) => {
         return observableThrowError(err);

@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
-import { MenuItemComponent } from './menu-item/menu-item.component';
 import { DataServiceService } from './data-service.service';
 import { FirebaseService } from './services/firebase.service';
 import {AuthService} from './services/auth.service';
@@ -19,7 +18,7 @@ import { TeachingPageComponent } from './teaching-page/teaching-page-component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AdminPageComponent } from './admin-page/admin-page.component';
-import { ImageCropperComponent } from 'ngx-img-cropper';
+import { ImageCropperModule } from 'ngx-img-cropper';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -49,7 +48,6 @@ const adminPageViews = [
     AppComponent,
     AdminPageComponent,
     MenuComponent,
-    MenuItemComponent,
     HomePageComponent,
     AboutPageComponent,
     MusicPageComponent,
@@ -58,7 +56,6 @@ const adminPageViews = [
     GalleryPageComponent,
     TeachingPageComponent,
     LoginPageComponent,
-    ImageCropperComponent,
     ...adminPageViews
   ],
   imports: [
@@ -72,6 +69,7 @@ const adminPageViews = [
     AngularFireModule.initializeApp(angularFireConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    ImageCropperModule,
     RouterModule.forRoot([
       {path: '', component: HomePageComponent},
       {path: 'About', component: AboutPageComponent},

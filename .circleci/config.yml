@@ -10,7 +10,7 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run: npm build
+      - run: npm run build-prod
 deployment:
   production:
     branch: master

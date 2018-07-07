@@ -8,7 +8,7 @@ import {GalleryPageData} from '../../../common/page-models';
   styleUrls: ['./gallery-page-view.component.css']
 })
 export class GalleryPageViewComponent implements OnInit {
-  private images = [];
+  public images = [];
   constructor(public readonly dataService: DataServiceService) { }
 
   ngOnInit() {

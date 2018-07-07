@@ -53,7 +53,7 @@ export class LoginPageComponent {
       });
   }
 
-  private toHomePage() {
+  public toHomePage() {
     this.router.navigateByUrl(PageUrls.HOME);
   }
 
