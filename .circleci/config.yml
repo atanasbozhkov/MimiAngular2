@@ -10,7 +10,7 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run: node node_modules/@angular/cli/bin/ng build --prod
+      - run: node ./node_modules/.bin/ng build --prod
 deployment:
   production:
     branch: master
