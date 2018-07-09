@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import {PageType} from '../common/page-models/index';
-import * as firebase from 'firebase';
-import { firebaseConfig } from '../config/index';
+import * as firebase from 'firebase/app';
+import { firebaseDevConfig, firebaseConfig } from '../config';
 import {PageData} from '../data-service.service';
 import * as types from '../types/index';
 import {Observable} from 'rxjs';
-import {LivePageData} from '../types/index';
+import {LiveEvent, LivePageData, PageType} from '../types';
 import {IImage} from './interfaces/iimage';
 import { get } from 'lodash';
 import {ImageType} from './interfaces/image-type';
@@ -20,14 +19,16 @@ export class FirebaseService {
   private database: firebase.database.Database;
   private imageStorage: any;
   private readonly BUCKET_NAME: string = 'marina-website.appspot.com';
-
+  private DEV_MODE = true;
   constructor() {
     // Initialize Firebase
-    this.fireBase = firebase.initializeApp(firebaseConfig);
+    if ( this.DEV_MODE ) {
+      console.warn(`Using Firebase in DEV mode`);
+      this.fireBase = firebase.initializeApp(firebaseDevConfig);
+    } else {
+      this.fireBase = firebase.initializeApp(firebaseConfig);
+    }
     this.database = this.fireBase.database();
-    // this.imageStorage = Storage({
-    //   keyFilename: 'marina-website-df2a4be29328.json'
-    // });
   }
 
   login(email: string, password: string) {
@@ -61,6 +62,21 @@ export class FirebaseService {
     });
   }
 
+  addNewLiveEvent(liveEvent: LiveEvent): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      const newEventRef = this.database.ref('pages/' + PageType.LIVE + '/liveEvents')
+        .push({
+          date: liveEvent.date.toISOString(),
+          eventLocation: liveEvent.eventLocation,
+          eventName: liveEvent.eventName,
+          facebookLink: liveEvent.facebookLink,
+          googleMapsLik: liveEvent.googleMapsLink
+        });
+      newEventRef.then(something => console.log(something));
+      resolve();
+    });
+  }
+
   getPageData(page: PageType): Promise<PageData> {
     return new Promise(resolve => {
       this.database.ref('pages/' + page)
@@ -83,11 +99,7 @@ export class FirebaseService {
               resolve(new types.ContactPageData(snapshot.val()));
               break;
             case PageType.LIVE:
-              const events = [];
-              snapshot.val().liveEvents.forEach(function (item) {
-                events.push(item);
-              });
-              resolve(new LivePageData({liveEvents: events}));
+              resolve(new LivePageData(snapshot.val()));
           }
         });
     });

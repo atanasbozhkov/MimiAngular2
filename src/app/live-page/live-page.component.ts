@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LiveEvent } from '.././types';
+import { LiveEvent } from '../types';
 import { DataServiceService } from '../data-service.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-live-page',
@@ -17,11 +18,13 @@ export class LivePageComponent implements OnInit {
     const observable = dataService.liveEvents().subscribe((data) => {
       this.events = data.liveEvents;
       this.futureEvents = this.sortEventAsc(this.events.filter(event => {
-        return event.date.getTime() > Date.now();
+        let moment1 = moment(event.date);
+        return moment1.isAfter(moment());
       }));
 
       this.pastEvents = this.sortEventsDesc(this.events.filter(event => {
-        return event.date.getTime() < Date.now();
+        let moment1 = moment(event.date);
+        return moment1.isBefore(moment())
       }));
 
     });

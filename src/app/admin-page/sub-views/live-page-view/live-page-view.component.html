@@ -1,0 +1,86 @@
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">New Event</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <input type="text"
+           class="form-control event-input"
+           placeholder="Event Name"
+           aria-label="Event Name"
+           aria-describedby="name"
+    [(ngModel)]="name">
+
+    <input type="text"
+           class="form-control event-input"
+           placeholder="Location"
+           aria-label="Location"
+           aria-describedby="location"
+    [(ngModel)]="location">
+
+    <input type="text"
+           class="form-control event-input"
+           placeholder="Facebook Event Link"
+           aria-label="Facebook Event Link"
+           aria-describedby="fb"
+    [(ngModel)]="fb">
+
+    <input type="text"
+           class="form-control event-input"
+           placeholder="G-Maps Link"
+           aria-label="G-Maps Link"
+           aria-describedby="gmaps"
+    [(ngModel)]="gmaps">
+    <dl-date-time-picker
+      *ngIf="timePickerEnabled"
+      [(ngModel)]="date"
+      (change)="timeChanged($event)"></dl-date-time-picker>
+
+    <div *ngIf="!timePickerEnabled && selectedDate !== undefined">
+      Date selected: {{ selectedDate }}
+
+      <span class="oi oi-pencil edit-date-button" (click)="changeDate()"> </span>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button"
+            class="btn btn-primary"
+            (click)='saveEvent()' [ngClass]="{'disabled': !!name && !!location && !!selectedDate }">Add Event</button>
+    <button type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal">Close</button>
+  </div>
+</ng-template>
+<div class="live-events-view-container">
+  <div class="event-list-container">
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span class="event-item-title"> Events </span>
+        <button type="button" class="btn btn-primary new-event-button" (click)="openModal(template)">New Event</button>
+
+      </li>
+      <li *ngFor="let eventName of eventNames"
+          class="list-group-item d-flex justify-content-between align-items-center">
+        <swal
+          #deleteSwal
+          title="Delete {{ eventName }}?"
+          text="This cannot be undone"
+          type="question"
+          [showCancelButton]="true"
+          [focusCancel]="true"
+          (confirm)="deleteEvent(eventName)">
+        </swal>
+
+        {{ eventName }}
+        <span class="badge badge-danger badge-pill"
+              [swal]="deleteSwal">X
+        </span>
+      </li>
+    </ul>
+
+  </div>
+
+</div>

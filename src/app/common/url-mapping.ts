@@ -1,5 +1,5 @@
-import { PageType } from './page-models';
 import { capitalize } from 'lodash';
+import { PageType } from "../types";
 const API = 'API/';
 
 export function urlMapping(pageType: PageType) {

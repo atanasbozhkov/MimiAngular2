@@ -11,6 +11,7 @@ import {PageUrls} from './page-urls';
 enum SUBVIEW_MAPPING {
   HOME = 'Home',
   ABOUT = 'About',
+  LIVE = 'Live',
   GALLERY = 'Gallery',
   ASSET = 'Asset Library',
   MUSIC = 'Music'

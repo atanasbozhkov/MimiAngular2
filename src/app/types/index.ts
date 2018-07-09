@@ -5,3 +5,4 @@ export * from './home-page-data';
 export * from './live-event';
 export * from './live-page-data';
 export * from './music-page-data';
+export * from './page-type'

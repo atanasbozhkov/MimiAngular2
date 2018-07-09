@@ -12,7 +12,6 @@ export class HomePageViewComponent {
   @Input('homePageData') homePageData: HomePageData;
   @ViewChild('changesSaved') private changesSavedAlert: SwalComponent;
   @ViewChild('errorSaving') private errorSavingAlert: SwalComponent;
-  private readonly ASSET_PATH: string = 'assets/img/';
   constructor(public readonly dataService: DataServiceService) {
 
   }

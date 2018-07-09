@@ -1,0 +1,28 @@
+.live-events-view-container {
+  width: 100%;
+  margin-top: 8px;
+}
+.event-list-container {
+  margin: 0 auto;
+  max-width: 500px;
+  width: 100%;
+}
+
+.event-item-title {
+  width: 100%;
+  text-align: center;
+}
+
+.new-event-button {
+  float:right;
+}
+
+.event-input {
+  margin-bottom: 8px;
+}
+
+.edit-date-button {
+  float: right;
+  margin-right: 4px;
+  cursor: pointer;
+}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../../../data-service.service';
-import {GalleryPageData} from '../../../common/page-models';
+import {GalleryPageData} from "../../../types";
 
 @Component({
   selector: 'app-gallery-page-view',

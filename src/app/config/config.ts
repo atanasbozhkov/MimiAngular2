@@ -7,6 +7,15 @@ export const firebaseConfig = {
   messagingSenderId: '839266397921'
 };
 
+export const firebaseDevConfig = {
+  apiKey: "AIzaSyBksSabSDViwGJ94TgKXsAmHtEaBVw9KxY",
+  authDomain: "marina-website-dev.firebaseapp.com",
+  databaseURL: "https://marina-website-dev.firebaseio.com",
+  projectId: "marina-website-dev",
+  storageBucket: "marina-website-dev.appspot.com",
+  messagingSenderId: "448505765020"
+};
+
 export const angularFireConfig = {
   production: false,
   firebase: firebaseConfig

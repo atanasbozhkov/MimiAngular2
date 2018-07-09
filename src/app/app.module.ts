@@ -17,6 +17,7 @@ import { GalleryPageComponent } from './gallery-page/gallery-page.component';
 import { TeachingPageComponent } from './teaching-page/teaching-page-component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { ImageCropperModule } from 'ngx-img-cropper';
 import { AngularFireModule } from 'angularfire2';
@@ -35,6 +36,9 @@ import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import {HttpClientModule} from '@angular/common/http';
 import {angularFireConfig} from './config/config';
+import { LivePageViewComponent } from './admin-page/sub-views/live-page-view/live-page-view.component';
+import { DlDateTimePickerDateModule } from 'angular-bootstrap-datetimepicker';
+
 const adminPageViews = [
   HomePageViewComponent,
   AboutPageViewComponent,
@@ -56,7 +60,8 @@ const adminPageViews = [
     GalleryPageComponent,
     TeachingPageComponent,
     LoginPageComponent,
-    ...adminPageViews
+    ...adminPageViews,
+    LivePageViewComponent
   ],
   imports: [
     BrowserModule,
@@ -65,11 +70,13 @@ const adminPageViews = [
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot(),
     BsDropdownModule.forRoot(),
+    ModalModule.forRoot(),
     SweetAlert2Module.forRoot(),
     AngularFireModule.initializeApp(angularFireConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     ImageCropperModule,
+    DlDateTimePickerDateModule,
     RouterModule.forRoot([
       {path: '', component: HomePageComponent},
       {path: 'About', component: AboutPageComponent},

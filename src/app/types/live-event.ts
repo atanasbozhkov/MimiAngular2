@@ -1,6 +1,7 @@
 /**
  * Created by atanasbozhkov on 08/11/2016.
  */
+import * as moment from 'moment';
 export class LiveEvent {
 
   day: number;
@@ -23,7 +24,7 @@ export class LiveEvent {
 
     this.date           = date;
     this.day            = date.getDate();
-    this.month          = this.monthNumberToString(date.getMonth());
+    this.month          = this.monthNumberToString(moment(date).month() + 1); //months start from 0
     this.year           = date.getFullYear();
     this.hour           = this.formatHours(date);
     this.eventName      = eventName;

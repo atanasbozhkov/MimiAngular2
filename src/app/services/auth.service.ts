@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { first } from 'rxjs/operators';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
+import * as auth from 'firebase/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
-import UserCredential = firebase.auth.UserCredential;
-import Auth = firebase.auth.Auth;
+import UserCredential = firebase.auth.UserCredential; // TODO: Nasco find out why this import is failing
 
 export class User {
   uid: string;

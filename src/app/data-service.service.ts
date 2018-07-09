@@ -1,8 +1,8 @@
-import {merge as observableMerge,  Observable } from 'rxjs';
+import {merge as observableMerge, Observable} from 'rxjs';
 import 'rxjs/add/observable/fromPromise';
 import {map} from 'rxjs/operators';
-import { Injectable } from '@angular/core';
-import { MenuItemComponent } from './menu-item/menu-item.component';
+import {Injectable} from '@angular/core';
+import {MenuItemComponent} from './menu-item/menu-item.component';
 import {HttpClient} from '@angular/common/http';
 import {
   AboutPageData,
@@ -10,14 +10,14 @@ import {
   GalleryPageData,
   HomePageData,
   LiveEvent, LivePageData,
-  MusicPageData
+  MusicPageData,
+  PageType
 } from './types';
 import {FirebaseService} from './services/firebase.service';
-import {PageType} from './common/page-models';
 
 export type PageData = HomePageData | AboutPageData | GalleryPageData | LivePageData | MusicPageData | ContactPageData;
 
-interface IEventsResponse {
+export interface IEventsResponse {
   liveEvents: LiveEvent[];
 }
 
@@ -29,7 +29,7 @@ export class DataServiceService {
   }
 
   getMenuItems(): MenuItemComponent[] {
-    return [ new MenuItemComponent('Home', '/'),
+    return [new MenuItemComponent('Home', '/'),
       new MenuItemComponent('About', '/About'),
       new MenuItemComponent('Music', '/Music'),
       new MenuItemComponent('Live', '/Live'),
@@ -43,7 +43,7 @@ export class DataServiceService {
     return Observable.fromPromise(this.firebaseService.getPageData(PageType.ABOUT) as Promise<AboutPageData>);
   }
 
-   homePageData(): Observable<HomePageData> {
+  homePageData(): Observable<HomePageData> {
     return Observable.fromPromise(this.firebaseService.getPageData(PageType.HOME) as Promise<HomePageData>);
   }
 
@@ -60,15 +60,19 @@ export class DataServiceService {
   liveEvents(): Observable<IEventsResponse> {
     return Observable.fromPromise(this.firebaseService.getPageData(PageType.LIVE) as Promise<IEventsResponse>)
       .pipe(map((response: IEventsResponse) => {
-      const liveEvents = response.liveEvents.map(event => {
-        return new LiveEvent(new Date(event.date),
-          event.eventName,
-          event.eventLocation,
-          event.facebookLink,
-          event.googleMapsLink);
-      });
-      return { liveEvents: liveEvents };
-    }));
+        console.log(response.liveEvents);
+        let entries = Object.entries(response.liveEvents);
+        console.log(entries);
+        const liveEvents = entries.map((entry: any) => {
+          const event = entry[1];
+          return new LiveEvent(new Date(event.date),
+            event.eventName,
+            event.eventLocation,
+            event.facebookLink,
+            event.googleMapsLink);
+        });
+        return {liveEvents: liveEvents};
+      }));
   }
 
   contactPageData(): Observable<ContactPageData> {
@@ -88,7 +92,7 @@ export class DataServiceService {
   }
 
   getPageList(): Array<string> {
-    return [ 'Home', 'About', 'Music', 'Live', 'Gallery', 'Teaching', 'Contact'];
+    return ['Home', 'About', 'Music', 'Live', 'Gallery', 'Teaching', 'Contact'];
   }
 
   // TODO: Extract urls to a mapping enum?
@@ -99,6 +103,11 @@ export class DataServiceService {
   updateAboutPageData(aboutPageData: AboutPageData): Promise<undefined | Error> {
     return this.firebaseService.setPageData(PageType.ABOUT, aboutPageData);
   }
+
+  addNewEvent(liveEvent: LiveEvent): Promise<any> {
+    return this.firebaseService.addNewLiveEvent(liveEvent);
+  }
+
 
   uploadImage(fullSizeImage: any, croppedImage: any) {
     // TODO: Extract param names into common interface and reference it
