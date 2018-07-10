@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../../../data-service.service';
-import {GalleryPageData} from "../../../types";
+import {GalleryPageData} from '../../../types';
 
 @Component({
   selector: 'app-gallery-page-view',
@@ -14,11 +14,11 @@ export class GalleryPageViewComponent implements OnInit {
   ngOnInit() {
     this.dataService.galleryPageData().subscribe((data: GalleryPageData) => {
       this.images = data.galleryImages;
-    })
+    });
   }
 
   private deleteButtonClick(e) {
     console.log('Clicked image');
-    console.log(e)
+    console.log(e);
   }
 }
