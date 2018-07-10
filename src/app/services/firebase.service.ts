@@ -9,10 +9,6 @@ import {IImage} from './interfaces/iimage';
 import { get } from 'lodash';
 import {ImageType} from './interfaces/image-type';
 
-@Injectable({
-  providedIn: 'root'
-})
-
 export class FirebaseService {
 
   private fireBase: firebase.app.App;
@@ -62,7 +58,7 @@ export class FirebaseService {
     });
   }
 
-  addNewLiveEvent(liveEvent: LiveEvent): Promise<boolean> {
+  addNewLiveEvent(liveEvent: Partial<LiveEvent>): Promise<boolean> {
     return new Promise((resolve, reject) => {
       const newEventRef = this.database.ref('pages/' + PageType.LIVE + '/liveEvents')
         .push({
@@ -70,39 +66,51 @@ export class FirebaseService {
           eventLocation: liveEvent.eventLocation,
           eventName: liveEvent.eventName,
           facebookLink: liveEvent.facebookLink,
-          googleMapsLik: liveEvent.googleMapsLink
+          googleMapsLink: liveEvent.googleMapsLink
         });
       newEventRef.then(something => console.log(something));
-      resolve();
+      resolve(true);
     });
   }
 
-  getPageData(page: PageType): Promise<PageData> {
-    return new Promise(resolve => {
+  removeEvent(eventId: string): Promise<boolean> {
+    return new Promise((resolve => {
+      const ref = this.database.ref('pages/' + PageType.LIVE + '/liveEvents');
+      ref.child(eventId).remove().then(removed => {
+        console.log(removed);
+        resolve(true);
+        // TODO: Nasco excpetion handling.
+
+      });
+    }));
+  }
+
+  getPageData(page: PageType): Observable<PageData> {
+    return new Observable(obs => {
       this.database.ref('pages/' + page)
-        .once('value')
-        .then(snapshot => {
+        .on('value', snapshot => {
           switch (page) {
             case PageType.HOME:
-              resolve(new types.HomePageData(snapshot.val()));
+              obs.next(new types.HomePageData(snapshot.val()));
               break;
             case PageType.ABOUT:
-              resolve(new types.AboutPageData(snapshot.val()));
+              obs.next(new types.AboutPageData(snapshot.val()));
               break;
             case PageType.MUSIC:
-              resolve(new types.MusicPageData(snapshot.val()));
+              obs.next(new types.MusicPageData(snapshot.val()));
               break;
             case PageType.GALLERY:
-              resolve(new types.GalleryPageData(snapshot.val()));
+              obs.next(new types.GalleryPageData(snapshot.val()));
               break;
             case PageType.CONTACT:
-              resolve(new types.ContactPageData(snapshot.val()));
+              obs.next(new types.ContactPageData(snapshot.val()));
               break;
             case PageType.LIVE:
-              resolve(new LivePageData(snapshot.val()));
+              obs.next(new LivePageData(snapshot.val()));
           }
         });
     });
+
   }
 
   getImage(imageKey: string): IImage {

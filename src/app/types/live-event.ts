@@ -4,27 +4,30 @@
 import * as moment from 'moment';
 export class LiveEvent {
 
+  eventId: string;
+  eventName: string;
+  eventLocation: string;
+  facebookLink: string;
+  googleMapsLink: string;
+
+  // Calculated props.
   day: number;
   month: string;
   year: number;
   hour: string;
   date: Date;
 
-  eventName: string;
-  eventLocation: string;
-
-  facebookLink: string;
-  googleMapsLink: string;
-
-  constructor(date: Date,
+  constructor(eventId: string,
+              date: Date,
               eventName: string,
               eventLocation: string,
               facebookLink: string,
               googleMapsLink: string) {
 
+    this.eventId        = eventId;
     this.date           = date;
     this.day            = date.getDate();
-    this.month          = this.monthNumberToString(moment(date).month() + 1); //months start from 0
+    this.month          = this.monthNumberToString(moment(date).month() + 1); // months start from 0
     this.year           = date.getFullYear();
     this.hour           = this.formatHours(date);
     this.eventName      = eventName;
@@ -36,7 +39,7 @@ export class LiveEvent {
   private formatHours(date: Date): string {
     let hours        = date.getHours();
     let minutes: any = date.getMinutes();
-    let ampm         = hours >= 12 ? 'pm' : 'am';
+    const ampm         = hours >= 12 ? 'pm' : 'am';
     hours            = hours % 12;
     hours            = hours ? hours : 12; // the hour '0' should be '12'
     minutes          = minutes < 10 ? '0' + minutes : minutes;

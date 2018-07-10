@@ -1,18 +1,18 @@
 import {Component, OnInit, TemplateRef} from '@angular/core';
-import {DataServiceService, IEventsResponse} from "../../../data-service.service";
-import {BsModalRef, BsModalService} from "ngx-bootstrap";
+import {DataServiceService, IEventsResponse} from '../../../data-service.service';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import * as moment from 'moment';
-import {LiveEvent} from "../../../types";
+import {LiveEvent} from '../../../types';
 @Component({
   selector: 'app-live-page-view',
   templateUrl: './live-page-view.component.html',
   styleUrls: ['./live-page-view.component.css']
 })
 export class LivePageViewComponent implements OnInit {
-  public eventNames: Array<string> = [];
+  public events: Array<LiveEvent> = [];
   modalRef: BsModalRef;
   date: any;
-  timePickerEnabled: boolean = true;
+  timePickerEnabled = true;
 
   // Form data;
   selectedDate: moment.Moment;
@@ -26,16 +26,16 @@ export class LivePageViewComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.liveEvents().subscribe((snapshot: IEventsResponse) => {
-      this.eventNames = snapshot.liveEvents.map(event => event.eventName).reverse();
-    })
+      this.events = snapshot.liveEvents.reverse();
+    });
   }
 
-  public deleteEvent(eventName: string): void {
-    console.log(`Attempting to delete ${eventName}`);
+  public deleteEvent(eventId: string): void {
+    console.log(`Detelting event: ${eventId}`);
+    this.dataService.removeEvent(eventId);
   }
 
   public timeChanged(date) {
-    console.log(date.value);
     if (date.value !== null && date.value !== undefined) {
       this.timePickerEnabled = false;
       this.selectedDate = moment(date.value);
@@ -46,12 +46,24 @@ export class LivePageViewComponent implements OnInit {
     this.modalRef = this.modalService.show(template);
   }
   public saveEvent() {
-    console.log(`Saving event ${this.name}`);
-    console.log(`Saving event ${this.location}`);
-    console.log(`Saving event ${this.fb}`);
-    console.log(`Saving event ${this.gmaps}`);
-    console.log(`Saving event ${this.selectedDate}`);
-    this.dataService.addNewEvent(new LiveEvent(this.selectedDate.toDate(), this.name, this.location, this.fb, this.gmaps));
+    console.log(`Saving event ${this.name}, ${this.location}, ${this.fb}, ${this.gmaps}, ${this.selectedDate}`);
+
+    const partialEvent = {
+      date: this.selectedDate.toDate(),
+      eventName: this.name,
+      eventLocation: this.location,
+      facebookLink: this.fb,
+      googleMapsLink: this.gmaps
+    };
+
+    this.dataService.addNewEvent(
+      partialEvent)
+      .then( hasSaved => {
+        if (hasSaved) {
+          console.log('Event saved successfully');
+          this.modalRef.hide();
+        }
+      });
 
   }
 

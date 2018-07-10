@@ -34,7 +34,7 @@
     "lodash": "^4.17.5",
     "moment": "^2.22.2",
     "ngrx-store-freeze": "^0.2.0",
-    "ngx-bootstrap": "^1.9.3",
+    "ngx-bootstrap": "3.0.1",
     "ngx-img-cropper": "0.10.2",
     "normalize.css": "^7.0.0",
     "open-iconic": "^1.1.1",

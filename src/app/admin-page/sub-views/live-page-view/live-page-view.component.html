@@ -2,7 +2,7 @@
   <div class="modal-header">
     <h4 class="modal-title pull-left">New Event</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true">&times;</span>
+      <span aria-hidden="true">X</span>
     </button>
   </div>
   <div class="modal-body">
@@ -48,10 +48,12 @@
   <div class="modal-footer">
     <button type="button"
             class="btn btn-primary"
-            (click)='saveEvent()' [ngClass]="{'disabled': !!name && !!location && !!selectedDate }">Add Event</button>
+            (click)='saveEvent()'
+            [ngClass]="{'disabled': !(name && location && selectedDate)}"
+            [disabled]="!(name && location && selectedDate)">Add Event</button>
     <button type="button"
             class="btn btn-secondary"
-            data-dismiss="modal">Close</button>
+            data-dismiss="modal" (click)="modalRef.hide()">Close</button>
   </div>
 </ng-template>
 <div class="live-events-view-container">
@@ -62,19 +64,19 @@
         <button type="button" class="btn btn-primary new-event-button" (click)="openModal(template)">New Event</button>
 
       </li>
-      <li *ngFor="let eventName of eventNames"
+      <li *ngFor="let event of events"
           class="list-group-item d-flex justify-content-between align-items-center">
         <swal
           #deleteSwal
-          title="Delete {{ eventName }}?"
+          title="Delete {{ event.eventName }}?"
           text="This cannot be undone"
           type="question"
           [showCancelButton]="true"
           [focusCancel]="true"
-          (confirm)="deleteEvent(eventName)">
+          (confirm)="deleteEvent(event.eventId)">
         </swal>
 
-        {{ eventName }}
+        {{ event.eventName }}
         <span class="badge badge-danger badge-pill"
               [swal]="deleteSwal">X
         </span>

@@ -40,15 +40,15 @@ export class DataServiceService {
   }
 
   aboutText(): Observable<AboutPageData> {
-    return Observable.fromPromise(this.firebaseService.getPageData(PageType.ABOUT) as Promise<AboutPageData>);
+    return this.firebaseService.getPageData(PageType.ABOUT) as Observable<AboutPageData>;
   }
 
   homePageData(): Observable<HomePageData> {
-    return Observable.fromPromise(this.firebaseService.getPageData(PageType.HOME) as Promise<HomePageData>);
+    return this.firebaseService.getPageData(PageType.HOME)  as Observable<HomePageData>;
   }
 
   musicPageData(): Observable<MusicPageData> {
-    return Observable.fromPromise(this.firebaseService.getPageData(PageType.MUSIC) as Promise<MusicPageData>);
+    return this.firebaseService.getPageData(PageType.MUSIC) as Observable<MusicPageData>;
   }
 
   getPageData(): Observable<PageData> {
@@ -58,14 +58,15 @@ export class DataServiceService {
 
   // Live events month starts from 0 to 11.
   liveEvents(): Observable<IEventsResponse> {
-    return Observable.fromPromise(this.firebaseService.getPageData(PageType.LIVE) as Promise<IEventsResponse>)
+    return this.firebaseService.getPageData(PageType.LIVE)
       .pipe(map((response: IEventsResponse) => {
         console.log(response.liveEvents);
-        let entries = Object.entries(response.liveEvents);
+        const entries = Object.entries(response.liveEvents);
         console.log(entries);
         const liveEvents = entries.map((entry: any) => {
           const event = entry[1];
-          return new LiveEvent(new Date(event.date),
+          return new LiveEvent(entry[0],
+            new Date(event.date),
             event.eventName,
             event.eventLocation,
             event.facebookLink,
@@ -76,11 +77,11 @@ export class DataServiceService {
   }
 
   contactPageData(): Observable<ContactPageData> {
-    return Observable.fromPromise(this.firebaseService.getPageData(PageType.CONTACT) as Promise<ContactPageData>);
+    return this.firebaseService.getPageData(PageType.CONTACT) as Observable<ContactPageData>;
   }
 
   galleryPageData(): Observable<GalleryPageData> {
-    return Observable.fromPromise(this.firebaseService.getPageData(PageType.GALLERY) as Promise<GalleryPageData>);
+    return this.firebaseService.getPageData(PageType.GALLERY) as Observable<GalleryPageData>;
   }
 
   login(email, password) {
@@ -104,8 +105,12 @@ export class DataServiceService {
     return this.firebaseService.setPageData(PageType.ABOUT, aboutPageData);
   }
 
-  addNewEvent(liveEvent: LiveEvent): Promise<any> {
+  addNewEvent(liveEvent: Partial<LiveEvent>): Promise<any> {
     return this.firebaseService.addNewLiveEvent(liveEvent);
+  }
+
+  removeEvent(eventId: string): Promise<boolean> {
+    return this.firebaseService.removeEvent(eventId);
   }
 
 
