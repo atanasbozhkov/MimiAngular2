@@ -15,7 +15,7 @@ export class FirebaseService {
   private database: firebase.database.Database;
   private imageStorage: any;
   private readonly BUCKET_NAME: string = 'marina-website.appspot.com';
-  private DEV_MODE = true;
+  private DEV_MODE = false;
   constructor() {
     // Initialize Firebase
     if ( this.DEV_MODE ) {
